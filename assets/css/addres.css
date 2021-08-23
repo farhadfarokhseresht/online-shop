@@ -1,0 +1,31 @@
+#addres_div1 {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+}
+
+#addres_div1_lab {
+  position: absolute;
+  background: var(--bs-white);
+  margin-top: -10px;
+  margin-left: -40%;
+}
+
+#addres_div1_select {
+  box-shadow: none;
+}
+
+.fo {
+}
+
+input:focus {
+  border-color: var(--bs-warning)!important;
+}
+
+#cart_dropdown_menu a.text-gray-500:hover {
+  /*color: #055ada!important;*/
+  /*background: rgba(255,183,0,0.5);*/
+  font-size: 13px;
+  text-shadow: 0px 0px 33px;
+}
+
