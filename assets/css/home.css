@@ -310,7 +310,7 @@
   overflow: hidden;
   text-align: center;
   width: 250px!important;
-  box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 3%);
+  box-shadow: 1px 1px 4px 0 #00000008;
   border: 1px solid rgba(0,191,214,.3);
   border-radius: 8px;
   overflow: hidden;
@@ -330,7 +330,6 @@
   padding: 0px;
   background: var(--bs-red);
   width: 50%;
-  border-top-left-radius: -;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
@@ -419,7 +418,7 @@
 #simpelproduct_slider:hover {
   transform: scale(1.03);
   cursor: pointer;
-  box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 #productshow #simpelproduct_slider:hover {
