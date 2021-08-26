@@ -31,7 +31,7 @@
   width: 290px;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0px 0px 4px;
+  box-shadow: 0 0px 4px;
   float: left;
   margin: 20px;
 }
@@ -39,9 +39,9 @@
 #extra_product_left_div h5 {
   background: var(--bs-purple);
   color: var(--bs-white);
-  margin: 0px;
+  margin: 0;
   padding: 6px;
-  box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 0 20px 10px rgba(0,0,0,0.08);
 }
 
 #extra_product_left_div ul {
@@ -198,10 +198,7 @@
 
 #cart_dropdown_list_item {
   width: 100%;
-  padding-top: 8px;
-  padding-right: 16px;
-  padding-bottom: 8px;
-  padding-left: 16px;
+  padding: 8px 16px;
 }
 
 #bascet_dropdown_item_info {
@@ -233,8 +230,8 @@
 #bascet_dropdown_item_info button {
   border: none;
   background: none;
-  padding: 0px;
-  margin-left: 0px;
+  padding: 0;
+  margin-left: 0;
   width: auto;
   height: auto;
 }
@@ -245,9 +242,8 @@
   border-style: none;
   border-color: var(--bs-gray-dark);
   box-shadow: none;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-style: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 #pc_catgory_nave li:hover {
