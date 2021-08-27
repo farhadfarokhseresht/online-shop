@@ -42,4 +42,17 @@
 </body>
 
 </html>
-
+<script>
+    var cart_badge_item_num = '<?php echo Count_User_cart_item();?>';
+    $('#cart_badge_item_num').text(cart_badge_item_num + "+");
+    $('#cart_dropdown_header').text(cart_badge_item_num + " کالا ");
+    var user_login_state = '<?php echo user_login_state() ;?>';
+    if (user_login_state == 0) {
+        $('#notloginpart').css('display', 'inline');
+        //$('#loginpart').css('display','none');
+    } else {
+        //$('#notloginpart').css('display','none');
+        $('#loginpart').css('display', 'inline');
+        $('#header_username').text(user_login_state + ' خوش آمدید ')
+    }
+</script>

@@ -19,8 +19,8 @@ include "header.php";
                     <div class="col d-none d-sm-none d-md-none d-lg-inline d-xl-inline d-xxl-inline card_col_right" id="paymentboxcol_col">
                         <!-- Start: سطر1 قیمت -->
                         <div class="d-flex"><span class="me-auto">تومان</span><span class="me-auto me-auto" id="price">xxx</span><span class="ms-auto">قیمت کالاها (
-                                <span id="N" >5</span>
-                                )<br></span></div>
+                                <span id="N" >5</span>)<br></span>
+                        </div>
                         <!-- End: سطر1 قیمت -->
                         <!-- Start: سطر2 قیمت -->
                         <div class="d-flex"><span class="me-auto" style="color: var(--bs-red);">تومان</span><span class="me-auto" id="pprice" style="color: var(--bs-red);">xxx<br></span><span class="ms-auto">تخفیف کالاها<br></span></div>

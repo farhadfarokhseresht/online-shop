@@ -87,7 +87,7 @@ include "header.php";
                     <!-- Start: pc mod -->
                     <ul class="list-inline d-none d-lg-inline d-xl-inline d-xxl-inline" id="pcmode">
                         <?php foreach (get_products() as $item){echo '
-                        <li class="list-inline-item" style="margin: 0px;text-align: center;cursor: pointer;">
+                        <li id="pruduct'.$item[0].'" class="list-inline-item" style="margin: 0px;text-align: center;cursor: pointer;">
                           <a href="product.php?p=' . $item[0] . '" id="producthref">
                              <div id="filter_items">
                                 
@@ -113,7 +113,7 @@ include "header.php";
                                     <!-- End: price -->
                                 </div>
                                 <!-- End: price -->
-                                <form method="post" action="" >
+                                <form method="post" action="#pruduct'.$item[0].'" >
                                 <input type="hidden" name="proId" value="' . $item[0] . '">
                                 <button class="fas fa-cart-plus border rounded-pill d-lg-flex mx-auto justify-content-lg-center align-items-lg-center" id="addtocart" name="addToCart" type="submit">
                                 </button>
@@ -128,7 +128,7 @@ include "header.php";
                     <!-- Start: phone mode -->
                     <ul class="list-inline d-lg-none d-xl-none d-xxl-none justify-content-md-end" id="phonemode" style="margin-top: 10px;">
                         <?php foreach (get_products() as $item){echo '
-                        <li class="list-inline-item" style="display: flex;width: 100%;">
+                        <li id="mpruduct'.$item[0].'"  class="list-inline-item" style="display: flex;width: 100%;">
                           <a href="product.php?p=' . $item[0] . '" id="producthref" >
                             <div id="filter_items">
                                 
@@ -149,7 +149,7 @@ include "header.php";
                                         <span>تومان</span>
                                     </div>
                                     <!-- End: price -->
-                                    <form method="post" action="" >
+                                    <form method="post" action="#mpruduct'.$item[0].'"  >
                                         <input type="hidden" name="proId" value="' . $item[0] . '">
                                         <button class="fas fa-cart-plus border rounded-pill d-flex d-sm-flex d-md-flex d-lg-flex justify-content-center align-items-center mx-auto justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id="addtocart" name="addToCart" type="submit">
                                         </button>
@@ -180,7 +180,7 @@ include "header.php";
         <!-- Start: filters -->
         <div class="col-auto d-none d-lg-grid d-xl-grid d-xxl-grid mb-auto">
             <!-- Start: in line filtrs -->
-            <form action="" method="post">
+            <form action="filters.php" method="post">
             <div class="border rounded shadow-sm" id="inlinefilter">
                 <div id="topdiv"><p style="margin: 0px;font-size: 12px;font-weight: bold;color: var(--bs-gray-dark);">فیلتر های اعمال شده :</p>
                     <button name="delfilter" style="background: none;border: none;" class="me-auto" id="delfilter" >حذف</button>
@@ -258,7 +258,6 @@ include "header.php";
                             <li>
                                 <i class="fas fa-chevron-left" style="font-size: 10px;"></i>
                                 <button name="brandid" onclick="this.form.submit()" style="direction: ltr" class="btn btn-primary" id="filter4bu" type="submit" value="'.$bitem[0].'">
-                                    <span>('.$bitem[2].')</span>
                                     <span>'.$bitem[1].'</span>
                                 </button>
                             </li>
@@ -281,46 +280,6 @@ include "header.php";
     </div>
 </div>
 
-
-<script>
-
-    $('#alert').ready(function (e) {
-        $('#alert').animate({'opacity': '0'}, 1000,function () {
-            $('#alert').css('display','none');
-        })
-    })
-    function phonesearch() {
-        var x = $('#phone_smart_fil').css('display');
-        if (x == "none"){
-            $('#phone_smart_fil').css('display','inline');
-        }else {
-            $('#phone_smart_fil').css('display','none');
-        }
-    }
-    function filter1() {
-        var x = $('#filter1mnu').css('display');
-        if (x == "none"){
-            $('#filter1mnu').css('display','inline');
-        }else {
-            $('#filter1mnu').css('display','none');
-        }
-    }
-    function filter2() {
-        var x = $('#filter2mnu').css('display');
-        if (x == "none"){
-            $('#filter2mnu').css('display','inline');
-        }else {
-            $('#filter2mnu').css('display','none');
-        }
-    }function filter3() {
-        var x = $('#filter3mnu').css('display');
-        if (x == "none"){
-            $('#filter3mnu').css('display','inline');
-        }else {
-            $('#filter3mnu').css('display','none');
-        }
-    }
-</script>
 <?php
 include "footer.php";
 ?>

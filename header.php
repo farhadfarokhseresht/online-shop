@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'action.php';
+include 'process\action.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,11 +27,12 @@ include 'action.php';
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+    <!--  new add  -->
     <link rel="stylesheet" href="extracss.css">
+    <script src="assets/js/jquery.min.js"></script>
 </head>
 
 <body id="page-top" >
-
 <div id="wrapper" style="height: 100%;width: 100%;">
     <div class="d-flex flex-column" id="content-wrapper" >
         <div id="content">
@@ -39,7 +41,7 @@ include 'action.php';
                 <div class="container-fluid">
                     <ul class="navbar-nav">
                         <!-- Start: bascet cart -->
-                        <li class="nav-item d-flex dropdown no-arrow mx-1"><a class="nav-link" href="#"><span class="badge bg-warning badge-counter" id="cart_badge_item_num">+</span><i class="fas fa-shopping-cart fa-fw"></i></a>
+                        <li class="nav-item d-flex dropdown no-arrow mx-1"><a class="nav-link" href="#"><span class="badge bg-warning badge-counter" id="cart_badge_item_num" >+</span><i class="fas fa-shopping-cart fa-fw"></i></a>
                             <!-- Start: dropdown_bascet -->
                             <div class="nav-item dropdown no-arrow" id="cart_dropdown" ><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href=""></a>
                                 <div class="dropdown-menu dropdown-list animated--grow-in" id="cart_dropdown_menu">
@@ -121,8 +123,10 @@ include 'action.php';
                         <div id="mobile_mod_catgori_menu">
                             <div class="shadow-lg" id="mmcmenu">
                                 <!-- Start: logo -->
-                                <div class="d-md-flex justify-content-md-center"><img id="shop_logo" src="assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div><!-- End: logo -->
-                                <hr><!-- Start: mobile mod catgory list 1 -->
+                                <div class="d-md-flex justify-content-md-center"><img id="shop_logo" src="assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div>
+                                <!-- End: logo -->
+                                <hr>
+                                <!-- Start: mobile mod catgory list 1 -->
                                 <ul class="list-unstyled text-end">
                                     <!-- Start: dasteha -->
                                     <li class="dastehali">
@@ -131,17 +135,16 @@ include 'action.php';
                                         </div>
                                         <div id="dastehalist">
                                             <ul class="list-unstyled">
+                                                <?php foreach (get_categories() as $id => $name){echo '
                                                 <li>
-                                                    <div style="padding: 5px;"><span>Text</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
+                                                <a href="filters.php?categori='.$id.'">
+                                                    <div style="padding: 5px;"><span>'.$name.'</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
                                                 </li>
-                                                <li>
-                                                    <div style="padding: 5px;"><span>Text</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
-                                                </li>
-                                                <li>
-                                                    <div style="padding: 5px;"><span>Text</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
-                                                </li>
+                                                </a>
+                                                ';} ?>
                                             </ul>
-                                        </div><script>
+                                        </div>
+                                        <script>
                                             document.getElementById("dasteha").addEventListener("click", displaychange);
                                             function displaychange() {
                                                 var x = document.getElementById('dastehalist');
@@ -152,19 +155,24 @@ include 'action.php';
                                                 }
                                             }
                                         </script>
-                                    </li><!-- End: dasteha -->
+                                    </li>
+                                    <!-- End: dasteha -->
+
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
                                         <div class="d-flex justify-content-md-end align-items-md-center">
                                             <p style="margin: 0px;">لیست کالای ذخیره</p><i class="fa fa-bookmark-o" style="margin-left: 10px;color: var(--bs-green);"></i>
                                         </div>
-                                    </li><!-- End: list items -->
+                                    </li>
+                                    <!-- End: list items -->
+
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
                                         <div class="d-flex justify-content-md-end align-items-md-center">
                                             <p style="margin: 0px;">تخفیفات</p><i class="fa fa-percent" style="margin-left: 10px;color: var(--bs-red);"></i>
                                         </div>
-                                    </li><!-- End: list items -->
+                                    </li>
+                                    <!-- End: list items -->
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
                                         <div class="d-flex justify-content-md-end align-items-md-center">
@@ -187,7 +195,8 @@ include 'action.php';
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
                                         <div class="d-flex justify-content-md-end align-items-md-center"><a href="profile.html">صفحه پروفایل کاربری</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
                                     </li><!-- End: list items -->
-                                </ul><!-- End: mobile mod catgory list 1 -->
+                                </ul>
+                                <!-- End: mobile mod catgory list 1 -->
                                 <hr>
                             </div>
                         </div>
@@ -240,21 +249,9 @@ include 'action.php';
             </header>
             <!-- End: catgory pc mood -->
 
-            <script>
-                var cart_badge_item_num = '<?php echo Count_User_cart_item();?>';
-                $("#cart_badge_item_num").text(cart_badge_item_num + "+");
-                $("#cart_dropdown_header").text(cart_badge_item_num + " کالا ");
-                var user_login_state = '<?php echo user_login_state() ;?>';
-                if (user_login_state == 0) {
-                    $('#notloginpart').css('display', 'inline');
-                    //$('#loginpart').css('display','none');
-                } else {
-                    //$('#notloginpart').css('display','none');
-                    $('#loginpart').css('display', 'inline');
-                    $('#header_username').text(user_login_state + ' خوش آمدید ')
-                }
-                ;
-            </script>
+
+
+
             <script>
                 function mobile_menu_button() {
                     document.getElementById("mobile_mod_catgori_menu").style.display = 'block' ;
