@@ -80,6 +80,15 @@ if (isset($_POST["keyword"])) {
         unset($_SESSION['filters']['keyword']);
     }
 }
+
+if (isset($_GET["categori"])) {
+    if ($_POST["categori"] == "delfilter") {
+        unset($_SESSION['filters']['categori']);
+    } else {
+        $_SESSION['filters']['categori'] = $_GET["categori"];
+    }
+}
+
 if (isset($_POST["brandid"])) {
     if ($_POST["brandid"] == "delfilter") {
         unset($_SESSION['filters']['brandid']);
@@ -114,7 +123,10 @@ function get_products()
             $brandid = $_SESSION['filters']['brandid'];
             $sql = $sql . " AND product_brand = '$brandid'";
         }
-
+        if (!empty($_SESSION['filters']['categori'])) {
+            $categoriid = $_SESSION['filters']['categori'];
+            $sql = $sql . " AND product_cat = '$categoriid'";
+        }
     }
     $filter_items = array();
     $n = 0;
@@ -131,7 +143,6 @@ function get_products()
         $filter_items[$n] = array($pro_id, $pro_title, $pro_price, $pro_image);
     }
     return $filter_items;
-    exit();
 }
 
 //Count User cart item
@@ -149,7 +160,6 @@ function Count_User_cart_item()
     $query = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($query);
     return $row["count_item"];
-    exit();
 }
 
 //Get Cart Item
@@ -197,7 +207,7 @@ if (isset($_POST["removeItemFromCart"])) {
     if (mysqli_query($con, $sql)) {
         $BackToMyPage = $_SERVER['HTTP_REFERER'];
         header('Location: ' . $BackToMyPage);
-        #exit();
+        #
     }
 }
 
@@ -220,7 +230,7 @@ if (isset($_POST["button_qty_rm"]) | isset($_POST["button_qty_add"])) {
     }
     if (mysqli_query($con, $sql)) {
         #header('location:cart.php');
-        #exit();
+        #
         #echo '<script> alert(\' شد\')</script>';
     }
 }
@@ -242,24 +252,24 @@ if (isset($_POST["addToCart"])) {
         $run_query = mysqli_query($con, $sql);
         $count = mysqli_num_rows($run_query);
         if ($count > 0) {
-            echo "<div class='alert alert-warning' style='text-align: center' id='alert' ><b>محصول در سبد خرید شما قبلا قرار گرفته</b></div>";
+            echo "<div class='alert alert-warning'  id='alert' ><b>محصول در سبد خرید شما قبلا قرار گرفته</b></div>";
         } else {
             $sql = "INSERT INTO `cart`(`p_id`, `ip_add`, `user_id`, `qty`) VALUES ('$p_id','$ip_add','$user_id','$add_qty')";
             if (mysqli_query($con, $sql)) {
-                echo "<div class='alert alert-success' style='text-align: center' id='alert' ><b>محصول به سبد شما اضاف شد</b></div>";
+                echo "<div class='alert alert-success'  id='alert' ><b>محصول به سبد شما اضاف شد</b></div>";
             }
         }
     } else {
         $sql = "SELECT id FROM cart WHERE ip_add = '$ip_add' AND p_id = '$p_id' AND user_id = -1";
         $query = mysqli_query($con, $sql);
         if (mysqli_num_rows($query) > 0) {
-            echo "<div class='alert alert-warning'  style='text-align: center' id='alert'><b>محصول در سبد خرید شما قبلا قرار گرفته</b></div>";
-            exit();
+            echo "<div class='alert alert-warning'   id='alert'><b>محصول در سبد خرید شما قبلا قرار گرفته</b></div>";
+            
         }
         $sql = "INSERT INTO `cart`(`p_id`, `ip_add`, `user_id`, `qty`) VALUES ('$p_id','$ip_add','-1','$add_qty')";
         if (mysqli_query($con, $sql)) {
-            echo "<div class='alert alert-success' style='text-align: center' id='alert'><b>محصول به سبد شما اضاف شد</b></div>";
-            exit();
+            echo "<div class='alert alert-success'  id='alert'><b>محصول به سبد شما اضاف شد</b></div>";
+            
         }
 
     }

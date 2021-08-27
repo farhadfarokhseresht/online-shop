@@ -26,9 +26,10 @@ include 'action.php';
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="extracss.css">
 </head>
 
-<body class="d-sm-flex" id="page-top" >
+<body id="page-top" >
 
 <div id="wrapper" style="height: 100%;width: 100%;">
     <div class="d-flex flex-column" id="content-wrapper" >
@@ -218,18 +219,23 @@ include 'action.php';
                                 <!-- Start: catgory list item -->
                                 <li id="dasteh">
                                     <div class="d-flex justify-content-lg-center align-items-lg-center"><i class="fas fa-chevron-left me-auto" style="font-size: 10px;"></i>
-                                        <p class="ms-auto" style="margin: 0px;">دسته</p><i class="fas fa-mobile-alt ms-auto"></i>
+                                        <p class="ms-auto" style="margin: 0px;">دسته ها</p><i class="fa fa-sitemap ms-auto"></i>
                                     </div>
                                     <div class="border rounded-0" id="dastehlist">
                                         <ul class="list-unstyled text-end" style="width: 257px;">
                                             <!-- Start: item -->
-                                            <li style="margin: 10px;width: 100px;">Item 1</li><!-- End: item -->
+                                            <?php foreach (get_categories() as $id => $name){echo '
+                                            <a href="filters.php?categori='.$id.'">
+                                            <li style="margin: 10px;width: 100px;">'.$name.'</li></a>
+                                            ';} ?>
+                                            <!-- End: item -->
                                         </ul>
                                     </div>
                                 </li><!-- End: catgory list item -->
                             </ul>
                         </div>
-                    </li><!-- End: main catgory item -->
+                    </li>
+                    <!-- End: main catgory item -->
                 </ul>
             </header>
             <!-- End: catgory pc mood -->
