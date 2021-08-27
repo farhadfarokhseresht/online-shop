@@ -19,45 +19,15 @@ function user_login_state()
 
 if (isset($_POST["category"])) {
     $category_query = "SELECT * FROM categories";
-
     $run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
-    echo "
-		
-            
-            <div class='aside'>
-							<h3 class='aside-title'>Categories</h3>
-							<div class='btn-group-vertical'>
-	";
-    if (mysqli_num_rows($run_query) > 0) {
-        $i = 1;
-        while ($row = mysqli_fetch_array($run_query)) {
+    while ($row = mysqli_fetch_array($run_query)) {
+        $cid = $row["cat_id"];
+        $cat_name = $row["cat_title"];
+        $sql = "SELECT COUNT(*) AS count_items FROM products WHERE product_cat=$cid";
+        $query = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($query);
+        $count = $row["count_items"];
 
-            $cid = $row["cat_id"];
-            $cat_name = $row["cat_title"];
-            $sql = "SELECT COUNT(*) AS count_items FROM products WHERE product_cat=$i";
-            $query = mysqli_query($con, $sql);
-            $row = mysqli_fetch_array($query);
-            $count = $row["count_items"];
-            $i++;
-
-
-            echo "
-					
-                    <div type='button' class='btn navbar-btn category' cid='$cid'>
-									
-									<a href='#'>
-										<span  ></span>
-										$cat_name
-										<small class='qty'>($count)</small>
-									</a>
-								</div>
-                    
-			";
-
-        }
-
-
-        echo "</div>";
     }
 }
 
@@ -104,27 +74,26 @@ if (isset($_POST['delfilter'])) {
 }
 if (isset($_POST["keyword"])) {
     $_SESSION['filters']['keyword'] = $_POST["keyword"];
-    if ($_POST["keyword"]=="delfilter"){
+    if ($_POST["keyword"] == "delfilter") {
         unset($_SESSION['filters']['keyword']);
     }
 }
 if (isset($_POST["brandid"])) {
-    if ($_POST["brandid"]=="delfilter"){
+    if ($_POST["brandid"] == "delfilter") {
         unset($_SESSION['filters']['brandid']);
-    }else{
+    } else {
         $_SESSION['filters']['brandid'] = $_POST["brandid"];
     }
 }
 $kalayemojood = 0;
-if (isset($_POST["kalamojood"]) ) {
-    $kalayemojood=1;
+if (isset($_POST["kalamojood"])) {
+    $kalayemojood = 1;
     $_SESSION['filters']['kalamojood'] = $_POST["kalamojood"];
 }
-if (empty($_POST["kalamojood"]) ){
+if (empty($_POST["kalamojood"])) {
     unset($_SESSION['filters']['kalamojood']);
-    $kalayemojood=0;
+    $kalayemojood = 0;
 }
-
 
 
 //Get product for filter page
@@ -133,15 +102,15 @@ function get_products()
     global $con;
     $sql = "SELECT * FROM products where product_id > 0  ";
 
-    if ($_SESSION['filters']){
+    if ($_SESSION['filters']) {
 
-        if (!empty($_SESSION['filters']['keyword'])){
+        if (!empty($_SESSION['filters']['keyword'])) {
             $keyword = $_SESSION['filters']['keyword'];
-            $sql = $sql." AND product_keywords LIKE '%$keyword%'";
+            $sql = $sql . " AND product_keywords LIKE '%$keyword%'";
         }
-        if (!empty($_SESSION['filters']['brandid'])){
+        if (!empty($_SESSION['filters']['brandid'])) {
             $brandid = $_SESSION['filters']['brandid'];
-            $sql = $sql." AND product_brand = '$brandid'";
+            $sql = $sql . " AND product_brand = '$brandid'";
         }
 
     }
@@ -260,7 +229,7 @@ if (isset($_POST["addToCart"])) {
 
     $p_id = $_POST["proId"];
     $add_qty = 1;
-    if (isset($_POST['qty'])){
+    if (isset($_POST['qty'])) {
         $add_qty = $_POST['qty'];
     }
     if (isset($_SESSION["uid"])) {

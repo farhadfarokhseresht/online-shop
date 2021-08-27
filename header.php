@@ -31,10 +31,10 @@ include 'action.php';
 <body class="d-sm-flex" id="page-top" >
 
 <div id="wrapper" style="height: 100%;width: 100%;">
-    <div class="d-flex flex-column" id="content-wrapper">
+    <div class="d-flex flex-column" id="content-wrapper" >
         <div id="content">
             <!-- Start: nav1 header -->
-            <nav class="navbar navbar-light navbar-expand bg-white d-flex justify-content-center align-items-center mb-4 topbar static-top">
+            <nav  class="navbar navbar-light navbar-expand bg-white d-flex justify-content-center align-items-center mb-4 topbar static-top">
                 <div class="container-fluid">
                     <ul class="navbar-nav">
                         <!-- Start: bascet cart -->
@@ -197,7 +197,7 @@ include 'action.php';
             <!-- End: nav1 header -->
 
             <!-- Start: catgory pc mood -->
-            <header class="d-none d-lg-inline d-xl-inline d-xxl-inline" id="pc_catgory_nave">
+            <header  class="d-none d-lg-inline d-xl-inline d-xxl-inline" id="pc_catgory_nave">
                 <ul class="list-inline text-end d-lg-flex justify-content-lg-end" style="background: var(--bs-white);">
                     <!-- Start: other items -->
                     <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a href="product.html">صفحه محصول</a><i class="fa fa-desktop" style="margin-left: 5px;"></i></li><!-- End: other items -->
