@@ -1,7 +1,8 @@
 <?php
 session_start();
 include 'process\action.php';
-
+include 'process\payment.php';
+include 'process\getCities.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +46,7 @@ include 'process\action.php';
                 <!-- End: hade bar -->
 
                 <!-- Start: buy part -->
-                <div class="container-fluid"  style="margin-bottom: 100px;">
+                <div id="buypart" style="display: none" class="container-fluid"  style="margin-bottom: 100px;">
                     <div class="row d-flex justify-content-center align-items-center" style="margin-top: 50px;">
                         <!-- Start: buy info part -->
                         <div class="col-auto d-flex" style="margin-bottom: 10px;">
@@ -79,25 +80,28 @@ include 'process\action.php';
                             <div class="border rounded shadow" style="width: 100%;height: 100%;background: #ffffff;">
                                 <div style="text-align: right;margin: 5px;"><span style="color: var(--bs-dark);font-size: 14px;">آدرس ارسال</span>
                                     <!-- Start: addres 1 -->
-                                    <p style="margin-top: 9px;">آدرس....</p>
+                                    <p id="address1" style="margin-top: 9px;">آدرس....</p>
                                     <!-- End: addres 1 -->
                                     <hr>
                                     <!-- Start: name -->
-                                    <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;"><span>&nbsp;..... آقای/خانم&nbsp;</span><i class="fa fa-user" style="margin-left: 5px;"></i></div>
+                                    <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
+                                        <span id="rname">&nbsp;..... آقای/خانم&nbsp;</span><i class="fa fa-user" style="margin-left: 5px;"></i></div>
                                     <!-- End: name -->
                                     <!-- Start: post cod -->
-                                    <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;"><span>کد پسیتی</span><i class="fa fa-barcode" style="margin-left: 5px;"></i></div>
+                                    <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
+                                        <span id="codposty">کد پسیتی</span><i class="fa fa-barcode" style="margin-left: 5px;"></i></div>
                                     <!-- End: post cod -->
                                     <!-- Start: phone number -->
-                                    <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;"><span>09380084250</span><i class="fa fa-phone-square" style="margin-left: 5px;"></i></div>
+                                    <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
+                                        <span id="rphone">09380084250</span><i class="fa fa-phone-square" style="margin-left: 5px;"></i></div>
                                     <!-- End: phone number -->
                                     <!-- Start: addres 2 -->
                                     <div class="d-flex justify-content-sm-end align-items-sm-center" style="margin-right: 10px;">
-                                        <p style="margin-bottom: 0px;">Paragraph</p><i class="fa fa-map-marker" style="margin-left: 5px;"></i>
+                                        <p id="address2" style="margin-bottom: 0px;">Paragraph</p><i class="fa fa-map-marker" style="margin-left: 5px;"></i>
                                     </div>
                                     <!-- End: addres 2 -->
                                     <hr>
-                                    <button class="btn btn-primary d-flex d-sm-flex d-md-flex justify-content-start align-items-start justify-content-sm-start align-items-sm-start justify-content-md-start align-items-md-start addres_del_butn" type="button"><i class="fa fa-edit"></i></button>
+                                    <button name="change_address" class="btn btn-primary d-flex d-sm-flex d-md-flex justify-content-start align-items-start justify-content-sm-start align-items-sm-start justify-content-md-start align-items-md-start addres_del_butn" type="submit"><i class="fa fa-edit"></i></button>
 
                                 </div>
                             </div>
@@ -108,35 +112,75 @@ include 'process\action.php';
                 <!-- End: buy part -->
 
                 <!-- Start: add addres -->
-                <section  class="contact-clean">
-                    <form class="border rounded addressform" method="post">
+                <section style="display: " id="addadrespart"  class="contact-clean">
+                    <form class="border rounded addressform" method="post" action="">
                         <h2 class="text-end">جزییات آدرس<br></h2>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">شهر</label><select class="form-select" id="addres_div1_select" name="city"></select></div>
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">استان</label><select class="form-select" id="addres_div1_select" name="ostan"></select></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">شهر</label>
+                                <select onchange="citychange()" class="form-select" id="city" name="city">
+                                    <?php foreach ($cities as $id => $name){ echo '<option value='.$id.'>'.$name.'</option>';} ?>
+                                </select>
+                            </div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">استان</label>
+                                <select onchange="this.form.submit()"  class="form-select "  name="province_id" id="province_id" >
+                                    <option value="0">استان را انتخاب کنید</option>
+                                    <option value="1">آذربایجان شرقی</option>
+                                    <option value="2">آذربایجان غربی</option>
+                                    <option value="3">اردبیل</option>
+                                    <option value="4">اصفهان</option>
+                                    <option value="5">البرز</option>
+                                    <option value="6">ایلام</option>
+                                    <option value="7">بوشهر</option>
+                                    <option value="8">تهران</option>
+                                    <option value="9">چهارمحال بختیاری</option>
+                                    <option value="10">خراسان جنوبی</option>
+                                    <option value="11">خراسان رضوی</option>
+                                    <option value="12">خراسان شمالی</option>
+                                    <option value="13">خوزستان</option>
+                                    <option value="14">زنجان</option>
+                                    <option value="15">سمنان</option>
+                                    <option value="16">سیستان و بلوچستان</option>
+                                    <option value="17">فارس</option>
+                                    <option value="18">قزوین</option>
+                                    <option value="19">قم</option>
+                                    <option value="20">کردستان</option>
+                                    <option value="21">کرمان</option>
+                                    <option value="22">کرمانشاه</option>
+                                    <option value="23">کهکیلویه و بویراحمد</option>
+                                    <option value="24">گلستان</option>
+                                    <option value="25">گیلان</option>
+                                    <option value="26">لرستان</option>
+                                    <option value="27">مازندران</option>
+                                    <option value="28">مرکزی</option>
+                                    <option value="29">هرمزگان</option>
+                                    <option value="30">همدان</option>
+                                    <option value="31">یزد</option>
+                                </select>
+                            </div>
+
                         </div>
                         <hr>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">نشانی پستی</label><input class="border rounded form-control" type="text" placeholder=" . . . آدرس خود را وارد کنید" style="text-align: center;"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">نشانی پستی</label><input minlength="10" name="address1" class="border rounded form-control" type="text" placeholder=" . . . آدرس خود را وارد کنید" style="text-align: center;"></div>
                         </div>
                         <hr>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">کدپستی</label><input class="border rounded form-control form-control-sm" type="text" name="codposti" style="min-width: 200px;"></div>
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">واحد</label><input class="border rounded form-control" type="text" name="رشاثی"></div>
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">پلاک</label><input class="border rounded form-control" type="text" name="plack"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">کدپستی</label><input minlength="5" class="border rounded form-control form-control-sm" type="text" name="codposti" style="min-width: 200px;"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">واحد</label><input  class="border rounded form-control" type="text" name="vahed"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">پلاک</label><input  class="border rounded form-control" type="text" name="plack"></div>
                         </div>
                         <hr>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label">کد ملی</label><input class="border rounded form-control inputtextstyle" type="text" name="codmli"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label">کد ملی</label><input minlength="9" class="border rounded form-control inputtextstyle" type="text" name="codmli"></div>
                         </div>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label text-nowrap" id="addres_div1_lab" style="margin-left: -160.5px;">نام خانوادگی گیرنده</label><input class="border rounded form-control" type="text" name="rfname"></div>
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">&nbsp;نام گیرنده</label><input class="border rounded form-control" type="text" name="rname"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label text-nowrap" id="addres_div1_lab" style="margin-left: -160.5px;">نام خانوادگی گیرنده</label><input minlength= "3" class="border rounded form-control" type="text" name="rfname"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">&nbsp;نام گیرنده</label><input minlength= "4"   class="border rounded form-control" type="text" name="rname"></div>
                         </div>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label">شماره مبایل گیرنده</label><input class="border rounded-pill form-control inputtextstyle" type="text" name="rphonenum"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label">شماره مبایل گیرنده</label><input pattern="[0]+[0-9]{10}"  class="border rounded-pill form-control inputtextstyle" type="text" name="rphone" id="rphone" ></div>
                         </div>
-                        <div class="mb-3"><button class="btn btn-primary" id="addadressbu">تایید و ثبت آدرس</button></div>
+                        <div class="mb-3"><button class="btn btn-primary" id="addadressbu" name="addadressbu" type="submit">تایید و ثبت آدرس</button></div>
                         <a href="cart.php" class="backtocart"><i class="fa fa-arrow-left"></i>بازگشت به سبد خرید </a>
                     </form>
                 </section>
@@ -150,11 +194,18 @@ include 'process\action.php';
                     $('#payment_price').text(totalprice);
                     $('#payment_tprice').text(totalprice);
                     $('#payment_fprice').text(totalprice);
-                    var address_state = '<?php echo "" ;?>';
+                    // address
+                    var address_state = '<?php global $address_state;echo $address_state ;?>';
                     if (address_state == 0) {
-                        $('#').css('display', 'inline');
+                        $('#addadrespart').css('display', 'inline');
                     } else {
-                        $('#').css('display', 'inline');
-
+                        $('#buypart').css('display', 'inline');
+                    }
+                </script>
+                <script>
+                    var province_id = '<?php echo $province_id;?>';
+                    if(province_id != ""){
+                        var item = $('#province_id option[value='+province_id+']')
+                        item.attr('selected', 'selected')
                     }
                 </script>

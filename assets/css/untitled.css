@@ -83,48 +83,6 @@
   }
 }
 
-.diccount_prodact {
-  background: var(--bs-light);
-  overflow: hidden;
-  height: fit-content;
-  width: 150px;
-  margin: 20px;
-  border-radius: 10px;
-  border-width: 1px;
-  border-style: solid;
-}
-
-#diccount_prodact_img img {
-  width: 70px;
-  margin-bottom: 5px;
-  height: 70px;
-}
-
-#diccount_prodact_img {
-}
-
-#add_to_card_bt {
-  border-style: none;
-  background: var(--bs-success);
-  color: var(--bs-white);
-  margin-top: 5px;
-  font-size: 0px;
-  margin-bottom: 5px;
-}
-
-#takhfif {
-  margin: 7px;
-  margin-bottom: 0px;
-  background: var(--bs-red);
-  color: var(--bs-white);
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius: 0px;
-  padding: 0px;
-  box-shadow: 0px 0px 6px var(--bs-danger);
-}
-
 .card_col_right {
   background-color: var(--bs-light);
 }
@@ -147,6 +105,7 @@
   width: 100%;
   font-weight: bold;
   color: var(--bs-light);
+  margin-bottom: 20px;
 }
 
 #buybutton:hover {
@@ -173,9 +132,9 @@
 }
 
 #paymentboxcol_col {
+  border: 1px solid rgba(218,206,206,0.3);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 1px 0px;
   background: var(--bs-white);
 }
 
@@ -292,26 +251,6 @@
   box-shadow: 0 -1px 2px 0 rgb(0 0 0 / 8%);
   background-color: #fff;
   padding: 12px;
-}
-
-#product_less_price {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-bottom: 15px;
-}
-
-#product_less_price #body {
-  height: 100%;
-  margin-top: 10px;
-  background: #ffffff;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: var(--bs-light);
-}
-
-#diccount_prodact:hover {
-  transform: scale(1.01);
-  box-shadow: 0px 0px 12px 1px var(--bs-gray);
 }
 
 #cart_item_price {
@@ -594,5 +533,11 @@
 .ptxtdir {
   direction: rtl;
   text-align: right;
+}
+
+a {
+  cursor: pointer;
+  color: unset;
+  text-decoration: none;
 }
 

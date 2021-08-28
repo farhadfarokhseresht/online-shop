@@ -9,7 +9,7 @@ include "header.php";
     <!-- Start: main_part -->
     <div class="container-fluid d-grid" id="main_part">
         <h3 class="text-end mb-1">&nbsp;سبد خرید شما&nbsp;</h3>
-        <hr style="margin-top: 0px;">
+        <hr style="margin-top: 0;">
 
         <!-- Start: full cart -->
         <div style="display: none!important;" id="fullcart" class="row justify-content-center justify-content-sm-start justify-content-md-center justify-content-lg-center">
@@ -70,14 +70,14 @@ include "header.php";
                                 <!-- End: card item data -->
 
                                 <!-- Start: card_list_image -->
-                                <div class="card_list_image"><img id="productimg" class="rounded" src="" ></div>
+                                <div class="card_list_image"><img id="productimg" class="rounded" src=""  alt=""></div>
                                 <!-- End: card_list_image -->
                             </div>
-                            <div class="d-flex" style="margin: 0px;margin-bottom: 0px;padding-bottom: 0px;">
+                            <div class="d-flex" style="margin: 0;padding-bottom: 0;">
                                 <!-- Start: card item price -->
                                 <div id="cart_item_price">
-                                    <p class="text-danger d-flex" style="margin: 0px;"><span>تومان</span><span style="margin-right: 10px;margin-left: 10px;">xxx</span><span>تخفیف</span></p>
-                                    <p class="d-flex" style="margin: 0px;"><span>تومان</span><span id="P_price" style="margin-left: 10px;">xxxx</span></p>
+                                    <p class="text-danger d-flex" style="margin: 0;"><span>تومان</span><span style="margin-right: 10px;margin-left: 10px;">xxx</span><span>تخفیف</span></p>
+                                    <p class="d-flex" style="margin: 0;"><span>تومان</span><span id="P_price" style="margin-left: 10px;">xxxx</span></p>
                                 </div>
                                 <!-- End: card item price -->
                                 <!-- Start: card item num -->
@@ -89,7 +89,7 @@ include "header.php";
                                         </form>
                                     </div>
                                     <form action="cart.php" method="post" style="display: contents" >
-                                        <div style="width: 100%;height: 44px;display: -webkit-box;display: flex;border: 1px solid #eee;border-radius: 8px;color: #0fabc6;font-size: 15px;font-size: 1.071rem;line-height: 1.467;justify-content: space-between;align-items: center;margin-top: 4px;">
+                                        <div style="width: 100%;height: 44px;display: -webkit-box;display: flex;border: 1px solid #eee;border-radius: 8px;color: #0fabc6;font-size: 1.071rem;line-height: 1.467;justify-content: space-between;align-items: center;margin-top: 4px;">
                                             <button name="button_qty_rm" id="button_qty_rm" class="btn btn-primary"  type="submit">-</button>
                                             <p class="d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" id="qty_box">xx</p>
                                             <button name="button_qty_add" id="button_qty_add" class="btn btn-primary"  type="submit">+</button>
@@ -120,29 +120,16 @@ include "header.php";
             </div>
         </div>
         <!-- End: empty cart -->
-        <hr>
+
         <!-- Start: product_less_price -->
-        <div id="product_less_price">
-            <h5 class="text-center text-sm-center text-md-center text-lg-center text-xl-center text-xxl-center text-dark mb-1">تخفیف برای شما&nbsp;&nbsp;<i class="fas fa-tag swing animated infinite"></i></h5>
-            <div class="d-flex flex-column-reverse flex-sm-row flex-md-row justify-content-md-center align-items-md-center flex-lg-row flex-xl-row flex-xxl-row" id="body">
-                <!-- Start: diccount_prodact -->
-                <div id="diccount_prodact" class="diccount_prodact">
-                    <div class="d-sm-flex justify-content-sm-center align-items-sm-center diccount_prodact_img" id="diccount_prodact_img" style="margin-top: 5px;"><img class="rounded shadow-sm" src="assets/img/dogs/image1.jpeg"></div>
-                    <div style="text-align: center;background: rgba(249,249,249,0);">
-                        <p style="margin-bottom: 0px;color: var(--bs-dark);">نام</p>
-                        <p style="margin-bottom: 0px;color: var(--bs-dark);">قیمت</p>
-                        <p id="takhfif">تخفیف %<span style="margin-left: 5px;">Text</span></p><button class="btn btn-primary btn-sm" id="add_to_card_bt" type="button"><i class="material-icons">add_shopping_cart</i></button>
-                    </div>
-                </div><!-- End: diccount_prodact -->
-            </div>
-        </div>
+
         <!-- End: product_less_price -->
 
         <!-- Start: pymet_mobile -->
         <div class="d-inline-flex d-print-none d-sm-inline-flex d-md-inline-flex d-lg-none d-xl-none d-xxl-none" id="pyment_mobile">
             <div>
-                <p style="margin: 0px;">مبلغ قابل پرداخت</p>
-                <p class="d-flex" style="margin: 0px;"><span class="me-auto">تومان</span><span id="CartItemTotalPrice" class="ms-auto">xxx</span></p>
+                <p style="margin: 0;">مبلغ قابل پرداخت</p>
+                <p class="d-flex" style="margin: 0;"><span class="me-auto">تومان</span><span id="CartItemTotalPrice" class="ms-auto">xxx</span></p>
             </div>
             <div><button class="btn btn-primary border rounded" id="buybutton" type="button" style="border-style: solid;">تکمیل فرایند خرید</button></div>
         </div>
@@ -169,9 +156,9 @@ include "footer.php";
 </script>
 
 <script>
-    var N = '<?php echo $N ;?>';
-    var totalprice = '<?php echo $totalprice ;?>';
-    var items = '<?php echo json_encode($items) ;?>';
+    let N = '<?php echo $N;?>';
+    let totalprice = '<?php echo $totalprice;?>';
+    let items = '<?php echo json_encode($items);?>';
     items = JSON.parse(items);
     for (i in items ){
         var original = document.getElementById('cart_list_item');
@@ -189,7 +176,7 @@ include "footer.php";
         $('#cart_item_box').find(newid).find('#productimg').attr("src","product_images/"+items[i][3]);
 
     }
-    if (N == 0){
+    if (N === 0){
         //$('#fullcart').css('display','none');
         $('#emptycart').css('display','flex');
     }else{
@@ -198,6 +185,6 @@ include "footer.php";
         $('#N').text(N)
         $('#paymentboxcol_col #price').text(totalprice)
         $('#paymentboxcol_col #CartItemTotalPrice').text(totalprice)
-        $('#pyment_mobile #CartItemTotalPrice').text(totalprice)
-    };
+        $("#pyment_mobile #CartItemTotalPrice").text(totalprice)
+    }
 </script>

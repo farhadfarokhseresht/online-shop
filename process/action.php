@@ -65,6 +65,8 @@ function brandlist()
     return $brandlist;
 }
 
+
+
 if (isset($_POST["page"])) {
     $sql = "SELECT * FROM products";
     $run_query = mysqli_query($con, $sql);
