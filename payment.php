@@ -1,9 +1,11 @@
 <?php
 session_start();
-include 'process\action.php';
 include 'process\payment.php';
+include 'process\action.php';
 include 'process\getCities.php';
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -76,33 +78,32 @@ include 'process\getCities.php';
                         </div>
                         <!-- End: buy info part -->
                         <!-- Start: addres info part -->
-                        <div class="col">
+                        <div class="col-sm-7">
                             <div class="border rounded shadow" style="width: 100%;height: 100%;background: #ffffff;">
                                 <div style="text-align: right;margin: 5px;"><span style="color: var(--bs-dark);font-size: 14px;">آدرس ارسال</span>
                                     <!-- Start: addres 1 -->
-                                    <p id="address1" style="margin-top: 9px;">آدرس....</p>
+                                    <p id="address1" style="margin-top: 9px;"><?php echo $address_list[3];?></p>
                                     <!-- End: addres 1 -->
                                     <hr>
                                     <!-- Start: name -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
-                                        <span id="rname">&nbsp;..... آقای/خانم&nbsp;</span><i class="fa fa-user" style="margin-left: 5px;"></i></div>
+                                        <span id="rname"><?php echo $address_list[9]." ".$address_list[10];?></span><i class="fa fa-user" style="margin-left: 5px;"></i></div>
                                     <!-- End: name -->
                                     <!-- Start: post cod -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
-                                        <span id="codposty">کد پسیتی</span><i class="fa fa-barcode" style="margin-left: 5px;"></i></div>
+                                        <span id="codposty"><?php echo $address_list[7];?></span><i class="fa fa-barcode" style="margin-left: 5px;"></i></div>
                                     <!-- End: post cod -->
                                     <!-- Start: phone number -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
-                                        <span id="rphone">09380084250</span><i class="fa fa-phone-square" style="margin-left: 5px;"></i></div>
+                                        <span id="rphone"><?php echo $address_list[11];?></span><i class="fa fa-phone-square" style="margin-left: 5px;"></i></div>
                                     <!-- End: phone number -->
                                     <!-- Start: addres 2 -->
                                     <div class="d-flex justify-content-sm-end align-items-sm-center" style="margin-right: 10px;">
-                                        <p id="address2" style="margin-bottom: 0px;">Paragraph</p><i class="fa fa-map-marker" style="margin-left: 5px;"></i>
+                                        <p id="address2" style="margin-bottom: 0px;"><?php echo $address_list[4];?></p><i class="fa fa-map-marker" style="margin-left: 5px;"></i>
                                     </div>
                                     <!-- End: addres 2 -->
                                     <hr>
-                                    <button name="change_address" class="btn btn-primary d-flex d-sm-flex d-md-flex justify-content-start align-items-start justify-content-sm-start align-items-sm-start justify-content-md-start align-items-md-start addres_del_butn" type="submit"><i class="fa fa-edit"></i></button>
-
+                                        <a href="" style="margin-right: 50%"><i class="fa fa-edit" style="color: #8b2c23"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -195,14 +196,16 @@ include 'process\getCities.php';
                     $('#payment_tprice').text(totalprice);
                     $('#payment_fprice').text(totalprice);
                     // address
-                    var address_state = '<?php global $address_state;echo $address_state ;?>';
+                    var address_state = '<?php echo $address_state ;?>';
                     if (address_state == 0) {
                         $('#addadrespart').css('display', 'inline');
+                        $('#buypart').css('display', 'none');
                     } else {
+                        $('#addadrespart').css('display', 'none');
                         $('#buypart').css('display', 'inline');
                     }
-                </script>
-                <script>
+
+                    //
                     var province_id = '<?php echo $province_id;?>';
                     if(province_id != ""){
                         var item = $('#province_id option[value='+province_id+']')

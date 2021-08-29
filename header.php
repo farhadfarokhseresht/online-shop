@@ -30,6 +30,15 @@ include 'process\action.php';
     <!--  new add  -->
     <link rel="stylesheet" href="extracss.css">
     <script src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        function codeAddress() {
+            document.body.innerHTML += '<div id="loader"><img src="loader2.gif"></div>'
+            $('#loader').animate({'opacity': '0'}, 800,function () {
+                return $('#loader').remove();
+            })
+        }
+        window.onload = codeAddress;
+    </script>
 </head>
 
 <body id="page-top" >

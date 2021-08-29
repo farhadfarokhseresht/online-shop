@@ -34,7 +34,7 @@ include "header.php";
                         <!-- End: سطر جمع قیمت -->
 
                         <p style="font-size: 10px;text-align: center;margin-top: 11px;">هزینه‌ی ارسال در ادامه بر اساس آدرس، زمان و نحوه‌ی ارسال انتخابی شما‌ محاسبه و به این مبلغ اضافه خواهد شد<br></p>
-                        <button class="btn btn-primary border rounded shadow" id="buybutton" type="submit">تکمیل فرایند خرید</button>
+                        <button onclick="goto_payment()" class="btn btn-primary border rounded shadow" id="buybutton" >تکمیل فرایند خرید</button>
                     </div>
                 </div>
                 <p style="margin: 10px;font-size: 10px;text-align: right;">کالاهای موجود در سبد شما ثبت و رزرو نشده‌اند، برای ثبت سفارش مراحل بعدی را تکمیل کنید.<br></p>
@@ -131,7 +131,9 @@ include "header.php";
                 <p style="margin: 0;">مبلغ قابل پرداخت</p>
                 <p class="d-flex" style="margin: 0;"><span class="me-auto">تومان</span><span id="CartItemTotalPrice" class="ms-auto">xxx</span></p>
             </div>
-            <div><button class="btn btn-primary border rounded" id="buybutton" type="button" style="border-style: solid;">تکمیل فرایند خرید</button></div>
+            <div>
+                <button onclick="goto_payment()" class="btn btn-primary border rounded" id="buybutton"  style="border-style: solid;">تکمیل فرایند خرید</button>
+            </div>
         </div>
         <!-- End: pymet_mobile -->
     </div>
@@ -156,6 +158,9 @@ include "footer.php";
 </script>
 
 <script>
+    function goto_payment() {
+        window.location.href = 'payment.php';
+    }
     let N = '<?php echo $N;?>';
     let totalprice = '<?php echo $totalprice;?>';
     let items = '<?php echo json_encode($items);?>';
