@@ -79,3 +79,10 @@ body a {
   text-align: center;
 }
 
+#pcmode {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+

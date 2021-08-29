@@ -9,9 +9,9 @@
 
 // alert add product
 $('body').find('alert').ready(function () {
-    // $('#alert').animate({'opacity': '0'}, 1000,function () {
+    $('#alert').animate({'opacity': '0'}, 8000,function () {
     $('#alert').remove();
-    // })
+    })
 })
 
 // filter

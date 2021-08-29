@@ -16,27 +16,6 @@
   background: #777777;
 }
 
-#loginbut {
-  padding: 0px;
-  padding-top: 0px;
-  cursor: pointer;
-  height: 50px;
-  background: var(--bs-yellow);
-  font-family: Almarai, sans-serif;
-  font-size: 17.8px;
-  font-weight: bold;
-  font-style: normal;
-  color: var(--bs-dark);
-  border-radius: 11px;
-  border-color: var(--bs-dark);
-}
-
-#loginbut:hover {
-  background-color: #f8b817;
-  font-weight: 700;
-  box-shadow: 0px 0px 8px var(--bs-dark);
-}
-
 .sidenav {
   height: 100%;
   width: 0;
@@ -440,31 +419,6 @@
   overflow: hidden;
 }
 
-.miniImage2 {
-  max-width: 100%;
-  max-height: 100%;
-  padding: 12px;
-}
-
-.miniImage2 img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.miniImage:hover {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-#productbox {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 3px;
-  width: 250px;
-  margin: 10px;
-  /*position: absolute;*/
-}
-
 #extra_product_left_div #addcartB {
   background: rgba(54,0,153,0.46);
   height: 30px;
@@ -500,26 +454,11 @@
   padding-right: 0px;
 }
 
-#delfilter {
-  font-size: 14px;
-  color: var(--bs-red);
-  cursor: pointer;
-}
-
 #price {
   /*margin-left: 1px;*/
   /*margin-right: 5px;*/
   /*font-weight: bold;*/
   /*color: var(--bs-red);*/
-}
-
-.form-control-user.phonenumber {
-  letter-spacing: 10px;
-  text-align: center;
-  color: var(--bs-dark);
-  font-weight: bold;
-  font-size: 20px!important;
-  line-height: 21px;
 }
 
 .reg_cod_sendagain {

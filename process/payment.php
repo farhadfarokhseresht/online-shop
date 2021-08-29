@@ -74,5 +74,17 @@ if (!empty($_SESSION["uid"])) {
         }
     }
 
+}else{
+
+    $warning = "<div id='alert' role=\"alert\" class=\"alert alert-warning d-sm-flex justify-content-sm-center align-items-sm-center\">
+                <span><strong>برای تکمیل فرایند خرید لطفا وارد حساب کاربری خود شوید </strong></span>
+                <span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span>
+                </div>";
+    $_SESSION['message'] = $warning;
+    header('Location: cart.php');
+//    exit;
+//    header("refresh:2;url=cart.php");
+//    echo $warning;
+//    exit;
 }
 

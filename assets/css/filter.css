@@ -94,8 +94,8 @@
 }
 
 #pcmode #filter_items {
-  width: 264px;
-  height: 431px;
+  width: 216px;
+  height: 270px;
   display: grid;
   border: 1px solid #ebebeb;
 }
@@ -253,5 +253,11 @@
   border-style: none;
   box-shadow: none;
   color: var(--bs-secondary);
+}
+
+#delfilter {
+  font-size: 14px;
+  color: var(--bs-red);
+  cursor: pointer;
 }
 

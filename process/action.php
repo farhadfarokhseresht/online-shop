@@ -259,8 +259,8 @@ if (isset($_POST["button_qty_rm"]) | isset($_POST["button_qty_add"])) {
 // add to cart
 
 if (isset($_POST["addToCart"])) {
-    $success = "<div class='alert alert-success' id='alert'><b>محصول به سبد شما اضاف شد</b></div>";
-    $warning = "<div class='alert alert-warning' id='alert' ><b>محصول در سبد خرید شما قبلا قرار گرفته</b></div>";
+    $success = "<div id='alert' role=\"alert\" class=\"alert alert-success d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>محصول به سبد شما اضاف شد</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
+    $warning = "<div id='alert' role=\"alert\" class=\"alert alert-warning d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>محصول در سبد خرید شما قبلا قرار گرفته</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
     $p_id = $_POST["proId"];
     $add_qty = 1;
     if (isset($_POST['qty'])) {

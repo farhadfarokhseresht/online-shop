@@ -5,7 +5,6 @@ include "header.php";
 <form action="register_app/register.php" method="get">
     <button type="submit">register</button>
 </form>
-
 <?php
 include "footer.php";
 ?>

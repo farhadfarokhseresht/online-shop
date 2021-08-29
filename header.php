@@ -1,7 +1,10 @@
 <?php
 session_start();
 include 'process\action.php';
-
+if (isset($_SESSION['message'])){
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -202,7 +205,7 @@ include 'process\action.php';
                                     </li><!-- End: list items -->
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
-                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="profile.html">صفحه پروفایل کاربری</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="profile.php">صفحه پروفایل کاربری</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
                                     </li><!-- End: list items -->
                                 </ul>
                                 <!-- End: mobile mod catgory list 1 -->
