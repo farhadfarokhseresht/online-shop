@@ -1,11 +1,8 @@
-// loader
+//
+function drop_down_anime(id){
+    document.getElementById(id).style.display = "none";
+}
 
-// window.addEventListener("load",function() {
-//     document.body.innerHTML += '<div id="loader"><img src="loader2.gif"></div>'
-//     $('#loader').animate({'opacity': '0'}, 1000,function () {
-//         return $('#loader').remove();
-//     })
-// })
 
 // alert add product
 $('body').find('alert').ready(function () {

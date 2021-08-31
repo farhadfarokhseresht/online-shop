@@ -1,12 +1,12 @@
-var swiper = new Swiper(".productslider .mySwiper", {
+var swiper = new Swiper(".minisilider", {
         centeredSlides: true,
-        slidesPerView: 4,
+        slidesPerView:3,
         centeredSlides: true,
-        // spaceBetween: 30,
+        spaceBetween: 0,
         grabCursor: true,
         // loop: true,
         autoplay: {
-          delay: 5500,
+          delay: 1500,
           disableOnInteraction: false,
         },    
         freeMode: true,

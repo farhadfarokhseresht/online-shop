@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initializing the swiper plugin for the slider.
     // Read more here: http://idangero.us/swiper/api/
     
-    var mySwiper = new Swiper('.swiper-container', {
+    var mySwiper = new Swiper('#bigslider .swiper-container', {
         loop: true,
         pagination: {
             el: '.swiper-pagination' ,
@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         paginationClickable: true,
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: '#bigslider .swiper-button-next',
+            prevEl: '#bigslider .swiper-button-prev'
         }
     });
     

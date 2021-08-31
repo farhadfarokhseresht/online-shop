@@ -30,18 +30,17 @@
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top" style="background: rgba(90,92,105,0.45);"><i class="fas fa-angle-up" style="color: var(--bs-yellow);"></i></a>
 </div>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/bs-init.js"></script>
+<script src="assets/js/home_header_slider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/logo.js"></script>
+<script src="assets/js/mini%20p%20image%20slider.js"></script>
+<script src="assets/js/new_p_vs.js"></script>
 <script src="assets/js/productslider.js"></script>
 <script src="assets/js/Simple-Slider.js"></script>
 <script src="assets/js/theme.js"></script>
 <script src="extrajs.js"></script>
-</body>
-
-</html>
 <script>
     var cart_badge_item_num = '<?php echo Count_User_cart_item();?>';
     $('#cart_badge_item_num').text(cart_badge_item_num + "+");
@@ -54,5 +53,13 @@
         //$('#notloginpart').css('display','none');
         $('#loginpart').css('display', 'inline');
         $('#header_username').text(user_login_state + ' خوش آمدید ')
+        $('#profile_username').text(user_login_state + ' خوش آمدید ')
     }
 </script>
+
+
+</body>
+
+</html>
+
+

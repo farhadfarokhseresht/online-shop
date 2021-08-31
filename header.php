@@ -30,6 +30,7 @@ if (isset($_SESSION['message'])){
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+
     <!--  new add  -->
     <link rel="stylesheet" href="extracss.css">
     <script src="assets/js/jquery.min.js"></script>
@@ -96,8 +97,12 @@ if (isset($_SESSION['message'])){
                             <!-- End: not login -->
                             <!-- Start: log in -->
                             <div id="loginpart" style="display: none!important" class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="header_username">name</span><i class="fa fa-user-o" style="color: var(--bs-gray-dark);font-size: 22px;"></i></a>
-                                <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="text-align: right;direction: rtl;"><a class="dropdown-item" href="#"><i class="fas fa-user" id="profile_menu_ddn"></i>&nbsp;پروفایل کاربری</a><a class="dropdown-item" id="profile_menu_ddn" href="#"><i class="fas fa-cogs" id="profile_menu_ddn"></i>&nbsp;ویرایش اطلاعات</a><a class="dropdown-item" href="#"><i class="fas fa-donate" id="profile_menu_ddn"></i>تخفیف های من</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt" id="profile_menu_ddn"></i>&nbsp;خروج از حساب</a>
+                                <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="text-align: right;direction: rtl;">
+                                    <a class="dropdown-item" href="profile.php"><i class="fas fa-user" id="profile_menu_ddn"></i>&nbsp;پروفایل کاربری</a>
+                                    <a class="dropdown-item" id="profile_menu_ddn" href="#"><i class="fas fa-cogs" id="profile_menu_ddn"></i>&nbsp;ویرایش اطلاعات</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-donate" id="profile_menu_ddn"></i>تخفیف های من</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt" id="profile_menu_ddn"></i>&nbsp;خروج از حساب</a>
                                 </div>
                             </div>
                             <!-- End: log in -->
@@ -260,9 +265,6 @@ if (isset($_SESSION['message'])){
                 </ul>
             </header>
             <!-- End: catgory pc mood -->
-
-
-
 
             <script>
                 function mobile_menu_button() {

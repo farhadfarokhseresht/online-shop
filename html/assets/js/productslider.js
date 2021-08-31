@@ -2,7 +2,7 @@ var swiper = new Swiper(".productslider .mySwiper", {
         centeredSlides: true,
         slidesPerView: 4,
         centeredSlides: true,
-        // spaceBetween: 30,
+        spaceBetween: 30,
         grabCursor: true,
         // loop: true,
         autoplay: {
