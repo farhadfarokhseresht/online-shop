@@ -27,7 +27,8 @@
         <div class="text-center my-auto copyright" style="margin-top: 10px;margin-bottom: 10px;"><span>online shop © Vista 2021</span></div>
     </div>
 </footer>
-</div><a class="border rounded d-inline scroll-to-top" href="#page-top" style="background: rgba(90,92,105,0.45);"><i class="fas fa-angle-up" style="color: var(--bs-yellow);"></i></a>
+</div>
+<a class="border rounded d-inline scroll-to-top" href="#page-top" style="background: rgba(90,92,105,0.45);"><i class="fas fa-angle-up" style="color: var(--bs-yellow);"></i></a>
 </div>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/home_header_slider.js"></script>

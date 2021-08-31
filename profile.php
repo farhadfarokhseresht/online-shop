@@ -1,10 +1,15 @@
-<?php include 'header.php'; ?>
+<?php
+
+include_once 'header.php';
+include 'process/profile.php';
+
+?>
 <link rel="stylesheet" href="assets/css/profile.css">
 
 
 <div class="container-fluid" style="position: relative;margin-top: 20px;direction: rtl;text-align: right;">
     <div class="row mb-3">
-        <div class="col-lg-4 d-grid justify-content-center">
+        <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-body text-center shadow"><i class="far fa-user" style="font-size: 60px;"></i>
                     <div class="mb-3">
@@ -70,21 +75,21 @@
                                 <div class="row">
                                     <!-- Start: phone number -->
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="username"><strong>شماره همراه</strong><br></label><input class="form-control" type="text" id="phonenum"></div>
+                                        <div class="mb-3"><label class="form-label" ><strong>شماره همراه</strong><br></label><input disabled class="form-control" type="text" id="phonenum"></div>
                                     </div><!-- End: phone number -->
                                     <!-- Start: email -->
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="email"><strong>پست الکترونیکی ( email )</strong><br></label><input class="form-control" type="email" id="email"></div>
+                                        <div class="mb-3"><label class="form-label" for="email"><strong>پست الکترونیکی ( email )</strong><br></label><input disabled class="form-control" type="email" id="email"></div>
                                     </div><!-- End: email -->
                                 </div>
                                 <div class="row">
                                     <!-- Start: name -->
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>نام</strong></label><input class="form-control" type="text" id="first_name"></div>
+                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>نام</strong></label><input disabled class="form-control" type="text" id="first_name"></div>
                                     </div><!-- End: name -->
                                     <!-- Start: fname -->
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>نام خانوادگی</strong></label><input class="form-control" type="text" id="last_name"></div>
+                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>نام خانوادگی</strong></label><input disabled class="form-control" type="text" id="last_name"></div>
                                     </div><!-- End: fname -->
                                 </div>
                                 <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">تغییر اطلاعات</button></div>
@@ -95,10 +100,10 @@
 
                     <!-- Start: address -->
                     <div class="card shadow mb-3">
-                        <div class="card-header d-flex align-items-lg-center py-3 drdnhader">
+                        <div style="position: relative" onclick="drop_down_anime('address-body')" class="card-header d-flex align-items-lg-center py-3 drdnhader">
                             <p class="text-primary order-first m-0 fw-bold">&nbsp;آدرس ارسال کالا</p><i class="fa fa-caret-down order-last me-auto"></i>
                         </div>
-                        <div class="card-body" style="display: none;">
+                        <div class="card-body"  id="address-body" style="display:none;">
                             <form>
                                 <!-- Start: address -->
                                 <div class="mb-3"><label class="form-label" for="address"><strong>&nbsp;آدرس گیرنده</strong><br></label><input class="form-control" type="text" id="address"></div><!-- End: address -->
@@ -147,7 +152,7 @@
 
                     <!-- Start: orders -->
                     <div class="card shadow mb-3">
-                        <div class="card-header d-flex align-items-lg-center py-3 drdnhader">
+                        <div onclick="drop_down_anime('order-body')" class="card-header d-flex align-items-lg-center py-3 drdnhader">
                             <p class="text-primary order-first m-0 fw-bold">سفارش ها</p><i class="fa fa-caret-down order-last me-auto"></i>
                         </div>
                         <div class="card-body" id="order-body" style="display: none;">
@@ -191,7 +196,7 @@
 
     <!-- Start: tiket -->
     <div class="card shadow mb-5">
-        <div class="card-header d-flex align-items-lg-center py-3 drdnhader">
+        <div onclick="drop_down_anime('tiket-body')" class="card-header d-flex align-items-lg-center py-3 drdnhader">
             <p class="text-primary order-first m-0 fw-bold">تیکت ها</p><i class="fa fa-caret-down order-last me-auto"></i>
         </div>
         <div class="card-body" id="tiket-body" style="display: none;">
@@ -239,3 +244,13 @@
 
 
 <?php include 'footer.php';?>
+<script>
+    var phonenum = '<?php echo $userinfo[3];?>';
+    var email = '<?php echo $userinfo[2];?>';
+    var first_name = '<?php echo $userinfo[0];?>';
+    var last_name = '<?php echo $userinfo[1];?>';
+    document.getElementById("phonenum").value = phonenum;
+    document.getElementById("email").value = email;
+    document.getElementById("first_name").value = first_name;
+    document.getElementById("last_name").value = last_name;
+</script>
