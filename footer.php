@@ -53,8 +53,8 @@
     } else {
         //$('#notloginpart').css('display','none');
         $('#loginpart').css('display', 'inline');
-        $('#header_username').text(user_login_state + ' خوش آمدید ')
-        $('#profile_username').text(user_login_state + ' خوش آمدید ')
+        $('#header_userfname').text(user_login_state + ' خوش آمدید ')
+        $('#profile_userfname').text(user_login_state + ' خوش آمدید ')
     }
 </script>
 

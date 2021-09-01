@@ -20,19 +20,19 @@ if (!empty($_SESSION["uid"])) {
             $codposti = $row['codposti'];
             #$address2 = " استان ".$province." شهر ".$city." کدپستی ".$codposti." پلاک ".$plack." واحد ".$vahed ;
             $codmli = $row['codmli'];
-            $rname = $row['rname'];
             $rfname = $row['rfname'];
+            $rlname = $row['rlname'];
             $rphone = $row['rphone'];
-            $address_list = array($adid, $province, $city, $address2, $address1, $plack, $vahed, $codposti, $codmli, $rname, $rfname, $rphone);
+            $address_list = array($adid, $province, $city, $address2, $address1, $plack, $vahed, $codposti, $codmli, $rfname, $rlname, $rphone);
         }
     } else {
         $address_state = 0;
         if (isset($_POST['addadressbu'])
             and isset($_POST["address1"]) and isset($_POST["city"]) and isset($_POST["codposti"])
-            and isset($_POST["province_id"]) and isset($_POST["codmli"]) and isset($_POST["rname"])
-            and isset($_POST["rphone"]) and isset($_POST["rfname"]) and !empty($_POST["address1"]) and !empty($_POST["city"]) and !empty($_POST["codposti"])
-            and !empty($_POST["province_id"]) and !empty($_POST["codmli"]) and !empty($_POST["rname"])
-            and !empty($_POST["rphone"]) and !empty($_POST["rfname"])
+            and isset($_POST["province_id"]) and isset($_POST["codmli"]) and isset($_POST["rfname"])
+            and isset($_POST["rphone"]) and isset($_POST["rlname"]) and !empty($_POST["address1"]) and !empty($_POST["city"]) and !empty($_POST["codposti"])
+            and !empty($_POST["province_id"]) and !empty($_POST["codmli"]) and !empty($_POST["rfname"])
+            and !empty($_POST["rphone"]) and !empty($_POST["rlname"])
         ) {
             $province = $_POST['province_id'];
             $city = $_POST['city'];
@@ -42,12 +42,12 @@ if (!empty($_SESSION["uid"])) {
             $codposti = $_POST['codposti'];
             $address2 = "";
             $codmli = $_POST['codmli'];
-            $rname = $_POST['rname'];
             $rfname = $_POST['rfname'];
+            $rlname = $_POST['rlname'];
             $rphone = $_POST['rphone'];
-            $addressdata = array($uid, $province, $city, $address2, $address1, $plack, $vahed, $codposti, $codmli, $rname, $rfname, $rphone);
+            $addressdata = array($uid, $province, $city, $address2, $address1, $plack, $vahed, $codposti, $codmli, $rfname, $rlname, $rphone);
             $values = "'" . implode("','", $addressdata) . "'";
-            $sql = "INSERT INTO `address`( `user_id`, `province`, `city`, `address2`, `address1`, `plack`, `vahed`, `codposti`, `codmli`, `rname`, `rfname`, `rphone`) VALUES ($values)";
+            $sql = "INSERT INTO `address`( `user_id`, `province`, `city`, `address2`, `address1`, `plack`, `vahed`, `codposti`, `codmli`, `rfname`, `rlname`, `rphone`) VALUES ($values)";
             $query = mysqli_query($con, $sql);
             $address_state = 1;
         }
@@ -66,10 +66,10 @@ if (!empty($_SESSION["uid"])) {
                 $codposti = $row['codposti'];
                 $address2 = "";
                 $codmli = $row['codmli'];
-                $rname = $row['rname'];
                 $rfname = $row['rfname'];
+                $rlname = $row['rlname'];
                 $rphone = $row['rphone'];
-                $address_list = array($adid, $province, $city, $address2, $address1, $plack, $vahed, $codposti, $codmli, $rname, $rfname, $rphone);
+                $address_list = array($adid, $province, $city, $address2, $address1, $plack, $vahed, $codposti, $codmli, $rfname, $rlname, $rphone);
             }
         }
     }

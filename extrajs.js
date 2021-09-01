@@ -1,8 +1,8 @@
 // loader
-document.body.innerHTML += '<div id="loader"><img src="loader2.gif"></div>'
-$('#loader').animate({'opacity': '0'}, 800,function () {
-    return $('#loader').remove();
-})
+// document.body.innerHTML += '<div id="loader"><img src="loader2.gif"></div>'
+// $('#loader').animate({'opacity': '0'}, 800,function () {
+//     return $('#loader').remove();
+// })
 
 // display menus
 function drop_down_anime(id){
@@ -23,5 +23,9 @@ $('body').find('alert').ready(function () {
     $('#alert').remove();
     })
 })
+
+// profile
+
+
 
 

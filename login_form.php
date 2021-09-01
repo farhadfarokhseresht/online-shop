@@ -13,9 +13,6 @@ if (isset($_POST["login_user_with_product"])) {
 }
 ?>
 
-<div class="wait overlay">
-    <div class="loader"></div>
-</div>
 <div class="container-fluid">
     <!-- row -->
     <div class="login-marg">
@@ -31,8 +28,7 @@ if (isset($_POST["login_user_with_product"])) {
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="input input-borders" type="email" name="email" placeholder="Email" id="password"
-                           required>
+                    <input class="input input-borders" type="email" name="email" placeholder="Email" id="password" required>
                 </div>
 
                 <div class="form-group">

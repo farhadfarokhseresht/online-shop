@@ -87,7 +87,7 @@ include 'process\getCities.php';
                                     <hr>
                                     <!-- Start: name -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
-                                        <span id="rname"><?php echo $address_list[9]." ".$address_list[10];?></span><i class="fa fa-user" style="margin-left: 5px;"></i></div>
+                                        <span id="rfname"><?php echo $address_list[9]." ".$address_list[10];?></span><i class="fa fa-user" style="margin-left: 5px;"></i></div>
                                     <!-- End: name -->
                                     <!-- Start: post cod -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
@@ -175,8 +175,8 @@ include 'process\getCities.php';
                             <div class="text-end" id="addres_div1"><label class="form-label">کد ملی</label><input minlength="9" class="border rounded form-control inputtextstyle" type="text" name="codmli"></div>
                         </div>
                         <div class="d-grid d-sm-flex">
-                            <div class="text-end" id="addres_div1"><label class="form-label text-nowrap" id="addres_div1_lab" style="margin-left: -160.5px;">نام خانوادگی گیرنده</label><input minlength= "3" class="border rounded form-control" type="text" name="rfname"></div>
-                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">&nbsp;نام گیرنده</label><input minlength= "4"   class="border rounded form-control" type="text" name="rname"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label text-nowrap" id="addres_div1_lab" style="margin-left: -160.5px;">نام خانوادگی گیرنده</label><input minlength= "3" class="border rounded form-control" type="text" name="rlname"></div>
+                            <div class="text-end" id="addres_div1"><label class="form-label" id="addres_div1_lab">&nbsp;نام گیرنده</label><input minlength= "4"   class="border rounded form-control" type="text" name="rfname"></div>
                         </div>
                         <div class="d-grid d-sm-flex">
                             <div class="text-end" id="addres_div1"><label class="form-label">شماره مبایل گیرنده</label><input pattern="[0]+[0-9]{10}"  class="border rounded-pill form-control inputtextstyle" type="text" name="rphone" id="rphone" ></div>

@@ -15,6 +15,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $count = mysqli_num_rows($run_query);
     $row = mysqli_fetch_array($run_query);
     $_SESSION["uid"] = $row["user_id"];
+    $_COOKIE["onshuid"] = $row["user_id"];
     $_SESSION["name"] = $row["first_name"];
     $ip_add = getenv("REMOTE_ADDR");
 
