@@ -1,9 +1,9 @@
 <?php
-#session_start();
+//session_start();
 $ip_add = getenv("REMOTE_ADDR");
 include "db.php";
 
-# use in header
+// use in header
 function user_login_state()
 {
     global $con;
@@ -65,8 +65,6 @@ function brandlist()
     return $brandlist;
 }
 
-
-
 if (isset($_POST["page"])) {
     $sql = "SELECT * FROM products";
     $run_query = mysqli_query($con, $sql);
@@ -80,7 +78,6 @@ if (isset($_POST["page"])) {
 		";
     }
 }
-
 
 // add Filters
 if ("filters") {
@@ -257,7 +254,6 @@ if (isset($_POST["button_qty_rm"]) | isset($_POST["button_qty_add"])) {
 }
 
 // add to cart
-
 if (isset($_POST["addToCart"])) {
     $success = "<div id='alert' role=\"alert\" class=\"alert alert-success d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>محصول به سبد شما اضاف شد</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
     $warning = "<div id='alert' role=\"alert\" class=\"alert alert-warning d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>محصول در سبد خرید شما قبلا قرار گرفته</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
@@ -298,4 +294,9 @@ if (isset($_POST["addToCart"])) {
         header('filters.php');
     }
 }
+
+
+
+
+
 ?>

@@ -1,12 +1,15 @@
 #alert {
     text-align: center !important;
     display: flex !important;
-    position: absolute !important;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
     width: 100% !important;
     z-index: 100 !important;
     align-items: center !important;
     justify-content: center !important;
 }
+
 
 .closealert {
     margin-right: 10px;
@@ -72,11 +75,11 @@ body a {
 /* profile */
 .cancelchange {
     display: none;
-    background: #8b2c23!important;
-    border: none!important;
+    background: #8b2c23 !important;
+    border: none !important;
     box-shadow: none;
 }
 
-#change{
+.change {
     display: none;
 }
