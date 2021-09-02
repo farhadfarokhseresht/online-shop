@@ -16,9 +16,9 @@ if (isset($_GET["getprofile"])) {
     $query = mysqli_query($con, $sql);
     $count = mysqli_num_rows($query);
     if ($count > 0) {
-        while ($row = mysqli_fetch_array($query)) {
-            $userinfo = array($row['first_name'], $row['last_name'], $row['email'], $row['mobile'], $row['password']);
-        }
+        $row = mysqli_fetch_array($query);
+//        $userinfo = array($row['first_name'], $row['last_name'], $row['email'], $row['mobile'], $row['password']);
+        $userinfo = $row;
     }
     // get address
     $sql = 'SELECT * FROM address where user_id =  ' . $uid;
@@ -27,13 +27,7 @@ if (isset($_GET["getprofile"])) {
     if ($count > 0) {
         $address_state = 1;
         $row = mysqli_fetch_array($query);
-        $address_list = "";
-        foreach ($row as $ky => $val) {
-            $inputs = $inputs . ',' . $ky;
-            $VALUES = $VALUES . ',' . $val;
-            $updateSet = $updateSet . $ky . " = '" . $val . "',";
-        }
-        $address_list = rtrim($address_list, ", ");
+        $address_list = $row;
 //        $adid = $row['id'];
 //        $province = $row['province'];
 //        $city = $row['city'];
@@ -48,8 +42,8 @@ if (isset($_GET["getprofile"])) {
 //        $address_list = array($adid, $province, $city, $address1, $plack, $vahed, $codposti, $codmli, $rfname, $rlname, $rphone);
     }
     // get order
-    $sql = "SELECT * FROM orders where user_id = " . $uid;
-    $query = mysqli_query($con, $sql);
+//    $sql = "SELECT * FROM orders where user_id = " . $uid;
+//    $query = mysqli_query($con, $sql);
 //    $count = mysqli_num_rows($query);
 //    if ($count > 0) {
 //        while ($row = mysqli_fetch_array($query)) {
@@ -57,13 +51,14 @@ if (isset($_GET["getprofile"])) {
 //        }
 //
 //    }
-#print_r(array('userinfo' => $userinfo,'address_list' => $address_list));
+    $result = array('userinfo' => $userinfo, 'address_list' => $address_list);
+    echo json_encode($result);
 }
 
 // edite_info
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['change_pinfo'])) {
-//    $uid = $_POST['uid'];
-//    unset($_POST['uid']);
+    session_start();
+    $uid = $_SESSION["uid"];
     unset($_POST['edite_pinfo']);
     unset($_POST['cancel_change']);
     unset($_POST['change_pinfo']);
@@ -91,9 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['change_pinfo'])) {
 
 // edite_address
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['change_address'])) {
-//    $uid = $_POST['uid'];
+    session_start();
+    $uid = $_SESSION["uid"];
     $addressid = $_POST['addressid'];
-//    unset($_POST['uid']);
     unset($_POST['addressid']);
     unset($_POST['edite_address']);
     unset($_POST['change_address']);
@@ -102,12 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['change_address'])) {
     $VALUES = "";
     $updateSet = "";
     foreach ($_POST as $ky => $val) {
-        if ($val != "") {
+        if ($val) {
             $inputs = $inputs . ',' . $ky;
             $VALUES = $VALUES . ',' . $val;
             $updateSet = $updateSet . $ky . " = '" . $val . "',";
-        } else {
-            echo 0;
         }
     }
     $updateSet = rtrim($updateSet, ", ");
@@ -116,6 +109,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['change_address'])) {
     if ($query) {
         echo 1;
     }
-
 }
 

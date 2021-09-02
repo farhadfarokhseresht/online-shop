@@ -138,7 +138,7 @@ if (isset($_SESSION['message'])){
                                 <ul class="list-unstyled text-end">
                                     <!-- Start: dasteha -->
                                     <li class="dastehali">
-                                        <div class="d-flex justify-content-md-end align-items-md-center" id="dasteha"><i class="fas fa-angle-down me-auto" style="margin-left: 10px;"></i>
+                                        <div onclick="diplay_state('dastehalist')" class="d-flex justify-content-md-end align-items-md-center" ><i class="fas fa-angle-down me-auto" style="margin-left: 10px;"></i>
                                             <p style="margin: 0px;">دسته ها</p><i class="fas fa-sitemap" style="margin-left: 10px;color: var(--bs-dark);"></i>
                                         </div>
                                         <div id="dastehalist">
@@ -152,17 +152,6 @@ if (isset($_SESSION['message'])){
                                                 ';} ?>
                                             </ul>
                                         </div>
-                                        <script>
-                                            document.getElementById("dasteha").addEventListener("click", displaychange);
-                                            function displaychange() {
-                                                var x = document.getElementById('dastehalist');
-                                                if (x.style.display === 'none') {
-                                                    x.style.display = 'block';
-                                                } else {
-                                                    x.style.display = 'none';
-                                                }
-                                            }
-                                        </script>
                                     </li>
                                     <!-- End: dasteha -->
 
@@ -257,13 +246,3 @@ if (isset($_SESSION['message'])){
             </header>
             <!-- End: catgory pc mood -->
 
-            <script>
-                function mobile_menu_button() {
-                    document.getElementById("mobile_mod_catgori_menu").style.display = 'block' ;
-                    document.getElementById("mobile_menu_button2").style.display = 'block' ;
-                }
-                function mobile_menu_button2() {
-                    document.getElementById("mobile_mod_catgori_menu").style.display = 'none' ;
-                    document.getElementById("mobile_menu_button2").style.display = 'none' ;
-                }
-            </script>

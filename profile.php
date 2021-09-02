@@ -131,7 +131,7 @@ include 'process/profile.php';
 
 					<!-- Start: address -->
 					<div class = "card shadow mb-3">
-						<div onclick = "drop_down_anime('address-body')" class = "card-header d-flex align-items-lg-center py-3 drdnhader">
+						<div onclick = "diplay_state('address-body')" class = "card-header d-flex align-items-lg-center py-3 drdnhader">
 						<p class = "text-primary order-first m-0 fw-bold">&nbsp;آدرس ارسال کالا</p>
 						<i class = "fa fa-caret-down order-last me-auto"></i>
 					</div>
@@ -206,7 +206,7 @@ include 'process/profile.php';
 
 				<!-- Start: orders -->
 				<div class = "card shadow mb-3">
-					<div onclick = "drop_down_anime('order-body')" class = "card-header d-flex align-items-lg-center py-3 drdnhader">
+					<div onclick = "diplay_state('order-body')" class = "card-header d-flex align-items-lg-center py-3 drdnhader">
 						<p class = "text-primary order-first m-0 fw-bold">سفارش ها</p>
 						<i class = "fa fa-caret-down order-last me-auto"></i>
 					</div>
@@ -252,7 +252,7 @@ include 'process/profile.php';
 
 <!-- Start: tiket -->
 <div class = "card shadow mb-5">
-	<div onclick = "drop_down_anime('tiket-body')" class = "card-header d-flex align-items-lg-center py-3 drdnhader">
+	<div onclick = "diplay_state('tiket-body')" class = "card-header d-flex align-items-lg-center py-3 drdnhader">
 		<p class = "text-primary order-first m-0 fw-bold">تیکت ها</p>
 		<i class = "fa fa-caret-down order-last me-auto"></i>
 	</div>
@@ -311,44 +311,7 @@ include 'process/profile.php';
 
 <script>
     get_profile_info()
-    insertdata()
-    function insertdata() {
-        var mobile = '<?php echo $userinfo[3];?>';
-        var email = '<?php echo $userinfo[2];?>';
-        var first_name = '<?php echo $userinfo[0];?>';
-        var last_name = '<?php echo $userinfo[1];?>';
-        document.getElementById("mobile").value = mobile;
-        document.getElementById("email").value = email;
-        document.getElementById("first_name").value = first_name;
-        document.getElementById("last_name").value = last_name;
-        //
-        var province = '<?php echo $address_list[1];?>';
-        var city = '<?php echo $address_list[2];?>';
-        var address1 = '<?php echo $address_list[3];?>';
-        var plack = '<?php echo $address_list[4];?>';
-        var vahed = '<?php echo $address_list[5];?>';
-        var codposti = '<?php echo $address_list[6];?>';
-        var codmli = '<?php echo $address_list[7];?>';
-        var rfname = '<?php echo $address_list[8];?>';
-        var rlname = '<?php echo $address_list[9];?>';
-        var rphone = '<?php echo $address_list[10];?>';
-        var addressid = '<?php echo $address_list[0];?>';
-        document.getElementById("province").value = province;
-        document.getElementById("city").value = city;
-        document.getElementById("address1").value = address1;
-        document.getElementById("plack").value = plack;
-        document.getElementById("vahed").value = vahed;
-        document.getElementById("codposti").value = codposti;
-        document.getElementById("codmli").value = codmli;
-        document.getElementById("rfname").value = rfname;
-        document.getElementById("rlname").value = rlname;
-        document.getElementById("rphone").value = rphone;
-        document.getElementById("addressid").value = addressid;
-    }
-
-</script>
-
-<script>
     edite("#info_form", "#edite_pinfo", "#change_pinfo");
     edite("#address_form", "#edite_address", "#change_address");
+    insertdata()
 </script>
