@@ -1,1 +1,3 @@
 <?php
+include 'gettooken.php';
+

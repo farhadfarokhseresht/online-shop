@@ -6,18 +6,20 @@
 
 // home
 function mobile_menu_button() {
-    document.getElementById("mobile_mod_catgori_menu").style.display = 'block' ;
-    document.getElementById("mobile_menu_button2").style.display = 'block' ;
+    document.getElementById("mobile_mod_catgori_menu").style.display = 'block';
+    document.getElementById("mobile_menu_button2").style.display = 'block';
 }
+
 function mobile_menu_button2() {
-    document.getElementById("mobile_mod_catgori_menu").style.display = 'none' ;
-    document.getElementById("mobile_menu_button2").style.display = 'none' ;
+    document.getElementById("mobile_mod_catgori_menu").style.display = 'none';
+    document.getElementById("mobile_menu_button2").style.display = 'none';
 }
+
 // display menus
 function diplay_state(id) {
     var object = document.getElementById(id);
     var displayobj = object.style.display;
-    if (displayobj == 'none') {
+    if (displayobj == 'none' | displayobj == '') {
         object.style.display = 'inline';
     } else {
         object.style.display = 'none';
@@ -142,5 +144,31 @@ function insertdata(infodata) {
     document.getElementById("rphone").value = infodata['address_list']['rphone'];
     document.getElementById("addressid").value = infodata['address_list']['id'];
 }
+
+// header
+var sherching_keyword = document.getElementById('sherching_keyword');
+
+sherching_keyword.onkeyup = function () {
+    var keyword = sherching_keyword.value;
+    $.ajax({
+        url: "process/home.php",
+        method: "GET",
+        cache: false,
+        // dataType: 'json',
+        data: {'keyword': keyword},
+        success: function (data) {
+            if (data == 0) {
+                $('.serching_keyword').css('display', 'none');
+            } else {
+                $('.serching_keyword').css('display', 'inline');
+                document.getElementById('serching_keyword_list').innerHTML = data;
+            }
+
+        }
+    })
+}
+
+
+
 
 

@@ -86,3 +86,7 @@ body a {
   justify-content: center;
 }
 
+#phone_smart_fil #kalayemojood input {
+  cursor: pointer;
+}
+

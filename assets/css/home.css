@@ -249,13 +249,16 @@
 }
 
 #homeshbu {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  margin: 0px;
+  border-top-left-radius: 10px;
+  z-index: 3;
   height: 32px;
   background: rgba(246,194,62,0.58);
   border-style: none;
   border-color: var(--bs-gray-dark);
   box-shadow: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
   border-style: none;
 }
 
@@ -473,5 +476,44 @@
 #plcol {
   width: 270px!important;
   height: 100%;
+}
+
+.serching_keyword {
+  text-align: right;
+  direction: rtl;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  top: 26px;
+  z-index: 2;
+  width: 100%;
+  background: rgb(248,249,252);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.serching_keyword_list {
+  margin-top: 10px;
+}
+
+.serching_keyword_item i {
+  margin-left: 5px;
+}
+
+#serching_keyword_form {
+  position: relative;
+  direction: rtl;
+  text-align: right;
+}
+
+#serching_keyword_form input {
+  box-shadow: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0px;
+}
+
+.serching_keyword_item {
+  margin-bottom: 5px;
 }
 

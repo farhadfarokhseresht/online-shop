@@ -100,24 +100,37 @@ if (isset($_SESSION['message'])){
                         </li>
                         <!-- End: user nave -->
                         <!-- Start: drup down shearching -->
-                        <li class="nav-item dropdown d-md-none d-lg-none d-xl-none d-xxl-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search" style="color: var(--bs-yellow);"></i></a>
-                            <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown" style="min-width: 260px;">
-                                <form method="post" action="filters.php" class="me-auto navbar-search w-100">
-                                    <div class="input-group"><input name="keyword" class="bg-light form-control border-0 small" type="text" placeholder=". . . جست وجو در کالاها" style="box-shadow: none;">
-                                        <div class="input-group-append"><button class="btn btn-primary py-0" id="homeshbu" type="submit"><i class="fas fa-search"></i></button></div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
+	                    <li class="nav-item dropdown d-md-none d-lg-none d-xl-none d-xxl-none no-arrow"><a aria-expanded="false" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" href="#"><i class="fas fa-search" style="color: var(--bs-yellow);"></i></a>
+		                    <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown" style="left: 4%;min-width: 260px;">
+			                    <form id="serching_keyword_form" class="navbar-search w-100">
+				                    <div class="input-group"><input id="sherching_keyword" type="text" class="bg-light form-control border-0 small" placeholder=" جست وجو در کالاها" style="box-shadow: none;" />
+					                    <div class="input-group-append"><button class="btn btn-primary" id="homeshbu" type="button"><i class="fas fa-search"></i></button></div>
+				                    </div>
+				                    <div class="serching_keyword">
+					                    <ul id="serching_keyword_list" class="list-unstyled serching_keyword_list">
+						                    <li class="d-flex serching_keyword_item"><a>Link</a><i class="fa fa-search order-first"></i></li>
+					                    </ul>
+				                    </div>
+			                    </form>
+		                    </div>
+	                    </li>
                         <!-- End: drup down shearching -->
                     </ul>
                     <!-- Start: shearch_form -->
-                    <form method="post" action="filters.php" class="d-none d-sm-none d-md-inline ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+	                <form class="d-none d-sm-none d-md-inline ms-md-3 my-2 my-md-0 mw-100 navbar-search" id="serching_keyword_form">
+		                <div class="input-group"><input id="sherching_keyword" type="text" class="bg-light form-control border-0 small" placeholder="جست وجو در کالاها" /><button class="btn btn-primary" id="homeshbu" style="margin: 0px;"><i class="fas fa-search"></i></button></div>
+		                <div class="serching_keyword">
+			                <ul id="serching_keyword_list" class="list-unstyled serching_keyword_list">
+				                <!--<li class="d-md-flex align-items-md-center serching_keyword_item">Item 1<i class="fa fa-search order-first"></i></li>-->
+			                </ul>
+		                </div>
+	                </form>
+                    <!--<form method="post" action="filters.php" class="d-none d-sm-none d-md-inline ms-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input name="keyword" class="bg-light form-control border-0 small" type="text" placeholder=". . . جست وجو در کالاها" style="box-shadow: none;">
+                            <input id="keyword" name="keyword" class="bg-light form-control border-0 small" type="text" placeholder=". . . جست وجو در کالاها" style="box-shadow: none;">
                             <button class="btn btn-primary py-0" id="homeshbu" type="submit"><i class="fas fa-search"></i></button>
                         </div>
-                    </form>
+                    </form>-->
                     <!-- End: shearch_form -->
 
                     <!-- Start: logo -->
