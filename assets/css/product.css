@@ -67,3 +67,16 @@
   /*margin-left: -2px;*/
 }
 
+.p_add_cartB {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--bs-warning);
+  border: none;
+  font-size: 1.286rem;
+  font-weight: bold;
+}
+
+.p_add_cartB:hover, .p_add_cartB:focus {
+  background: #f4ae00;
+}
+

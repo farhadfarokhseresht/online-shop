@@ -43,9 +43,7 @@
 <script src="assets/js/theme.js"></script>
 <script src="extrajs.js"></script>
 <script>
-    var cart_badge_item_num = '<?php echo Count_User_cart_item();?>';
-    $('#cart_badge_item_num').text(cart_badge_item_num + "+");
-    $('#cart_dropdown_header').text(cart_badge_item_num + " کالا ");
+    //var cart_badge_item_num = '<?php //echo Count_User_cart_item();?>//';
     var user_login_state = '<?php echo user_login_state() ;?>';
     if (user_login_state == 0) {
         $('#notloginpart').css('display', 'inline');

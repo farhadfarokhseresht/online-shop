@@ -103,7 +103,7 @@ try {
 
     // your sms.ir panel configuration
     $APIKey = "farhadF72pass";
-    $SecretKey = "3be5c02c9bc56ba81157c02c";
+    $SecretKey = "86b6a532df5e4f00aed0a532";
     $APIURL = "https://ws.sms.ir/";
 
     $SmsIR_GetToken = new SmsIR_GetToken($APIKey, $SecretKey, $APIURL);

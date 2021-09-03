@@ -337,15 +337,6 @@
   margin-top: 10px;
 }
 
-#add_to_cart_button {
-  width: 100%;
-  border-radius: 10px;
-  background: var(--bs-warning);
-  border: none;
-  font-size: 1.286rem;
-  font-weight: bold;
-}
-
 #wrapper {
   height: 100%;
   width: 100%;
@@ -417,12 +408,6 @@
   border-style: solid;
   border-radius: 10px;
   overflow: hidden;
-}
-
-#extra_product_left_div #addcartB {
-  background: rgba(54,0,153,0.46);
-  height: 30px;
-  border-color: var(--bs-purple);
 }
 
 #slide {

@@ -481,7 +481,6 @@
 .serching_keyword {
   text-align: right;
   direction: rtl;
-  font-size: 12px;
   display: none;
   position: absolute;
   top: 26px;
@@ -515,5 +514,11 @@
 
 .serching_keyword_item {
   margin-bottom: 5px;
+}
+
+.np_add_cartB {
+  background: rgba(54,0,153,0.46);
+  height: 30px;
+  border-color: var(--bs-purple);
 }
 

@@ -7,9 +7,9 @@ if (isset($_GET['keyword'])) {
         $sql = "SELECT DISTINCT(product_keywords) as product_keywords  FROM products where product_keywords LIKE '%$keyword%' LIMIT 8";
         $run_query = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($run_query)) {
-            echo '<li class="d-md-flex align-items-md-center serching_keyword_item">' . $row['product_keywords'] . '<i class="fa fa-search order-first"></i></li>';
+            echo '<li class="d-flex serching_keyword_item"><a  href="filters.php?keyword=' . $row['product_keywords'] . '">' . $row['product_keywords'] . '</a><i class="fa fa-search order-first"></i></li>';
         }
-    }else{
+    } else {
         echo 0;
     }
 }

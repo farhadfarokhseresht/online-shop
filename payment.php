@@ -189,8 +189,8 @@ include 'process\getCities.php';
 
             <?php include_once 'footer.php' ?>
                 <script>
-                    var cart_badge_item_num = '<?php echo Count_User_cart_item();?>';
-                    var totalprice = '<?php echo Get_cart_item()[1];?>';
+                    //var cart_badge_item_num = '<?php //echo Count_User_cart_item();?>//';
+                    //var totalprice = '<?php //echo Get_cart_item()[1];?>//';
                     $('#payment_numbers').text("("+cart_badge_item_num +")");
                     $('#payment_price').text(totalprice);
                     $('#payment_tprice').text(totalprice);

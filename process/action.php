@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 $ip_add = getenv("REMOTE_ADDR");
 include "db.php";
 
@@ -85,18 +85,16 @@ if ("filters") {
         $_SESSION['filters'] = array();
         header('filter.php');
     }
+    if (isset($_GET["keyword"])) {
+        $_SESSION['filters']['keyword'] = $_GET["keyword"];
+    }
     if (isset($_POST["keyword"])) {
-        $_SESSION['filters']['keyword'] = $_POST["keyword"];
         if ($_POST["keyword"] == "delfilter") {
             unset($_SESSION['filters']['keyword']);
         }
     }
-
     if (isset($_GET["categori"])) {
-
-
         $_SESSION['filters']['categori'] = $_GET["categori"];
-
     }
     if (isset($_POST["categori"])) {
         if ($_POST["categori"] == "delfilter") {
@@ -127,7 +125,7 @@ function get_products()
     global $con;
     $sql = "SELECT * FROM products where product_id > 0  ";
 
-    if ($_SESSION['filters']) {
+    if (isset($_SESSION['filters'])) {
 
         if (!empty($_SESSION['filters']['keyword'])) {
             $keyword = $_SESSION['filters']['keyword'];
@@ -164,8 +162,8 @@ function get_products()
 }
 
 //Count User cart item
-function Count_User_cart_item()
-{
+
+if (isset($_GET['count_item'])) {
     global $con;
     global $ip_add;
     //When user is logged in then we will count number of item in cart by using user session id
@@ -177,7 +175,7 @@ function Count_User_cart_item()
     }
     $query = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($query);
-    return $row["count_item"];
+    echo $row["count_item"];
 }
 
 //Get Cart Item
@@ -208,24 +206,80 @@ function Get_cart_item()
             $total_price = $total_price + $product_price * $qty;
             $cart_items[$n] = array($product_id, $product_title, $product_price, $product_image, $cart_item_id, $qty);
         }
-        return array($cart_items, $total_price, $n);
+        array($cart_items, $total_price, $n);
     } else {
         return 0;
     }
 }
 
+# drupdown menu
+if (isset($_POST['Get_cart_item'])) {
+    global $con;
+    global $ip_add;
+    if (isset($_SESSION["uid"])) {
+        //When user is logged in this query will execute
+        $sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_desc,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
+    } else {
+        //When user is not logged in this query will execute
+        $sql = "SELECT a.product_id,a.product_title,a.product_desc,a.product_price,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.ip_add='$ip_add' AND b.user_id < 0";
+    }
+    $query = mysqli_query($con, $sql);
+    if (mysqli_num_rows($query) > 0) {
+        $n = 0;
+        $total_price = 0;
+        $cart_items = array();
+        while ($row = mysqli_fetch_array($query)) {
+            $n++;
+            $product_id = $row["product_id"];
+            $product_title = $row["product_title"];
+            $product_price = $row["product_price"];
+            $product_image = $row["product_image"];
+            $cart_item_id = $row["id"];
+            $qty = $row["qty"];
+            $total_price = $total_price + $product_price * $qty;
+            $cart_items[$n] = array($product_id, $product_title, $product_price, $product_image, $cart_item_id, $qty);
+        }
+        foreach ($cart_items as $itminfo) {
+            echo '
+                                            <a style="margin: 0px 5px 0px!important;display: flex!important;">
+                                                <div id="bascet_dropdown_item_info">
+                                                    <form>
+                                                        <input type="hidden"  name="rid" id="rid">
+                                                        <button value=' . $itminfo[0] . ' name="removeItemFromCart" id="removeItemFromCart"  class="btn btn-primary float-start" type="button"><i class="far fa-trash-alt" style="color: var(--bs-gray-dark);"></i></button>
+                                                    </form>
+                                                    
+                                                    <span id="CartItemName" >' . $itminfo[1] . '</span>
+                                                    <div class="d-flex justify-content-end">
+                                                        <p style="margin-bottom: 0px;margin-right: 10px;">تومان</p>
+                                                        <p id="CartItemPrice" style="margin-bottom: 0px;">' . $itminfo[2] . '</p>
+                                                    </div>
+                                                </div>
+                                                <div class="me-3" style="margin: 0px 5px 0px!important;">
+                                                    <div class="bg-primary icon-circle" id="druopdown_prod_img"><img src="product_images/' . $itminfo[3] . '" > </div>
+                                                </div>
+                                            </a>
+                                            <hr/>
+                                            ';
+        }
+    }else{
+        echo '<i class="d-flex justify-content-center">سبد خرید شما خالی میباشد</i><i class="d-flex justify-content-center fa fa-shopping-basket"></i>';
+    }
+
+
+}
+
+
 //Remove Item From cart
 if (isset($_POST["removeItemFromCart"])) {
     $remove_id = $_POST["rid"];
     if (isset($_SESSION["uid"])) {
-        $sql = "DELETE FROM cart WHERE p_id = '$remove_id' AND user_id = '$_SESSION[uid]'";
+        $uid = $_SESSION["uid"];
+        $sql = "DELETE FROM cart WHERE p_id = '$remove_id' AND user_id = '$uid'";
     } else {
         $sql = "DELETE FROM cart WHERE p_id = '$remove_id' AND ip_add = '$ip_add'";
     }
     if (mysqli_query($con, $sql)) {
-        $BackToMyPage = $_SERVER['HTTP_REFERER'];
-        header('Location: ' . $BackToMyPage);
-        #
+        echo 1;
     }
 }
 
@@ -255,17 +309,15 @@ if (isset($_POST["button_qty_rm"]) | isset($_POST["button_qty_add"])) {
 
 // add to cart
 if (isset($_POST["addToCart"])) {
-    $success = "<div id='alert' role=\"alert\" class=\"alert alert-success d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>محصول به سبد شما اضاف شد</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
-    $warning = "<div id='alert' role=\"alert\" class=\"alert alert-warning d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>محصول در سبد خرید شما قبلا قرار گرفته</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
+    $success = 1;
+    $warning = 0;
     $p_id = $_POST["proId"];
     $add_qty = 1;
     if (isset($_POST['qty'])) {
         $add_qty = $_POST['qty'];
     }
     if (isset($_SESSION["uid"])) {
-
         $user_id = $_SESSION["uid"];
-
         $sql = "SELECT * FROM cart WHERE p_id = '$p_id' AND user_id = '$user_id'";
         $run_query = mysqli_query($con, $sql);
         $count = mysqli_num_rows($run_query);
@@ -291,12 +343,8 @@ if (isset($_POST["addToCart"])) {
             }
 
         }
-        header('filters.php');
     }
 }
-
-
-
 
 
 ?>

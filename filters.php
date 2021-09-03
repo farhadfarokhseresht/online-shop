@@ -10,8 +10,14 @@ include "header.php";
 		<div class = "phonefiltertop">
 			<i onclick = "diplay_state('phone_smart_fil')" class = "fa fa-close me-auto" style = "cursor: pointer;"></i><span class = "ms-auto" style = "font-weight: bold;">فیلتر ها</span>
 		</div>
-
-
+		<!---->
+		<div class="border rounded" id="filters">
+			<ul class="list-inline" id="mobile-filter-list">
+				<li class="list-inline-item border rounded" id="mobile-filter-list-item"><small>Text</small><i class="icon ion-android-close"></i></li>
+			</ul>
+		</div>
+		<!---->
+		<!-- start kala-->
 		<div class = "border rounded d-flex d-sm-flex d-md-flex d-lg-flex align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id = "kalayemojood">
 			<span style = "font-size: 12px;padding: 10px;color: var(--bs-danger);cursor: pointer;">پاک کردن همه</span>
 			<div class = "form-check form-switch me-auto" style = "margin-left: 15px;">
@@ -45,13 +51,19 @@ include "header.php";
 			</div>
 			<div id = "pfilter2body" style = "display: none;">
 				<div>
-					<div class = "d-flex" id = "slider-range"></div>
+					<div class = "d-flex" id = "slider-range">
+						<section class="range-slider">
+							<span class="rangeValues"></span>
+							<input value="5" min="0" max="15" step="0.5" type="range">
+							<input value="10" min="0" max="15" step="0.5" type="range">
+						</section>
+					</div>
 					<div class = "d-flex">
 						<div class = "text-center d-grid" style = "width: 50%;padding: 5px;">
-							<span>از</span><span id = "amount-1" style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
+							<span>از</span><span id="amount1m"  style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
 						</div>
 						<div class = "text-center d-grid" style = "width: 50%;padding: 5px;">
-							<span>تا</span><span style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
+							<span>تا</span><span id="amount2m" style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
 						</div>
 					</div>
 					<div class = "d-sm-flex d-md-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center" style = "margin-bottom: 6px;">
@@ -110,9 +122,9 @@ include "header.php";
                         <?php foreach (get_products() as $item) {
                             echo '
                         <li id="pruduct' . $item[0] . '" class="list-inline-item" style="margin: 0px;text-align: center;cursor: pointer;">
-                          <a href="product.php?p=' . $item[0] . '" id="producthref">
+                          
                              <div id="filter_items">
-                                
+                                <a href="product.php?p=' . $item[0] . '" id="producthref">
                                 <!-- Start: image -->
                                 <div class="d-block d-lg-flex d-xl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" id="imagediv">
                                     <img src="product_images/' . $item[3] . '"></div>
@@ -135,13 +147,12 @@ include "header.php";
                                     <!-- End: price -->
                                 </div>
                                 <!-- End: price -->
-                                <form method="post" action="#pruduct' . $item[0] . '" >
-                                <input type="hidden" name="proId" value="' . $item[0] . '">
-                                <button class="fas fa-cart-plus border rounded-pill d-lg-flex mx-auto justify-content-lg-center align-items-lg-center" id="addtocart" name="addToCart" type="submit">
-                                </button>
+                                </a>
+                                <form>
+	                                <input type="hidden" name="proId" value="' . $item[0] . '">
+	                                <button value="' . $item[0] . '" id="addtocartB"  class="fas fa-cart-plus border rounded-pill d-lg-flex mx-auto justify-content-lg-center align-items-lg-center f_add_cartB"  name="addToCart" type="button"></button>
                                 </form>
                             </div>
-                           </a>
                         </li>
                         ';
                         } ?>
@@ -153,9 +164,8 @@ include "header.php";
                         <?php foreach (get_products() as $item) {
                             echo '
                         <li id="mpruduct' . $item[0] . '"  class="list-inline-item" style="display: flex;width: 100%;">
-                          <a href="product.php?p=' . $item[0] . '" id="producthref" >
                             <div id="filter_items">
-                                
+                             <a href="product.php?p=' . $item[0] . '" id="producthref" >
                                 <!-- Start: image -->
                                 <div class="d-flex d-md-flex d-xl-flex align-items-center align-items-md-center justify-content-xl-center align-items-xl-center" id="imagediv" style="margin-right: 10px;margin-left: 20px;">
                                  <img src="product_images/' . $item[3] . '"></div>
@@ -173,14 +183,14 @@ include "header.php";
                                         <span>تومان</span>
                                     </div>
                                     <!-- End: price -->
+                             </a>
                                     <form method="post" action="#mpruduct' . $item[0] . '"  >
                                         <input type="hidden" name="proId" value="' . $item[0] . '">
-                                        <button class="fas fa-cart-plus border rounded-pill d-flex d-sm-flex d-md-flex d-lg-flex justify-content-center align-items-center mx-auto justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id="addtocart" name="addToCart" type="submit">
+                                        <button value="' . $item[0] . '" id="addtocartB" class="fas fa-cart-plus border rounded-pill d-flex d-sm-flex d-md-flex d-lg-flex justify-content-center align-items-center mx-auto justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center f_add_cartB"  name="addToCart" type="submit">
                                         </button>
                                     </form>
                                 </div>
                             </div>
-                          </a>
                         </li>
                          ';
                         } ?>
@@ -211,11 +221,8 @@ include "header.php";
 					</div>
 					<div style = "padding: 5px;">
 						<!-- Start: filter bu -->
-                        <?php foreach ($_SESSION['filters'] as $ky => $val) {
-                            echo '
+                        <?php /*foreach ($_SESSION['filters'] as $ky => $val) {echo '';} */?>
                     <button value="delfilter" name="' . $ky . '"  class="btn btn-primary border rounded-pill" id="filtersbu" type="submit">' . $val . '<i class="fas fa-times" style="margin-right: 5px;"></i></button>
-                    ';
-                        } ?>
 						<!-- End: filter bu -->
 
 					</div>
@@ -275,8 +282,15 @@ include "header.php";
 				<div onclick = "diplay_state('filter3body')" class = "d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center pcfilterhader">
 					<span>محدوده قیمت</span><i class = "fas fa-chevron-down me-auto" style = "margin-right: 10px;"></i>
 				</div>
-				<div id = "filter3body" style = "display: none;">
-					<div class = "d-flex" id = "slider-range"></div>
+
+				<div id = "filter3body" style = "display: none;padding-left: 5px;padding-right: 5px">
+					<div  id = "slider-range">
+						<section class="range-slider">
+							<span class="rangeValues"></span>
+							<input value="5" min="0" max="15" step="0.5" type="range">
+							<input value="10" min="0" max="15" step="0.5" type="range">
+						</section>
+					</div>
 					<div class = "d-flex">
 						<div class = "text-center d-grid" style = "width: 50%;padding: 5px;">
 							<span>از</span><span id = "amount1" style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
@@ -321,7 +335,7 @@ include "header.php";
 					<div class = "input-group">
 						<button class = "btn btn-primary btn-sm py-0" id = "shbu" type = "button">
 							<i class = "fas fa-search"></i></button>
-						<input type = "text" class = "form-control form-control-sm border-0 small" style = "padding: 0px;margin: 0px;margin-right: 0px;" placeholder = "جست و جو در نتایج..."/>
+						<input type = "text" class = "form-control form-control-sm border-0 small"  placeholder = "جست و جو در نتایج..."/>
 					</div>
 				</form>
 			</div>

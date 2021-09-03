@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'process/action.php';
 if (isset($_SESSION['message'])){
     echo $_SESSION['message'];
@@ -20,10 +20,12 @@ if (isset($_SESSION['message'])){
     <link rel="stylesheet" href="assets/css/Vazir.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/addres.css">
     <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/filter.css">
+    <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
@@ -34,6 +36,7 @@ if (isset($_SESSION['message'])){
     <!--  new add  -->
     <link rel="stylesheet" href="extracss.css">
     <script src="assets/js/jquery.min.js"></script>
+
 </head>
 
 <body id="page-top" >
@@ -49,29 +52,10 @@ if (isset($_SESSION['message'])){
                             <!-- Start: dropdown_bascet -->
                             <div class="nav-item dropdown no-arrow" id="cart_dropdown" ><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href=""></a>
                                 <div class="dropdown-menu dropdown-list animated--grow-in" id="cart_dropdown_menu">
-                                    <h6 class="dropdown-header" id="cart_dropdown_header">11 کالا</h6>
+                                    <h6 class="dropdown-header" id="cart_dropdown_header"> کالا</h6>
                                     <ul class="list-unstyled d-block" id="cart_dropdown_list">
                                         <!-- Start: items -->
-                                        <?php if (Get_cart_item()) {foreach (Get_cart_item()[0] as $itminfo) {echo '
-                                            <a style="margin: 0px 5px 0px!important;display: flex!important;">
-                                                <div id="bascet_dropdown_item_info">
-                                                    <form method="post" action="">
-                                                        <input type="hidden" value='.$itminfo[0].' name="rid" id="rid">
-                                                        <button name="removeItemFromCart" id="removeItemFromCart"  class="btn btn-primary float-start" type="submit"><i class="far fa-trash-alt" style="color: var(--bs-gray-dark);"></i></button>
-                                                    </form>
-                                                    
-                                                    <span id="CartItemName" >'.$itminfo[1].'</span>
-                                                    <div class="d-flex justify-content-end">
-                                                        <p style="margin-bottom: 0px;margin-right: 10px;">تومان</p>
-                                                        <p id="CartItemPrice" style="margin-bottom: 0px;">'.$itminfo[2].'</p>
-                                                    </div>
-                                                </div>
-                                                <div class="me-3" style="margin: 0px 5px 0px!important;">
-                                                    <div class="bg-primary icon-circle" id="druopdown_prod_img"><img src="product_images/'. $itminfo[3].'" > </div>
-                                                </div>
-                                            </a>
-                                            <hr/>
-                                            ' ; }} ?>
+
                                         <!-- End: items -->
                                     </ul>
                                     <a href="cart.php" class="dropdown-item text-center small text-gray-500">مشاهده سبد خرید</a>
@@ -88,7 +72,7 @@ if (isset($_SESSION['message'])){
                             <!-- End: not login -->
                             <!-- Start: log in -->
                             <div id="loginpart" style="display: none!important" class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="header_userfname">name</span><i class="fa fa-user-o" style="color: var(--bs-gray-dark);font-size: 22px;"></i></a>
-                                <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="text-align: right;direction: rtl;">
+                                <div  class="dropdown-menu shadow dropdown-menu-end animated--grow-in" >
                                     <a class="dropdown-item" href="profile.php"><i class="fas fa-user" id="profile_menu_ddn"></i>&nbsp;پروفایل کاربری</a>
                                     <a class="dropdown-item" id="profile_menu_ddn" href="#"><i class="fas fa-cogs" id="profile_menu_ddn"></i>&nbsp;ویرایش اطلاعات</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-donate" id="profile_menu_ddn"></i>تخفیف های من</a>
@@ -101,14 +85,14 @@ if (isset($_SESSION['message'])){
                         <!-- End: user nave -->
                         <!-- Start: drup down shearching -->
 	                    <li class="nav-item dropdown d-md-none d-lg-none d-xl-none d-xxl-none no-arrow"><a aria-expanded="false" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" href="#"><i class="fas fa-search" style="color: var(--bs-yellow);"></i></a>
-		                    <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown" style="left: 4%;min-width: 260px;">
+		                    <div  class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown" style="left: 4%;min-width: 260px;">
 			                    <form id="serching_keyword_form" class="navbar-search w-100">
-				                    <div class="input-group"><input id="sherching_keyword" type="text" class="bg-light form-control border-0 small" placeholder=" جست وجو در کالاها" style="box-shadow: none;" />
+				                    <div class="input-group"><input id="sherching_keyword_mo" type="text" class="bg-light form-control border-0 small" placeholder=" جست وجو در کالاها" style="box-shadow: none;" />
 					                    <div class="input-group-append"><button class="btn btn-primary" id="homeshbu" type="button"><i class="fas fa-search"></i></button></div>
 				                    </div>
-				                    <div class="serching_keyword">
-					                    <ul id="serching_keyword_list" class="list-unstyled serching_keyword_list">
-						                    <li class="d-flex serching_keyword_item"><a>Link</a><i class="fa fa-search order-first"></i></li>
+				                    <div class="serching_keyword_mo">
+					                    <ul id="serching_keyword_list_mo" class="list-unstyled serching_keyword_list">
+						                    <!--<li class="d-flex serching_keyword_item"><a>Link</a><i class="fa fa-search order-first"></i></li>-->
 					                    </ul>
 				                    </div>
 			                    </form>
@@ -125,12 +109,6 @@ if (isset($_SESSION['message'])){
 			                </ul>
 		                </div>
 	                </form>
-                    <!--<form method="post" action="filters.php" class="d-none d-sm-none d-md-inline ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input id="keyword" name="keyword" class="bg-light form-control border-0 small" type="text" placeholder=". . . جست وجو در کالاها" style="box-shadow: none;">
-                            <button class="btn btn-primary py-0" id="homeshbu" type="submit"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>-->
                     <!-- End: shearch_form -->
 
                     <!-- Start: logo -->

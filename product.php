@@ -55,7 +55,7 @@ if (mysqli_num_rows($result) > 0) {
                         <input name="qty" class="border rounded-pill border-primary form-control-sm" type="number" id="sel_qyt_num" step="1" min="1" placeholder="تعداد کالای مورد نظر" value="1">
                         <span class="d-xl-flex ms-auto justify-content-xl-end" style="font-weight: bold;">تعداد</span></div>
                     <!-- End: qyt -->
-                    <button name="addToCart" class="btn btn-primary shadow" id="add_to_cart_button" type="submit" style="margin-top: 30px;">افزودن به سبد خرید</button>
+                    <button  class="btn btn-primary shadow p_add_cartB"  type="submit" >افزودن به سبد خرید</button>
                 </div>
             </div>
             <!-- End: sel part -->
@@ -482,7 +482,7 @@ if (mysqli_num_rows($result) > 0) {
     <!-- End: extra product -->
 
     <!-- Start: add to cart but -->
-    <div class="d-flex d-print-none d-sm-flex d-md-flex d-lg-none d-xl-none d-xxl-none" id="add_to_cart_div"><button name="addToCart" class="btn btn-primary" id="add_to_cart_button" type="submit" style="width: 100%;border-radius: 10px;background: var(--bs-warning);border: none;">افزودن به سبد خرید</button></div>
+    <div class="d-flex d-print-none d-sm-flex d-md-flex d-lg-none d-xl-none d-xxl-none" id="add_to_cart_div"><button name="addToCart" class="btn btn-primary p_add_cartB" type="submit" >افزودن به سبد خرید</button></div>
     <!-- End: add to cart but -->
 </div>
 </form>

@@ -90,3 +90,7 @@ body a {
   cursor: pointer;
 }
 
+.p_add_cartB:hover, .p_add_cartB:select {
+  background: #f4ae00;
+}
+
