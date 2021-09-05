@@ -80,6 +80,7 @@ body a {
 }
 
 #pcmode {
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -92,5 +93,8 @@ body a {
 
 .p_add_cartB:hover, .p_add_cartB:select {
   background: #f4ae00;
+}
+
+#imagediv {
 }
 

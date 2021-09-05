@@ -34,8 +34,7 @@ function get_categories()
     return $categories_list;
 }
 
-function brandlist()
-{
+if (isset($_GET['brandlist'])) {
     global $con;
     $brandlist = array();
     $brand_query = "SELECT * FROM brands";
@@ -62,7 +61,14 @@ function brandlist()
             }
         }
     }
-    return $brandlist;
+    foreach ($brandlist as $bitem) {
+        echo '              <li>
+                                <i class="fas fa-chevron-left" style="font-size: 10px;"></i>
+                                <button name="brandid" id="brandid" style="direction: ltr" class="btn filter4bu"  type="button" value="' . $bitem[0] . '">
+                                    <span>' . $bitem[1] . '</span>
+                                </button>
+                            </li>';
+    }
 }
 
 if (isset($_POST["page"])) {
@@ -81,47 +87,39 @@ if (isset($_POST["page"])) {
 
 // add Filters
 if ("filters") {
-    if (isset($_POST['delfilter'])) {
+    if (isset($_GET['delfilter'])) {
         $_SESSION['filters'] = array();
-        header('filter.php');
     }
     if (isset($_GET["keyword"])) {
         $_SESSION['filters']['keyword'] = $_GET["keyword"];
     }
-    if (isset($_POST["keyword"])) {
-        if ($_POST["keyword"] == "delfilter") {
-            unset($_SESSION['filters']['keyword']);
-        }
-    }
     if (isset($_GET["categori"])) {
         $_SESSION['filters']['categori'] = $_GET["categori"];
     }
-    if (isset($_POST["categori"])) {
-        if ($_POST["categori"] == "delfilter") {
-            unset($_SESSION['filters']['categori']);
-        }
-    }
+
     if (isset($_POST["brandid"])) {
-        if ($_POST["brandid"] == "delfilter") {
-            unset($_SESSION['filters']['brandid']);
-        } else {
-            $_SESSION['filters']['brandid'] = $_POST["brandid"];
+        $_SESSION['filters']['brandid'] = $_POST["brandid"];
+    }
+
+    if (isset($_POST['filtersbu'])) {
+        $filter_name = $_POST['filter_name'];
+        unset($_SESSION['filters'][$filter_name]);
+    }
+
+}
+
+// update_filter_list
+if (isset($_POST['update_filter_list'])) {
+    if (isset($_SESSION['filters'])) {
+        foreach ($_SESSION['filters'] as $ky => $val) {
+            echo '<button value = "delfilter" name = "' . $ky . '" class = "btn border rounded-pill" id = "filtersbu" type = "button">' . $val . '<i class = "fas fa-times" style = "margin-right: 5px;"></i></button>';
         }
-    }
-    $kalayemojood = 0;
-    if (isset($_POST["kalamojood"])) {
-        $kalayemojood = 1;
-        $_SESSION['filters']['kalamojood'] = $_POST["kalamojood"];
-    }
-    if (empty($_POST["kalamojood"])) {
-        unset($_SESSION['filters']['kalamojood']);
-        $kalayemojood = 0;
     }
 }
 
+
 //Get product for filter page
-function get_products()
-{
+if (isset($_POST['get_products'])) {
     global $con;
     $sql = "SELECT * FROM products where product_id > 0  ";
 
@@ -157,8 +155,35 @@ function get_products()
         $pro_image = $row['product_image'];
         #$cat_name = $row["cat_title"];
         $filter_items[$n] = array($pro_id, $pro_title, $pro_price, $pro_image);
+
     }
-    return $filter_items;
+    foreach ($filter_items as $item) {
+        echo '<li id="pruduct' . $item[0] . '" class="list-inline-item d-sm-flex justify-content-sm-end filter_list_item">
+    <div class="d-flex d-md-grid" id="filter_items"><a class="d-flex d-md-grid" href="product.php?p=' . $item[0] . '">
+            <div class="order-last order-md-first" id="imagediv"><img src="product_images/' . $item[3] . '" /></div>
+            <div class="d-md-flex justify-content-md-center">
+                <div id="price">
+                    <div><span class="les_percent">15%</span><span class="les_price">Text</span></div>
+                    <div class="d-md-flex d-grid"><span>' . $item[2] . '</span><span>تومان</span></div>
+                </div>
+            </div>
+            <div class="d-md-flex justify-content-md-center order-md-first">
+                <div id="name"><strong style="word-wrap: break-word;">' . $item[1] . '</strong></div>
+            </div>
+        </a>
+        <button value="' . $item[0] . '" id="addtocartB" class="fas fa-cart-plus border rounded-pill d-none d-sm-flex justify-content-sm-center align-items-sm-center order-sm-first order-md-last f_add_cartB"></button>
+        </div>
+</li>';
+    }
+}
+
+// max and min price
+if (isset($_GET['minmaxprice'])) {
+    global $con;
+    $query = 'SELECT max(product_price) as max,min(product_price) as min from products';
+    $run_query = mysqli_query($con, $query);
+    $row = mysqli_fetch_array($run_query);
+    echo json_encode(array($row['min'], $row['max']));
 }
 
 //Count User cart item
@@ -261,7 +286,7 @@ if (isset($_POST['Get_cart_item'])) {
                                             <hr/>
                                             ';
         }
-    }else{
+    } else {
         echo '<i class="d-flex justify-content-center">سبد خرید شما خالی میباشد</i><i class="d-flex justify-content-center fa fa-shopping-basket"></i>';
     }
 

@@ -102,8 +102,8 @@ try {
     date_default_timezone_set("Asia/Tehran");
 
     // your sms.ir panel configuration
-    $APIKey = "farhadF72pass";
-    $SecretKey = "86b6a532df5e4f00aed0a532";
+    $APIKey = "395aa5fdb328e68e276eaac0";
+    $SecretKey = "f@rh@dF72p@ss";
     $APIURL = "https://ws.sms.ir/";
 
     $SmsIR_GetToken = new SmsIR_GetToken($APIKey, $SecretKey, $APIURL);

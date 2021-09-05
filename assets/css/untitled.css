@@ -469,3 +469,19 @@ a {
   overflow: hidden;
 }
 
+.les_percent {
+  background: #ef394e;
+  color: var(--bs-white);
+  font-weight: bold;
+  padding: 3px;
+  border-radius: 100%;
+  font-size: 12px;
+}
+
+.les_price {
+  text-decoration: line-through;
+  margin-left: 15px;
+  font-size: 14px;
+  color: #858796;
+}
+

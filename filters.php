@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+
 ?>
 
 <div class = "container-fluid" style = "margin-top: 30px;">
@@ -11,9 +12,10 @@ include "header.php";
 			<i onclick = "diplay_state('phone_smart_fil')" class = "fa fa-close me-auto" style = "cursor: pointer;"></i><span class = "ms-auto" style = "font-weight: bold;">فیلتر ها</span>
 		</div>
 		<!---->
-		<div class="border rounded" id="filters">
-			<ul class="list-inline" id="mobile-filter-list">
-				<li class="list-inline-item border rounded" id="mobile-filter-list-item"><small>Text</small><i class="icon ion-android-close"></i></li>
+		<div class = "border rounded" id = "filters">
+			<ul class = "list-inline" id = "mobile-filter-list">
+				<li class = "list-inline-item border rounded" id = "mobile-filter-list-item">
+					<small>Text</small><i class = "icon ion-android-close"></i></li>
 			</ul>
 		</div>
 		<!---->
@@ -52,18 +54,18 @@ include "header.php";
 			<div id = "pfilter2body" style = "display: none;">
 				<div>
 					<div class = "d-flex" id = "slider-range">
-						<section class="range-slider">
-							<span class="rangeValues"></span>
-							<input value="5" min="0" max="15" step="0.5" type="range">
-							<input value="10" min="0" max="15" step="0.5" type="range">
+						<section class = "range-slider">
+							<span class = "rangeValues"></span>
+							<input value = "5" min = "0" max = "15" step = "0.5" type = "range">
+							<input value = "10" min = "0" max = "15" step = "0.5" type = "range">
 						</section>
 					</div>
 					<div class = "d-flex">
 						<div class = "text-center d-grid" style = "width: 50%;padding: 5px;">
-							<span>از</span><span id="amount1m"  style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
+							<span>از</span><span id = "amount1m" style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
 						</div>
 						<div class = "text-center d-grid" style = "width: 50%;padding: 5px;">
-							<span>تا</span><span id="amount2m" style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
+							<span>تا</span><span id = "amount2m" style = "background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span>
 						</div>
 					</div>
 					<div class = "d-sm-flex d-md-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center" style = "margin-bottom: 6px;">
@@ -116,87 +118,13 @@ include "header.php";
 				</div>
 				<!-- End: top filter -->
 
-				<div>
-					<!-- Start: pc mod -->
-					<ul class = "list-inline d-none d-print-inline d-lg-inline d-xl-inline d-xxl-inline" id = "pcmode">
-                        <?php foreach (get_products() as $item) {
-                            echo '
-                        <li id="pruduct' . $item[0] . '" class="list-inline-item" style="margin: 0px;text-align: center;cursor: pointer;">
-                          
-                             <div id="filter_items">
-                                <a href="product.php?p=' . $item[0] . '" id="producthref">
-                                <!-- Start: image -->
-                                <div class="d-block d-lg-flex d-xl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" id="imagediv">
-                                    <img src="product_images/' . $item[3] . '"></div>
-                                <!-- End: image -->
-                                
-                                <!-- Start: name -->
-                                <div class="d-lg-flex justify-content-lg-end" id="name"><span>' . $item[1] . '</span></div>
-                                <!-- End: name -->
-                                
-                                <!-- Start: price -->
-                                <div id="price">
-                                    <div style="padding-left: 10px;text-align: left;"><span style="background: #ef394e;color: var(--bs-white);font-weight: bold;padding: 4px;border-radius: 10px;font-size: 12px;">15%</span><span style="text-decoration: line-through;margin-left: 15px;font-size: 20px;color: #858796;">Text</span></div>
-                                    <!-- Start: price -->
-                                    <div>
-                                        <!-- Start: price val -->
-                                        <span style="margin-left: 11px;font-weight: bold;">' . $item[2] . '</span>
-                                        <!-- End: price val -->
-                                        <span>تومان</span>
-                                    </div>
-                                    <!-- End: price -->
-                                </div>
-                                <!-- End: price -->
-                                </a>
-                                <form>
-	                                <input type="hidden" name="proId" value="' . $item[0] . '">
-	                                <button value="' . $item[0] . '" id="addtocartB"  class="fas fa-cart-plus border rounded-pill d-lg-flex mx-auto justify-content-lg-center align-items-lg-center f_add_cartB"  name="addToCart" type="button"></button>
-                                </form>
-                            </div>
-                        </li>
-                        ';
-                        } ?>
-					</ul>
-					<!-- End: pc mod -->
+				<!-- Start: pc mod -->
+				<ul class="list-inline d-flex justify-content-end" id="pcmode">
+					<!--<button value="' . $item[0] . '" id="addtocartB"  class="fas fa-cart-plus border rounded-pill d-lg-flex mx-auto justify-content-lg-center align-items-lg-center f_add_cartB"  name="addToCart" type="button"></button>-->
+				</ul>
+				<!-- End: pc mod -->
 
-					<!-- Start: phone mode -->
-					<ul class = "list-inline d-lg-none d-xl-none d-xxl-none justify-content-md-end" id = "phonemode" style = "margin-top: 10px;">
-                        <?php foreach (get_products() as $item) {
-                            echo '
-                        <li id="mpruduct' . $item[0] . '"  class="list-inline-item" style="display: flex;width: 100%;">
-                            <div id="filter_items">
-                             <a href="product.php?p=' . $item[0] . '" id="producthref" >
-                                <!-- Start: image -->
-                                <div class="d-flex d-md-flex d-xl-flex align-items-center align-items-md-center justify-content-xl-center align-items-xl-center" id="imagediv" style="margin-right: 10px;margin-left: 20px;">
-                                 <img src="product_images/' . $item[3] . '"></div>
-                                <!-- End: image -->
-                                
-                                <div class="d-grid" style="width: 100%;padding: 10px;">
-                                    <!-- Start: name -->
-                                    <div class="d-lg-flex align-items-lg-center" id="name"><span>' . $item[1] . '</span></div>
-                                    <!-- End: name -->
-                                    
-                                    <div class="text-center" style="padding-left: 10px;"><span style="background: #ef394e;color: var(--bs-white);font-weight: bold;padding: 4px;border-radius: 10px;font-size: 12px;">15%</span><span style="text-decoration: line-through;margin-left: 15px;font-size: 20px;">Text</span></div>
-                                    <!-- Start: price -->
-                                    <div class="text-end d-lg-flex align-items-lg-center" id="price">
-                                        <span style="margin-left: 11px;font-weight: bold;">' . $item[2] . '</span>
-                                        <span>تومان</span>
-                                    </div>
-                                    <!-- End: price -->
-                             </a>
-                                    <form method="post" action="#mpruduct' . $item[0] . '"  >
-                                        <input type="hidden" name="proId" value="' . $item[0] . '">
-                                        <button value="' . $item[0] . '" id="addtocartB" class="fas fa-cart-plus border rounded-pill d-flex d-sm-flex d-md-flex d-lg-flex justify-content-center align-items-center mx-auto justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center f_add_cartB"  name="addToCart" type="submit">
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
-                         ';
-                        } ?>
-					</ul>
-					<!-- End: phone mode -->
-				</div>
+
 			</div>
 			<!-- Start: page num -->
 			<div class = "text-center d-lg-flex justify-content-lg-center" style = "height: 30px;margin: 10px;">
@@ -213,18 +141,16 @@ include "header.php";
 		<!-- Start: filters -->
 		<div class = "col-auto d-none d-lg-grid d-xl-grid d-xxl-grid mb-auto">
 			<!-- Start: in line filtrs -->
-			<form action = "filters.php" method = "post">
+			<form>
 				<div class = "border rounded shadow-sm" id = "inlinefilter">
 					<div id = "topdiv">
 						<p style = "margin: 0px;font-size: 12px;font-weight: bold;color: var(--bs-gray-dark);">فیلتر های اعمال شده :</p>
-						<button name = "delfilter" style = "background: none;border: none;" class = "me-auto" id = "delfilter">حذف</button>
+						<span class = "me-auto" id = "delfilter"  >حذف</span>
 					</div>
-					<div style = "padding: 5px;">
+					<div id="update_filter_list" style = "padding: 5px;">
 						<!-- Start: filter bu -->
-                        <?php /*foreach ($_SESSION['filters'] as $ky => $val) {echo '';} */?>
-                    <button value="delfilter" name="' . $ky . '"  class="btn btn-primary border rounded-pill" id="filtersbu" type="submit">' . $val . '<i class="fas fa-times" style="margin-right: 5px;"></i></button>
-						<!-- End: filter bu -->
 
+						<!-- End: filter bu -->
 					</div>
 				</div>
 			</form>
@@ -234,9 +160,7 @@ include "header.php";
 			<form action = "" method = "post">
 				<div class = "border rounded-pill shadow-sm d-sm-flex d-md-flex d-lg-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id = "kalaye_mojood">
 					<div class = "form-check form-switch">
-						<input onclick = "this.form.submit()" name = "kalamojood" <?php if ($kalayemojood) {
-                            echo 'checked';
-                        } ?> class = "form-check-input" type = "checkbox" id = "formCheck"><label class = "form-check-label" for = "formCheck">فقط کالای موجود<br></label>
+						<input onclick = "this.form.submit()" name = "kalamojood" class = "form-check-input" type = "checkbox" id = "formCheck"><label class = "form-check-label" for = "formCheck">فقط کالای موجود<br></label>
 					</div>
 				</div>
 			</form>
@@ -284,11 +208,11 @@ include "header.php";
 				</div>
 
 				<div id = "filter3body" style = "display: none;padding-left: 5px;padding-right: 5px">
-					<div  id = "slider-range">
-						<section class="range-slider">
-							<span class="rangeValues"></span>
-							<input value="5" min="0" max="15" step="0.5" type="range">
-							<input value="10" min="0" max="15" step="0.5" type="range">
+					<div id = "slider-range">
+						<section class = "range-slider">
+							<span class = "rangeValues"></span>
+							<input id = "pricerange_min" value = "" step = "1" type = "range">
+							<input id = "pricerange_max" value = "" step = "1" type = "range">
 						</section>
 					</div>
 					<div class = "d-flex">
@@ -309,20 +233,11 @@ include "header.php";
 			<!-- Start: filter4 -->
 			<div class = "border rounded shadow-sm" id = "filter4">
 				<div class = "d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" style = "border-bottom: 1px solid rgba(133,135,150,0.24);padding: 5px;">
-					<span><strong>دسته‌بندی نتایج</strong><br/></span></div>
+					<span><strong>برند ها</strong><br/></span></div>
 				<div>
-					<form action = "" method = "post">
-						<ul class = "list-unstyled">
-                            <?php foreach (brandlist() as $bitem) {
-                                echo '
-                            <li>
-                                <i class="fas fa-chevron-left" style="font-size: 10px;"></i>
-                                <button name="brandid" onclick="this.form.submit()" style="direction: ltr" class="btn btn-primary" id="filter4bu" type="submit" value="' . $bitem[0] . '">
-                                    <span>' . $bitem[1] . '</span>
-                                </button>
-                            </li>
-                            ';
-                            } ?>
+					<form>
+						<ul id="brand_list" class = "list-unstyled">
+
 						</ul>
 					</form>
 				</div>
@@ -335,7 +250,7 @@ include "header.php";
 					<div class = "input-group">
 						<button class = "btn btn-primary btn-sm py-0" id = "shbu" type = "button">
 							<i class = "fas fa-search"></i></button>
-						<input type = "text" class = "form-control form-control-sm border-0 small"  placeholder = "جست و جو در نتایج..."/>
+						<input type = "text" class = "form-control form-control-sm border-0 small" placeholder = "جست و جو در نتایج..."/>
 					</div>
 				</form>
 			</div>
