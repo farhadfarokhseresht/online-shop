@@ -125,3 +125,8 @@ section.range-slider input::-webkit-slider-thumb {
     z-index: 1;
     outline: 0;
 }
+
+.star1:focus {
+    color: #0fabc6;
+    width: fit-content;
+}

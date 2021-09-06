@@ -108,7 +108,7 @@ try {
 
     $SmsIR_GetToken = new SmsIR_GetToken($APIKey, $SecretKey, $APIURL);
     $GetToken = $SmsIR_GetToken->getToken();
-    var_dump($GetToken);
+    #var_dump($GetToken);
 
 } catch (Exeption $e) {
     echo 'Error GetToken : ' . $e->getMessage();

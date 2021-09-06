@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>ورود</title>
+	<link rel = "stylesheet" href = "assets/bootstrap/css/bootstrap.min.css">
+	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel = "stylesheet" href = "assets/css/Vazir.css">
+	<link rel = "stylesheet" href = "assets/fonts/fontawesome-all.min.css">
+	<link rel = "stylesheet" href = "assets/css/register.css">
+	<link rel = "stylesheet" href = "assets/css/untitled.css">
+</head>
+
+<body class = "bg-gradient-primary" style = "background: var(--bs-white);">
+<div class = "container" style = "font-family: Vazir;">
+	<div class = "card shadow-lg o-hidden border-0 my-5">
+		<div class = "card-body p-0">
+			<div class = "row justify-content-center">
+				<div class = "col-lg-7">
+					<div class = "p-5">
+						<div class = "text-center" style = "height: 100%;margin-bottom: 20px;">
+							<img id = "shop_logo" src = "assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div>
+						<div class = "text-center">
+							<h4 class = "text-dark mb-4" style = "font-family: Vazir;text-align: right;font-weight: normal;">
+								<strong>ورود / ثبت‌ نام</strong><br></h4>
+							<p style = "text-align: right;font-family: Vazir;">شماره موبایل خود را وارد کنید<br></p>
+						</div>
+						<!-- Start: form -->
+						<form class = "user" id="registerform" >
+							<div class = "mb-3" style="text-align: right">
+								<input id="re_phone_number" name="re_phone_number" class = "form-control form-control-user bignumstyle" type = "text"  required  pattern = "[0]+[0-9]{10}">
+								<span class="text-danger" id="_error"></span>
+							</div>
+							<button class = "btn  d-block w-100 loginbut" id = "loginbut" type = "button" style = "font-family: Vazir;">ورود</button>
+							<hr>
+						</form>
+						<!-- End: form -->
+						<div class = "text-center">
+							<a class = "small" href = "#">پسورد خود را فراموش کرده اید ؟</a><i class = "fas fa-user-lock" style = "margin-left: 5px;color: var(--bs-gray);"></i>
+						</div>
+						<div class = "text-center">
+							<a class = "small" href = "login_form.php">. اگر اکانت&nbsp; دارید وارد شوید&nbsp;</a><i class = "fas fa-user-check" style = "color: var(--bs-gray);margin-left: 5px;"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src = "assets/bootstrap/js/bootstrap.min.js"></script>
+<script src = "assets/js/jquery.min.js"></script>
+<script src = "assets/js/logo.js"></script>
+<script src = "assets/js/theme.js"></script>
+<script src = "register.js"></script>
+</body>
+
+</html>

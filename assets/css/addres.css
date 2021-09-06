@@ -62,15 +62,6 @@ body a {
   font-size: 18px;
 }
 
-.inputtextstyle {
-  letter-spacing: 10px;
-  text-align: center;
-  color: var(--bs-dark);
-  font-weight: bold;
-  font-size: 20px!important;
-  line-height: 21px;
-}
-
 .addressform {
   background: var(--bs-white);
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>تایید ورود</title>
+	<link rel = "stylesheet" href = "assets/bootstrap/css/bootstrap.min.css">
+	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel = "stylesheet" href = "assets/css/Vazir.css">
+	<link rel = "stylesheet" href = "assets/fonts/fontawesome-all.min.css">
+	<link rel = "stylesheet" href = "assets/css/register.css">
+	<link rel = "stylesheet" href = "assets/css/untitled.css">
+</head>
+
+<body class = "bg-gradient-primary" style = "background: var(--bs-white);">
+<div class = "container" style = "font-family: Vazir;">
+	<div class = "card shadow-lg o-hidden border-0 my-5">
+		<div class = "card-body p-0">
+			<div class = "row justify-content-center">
+				<div class = "col-lg-7">
+					<div class = "p-5">
+						<div class = "text-end d-flex align-items-center justify-content-lg-center align-items-lg-center" style = "margin-top: 0px;margin-bottom: 15px;">
+							<a class = "d-flex align-items-center" href = "register.html" style = "text-decoration: none;"><i class = "fas fa-chevron-left" style = "font-size: 30px;color: var(--bs-gray);padding-right: 5px;"></i>بازگشت</a><img class = "mx-auto" id = "shop_logo" src = "assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png">
+						</div>
+						<div class = "text-center ptxtdir">
+							<h4 class = "text-dark mb-4" style = "font-family: Vazir;text-align: right;font-weight: normal;">
+								<strong>کد پیامک شده را&nbsp; وارد کنید</strong></h4>
+						</div>
+						<div class = "ptxtdir">
+							<p class = "d-sm-flex align-items-sm-center">
+								<span>کد تایید برای شماره موبایل<br></span><span style = "margin-right: 3px;margin-left: 3px;color: #3e5cb2" id = "userphonenum">&nbsp;<br></span><span>ارسال گردید<br></span>
+							</p>
+						</div>
+						<!-- Start: form -->
+						<form class = "user">
+							<div class = "mb-3" style="text-align: right">
+								<input id = "usercod" class = "form-control form-control-user bignumstyle" type = "text" inputmode = "numeric" required pattern = "[0-9]{8}">
+								<span class="text-danger" id="_error"></span>
+							</div>
+							<button class = "btn d-block w-100 loginbut" id = "sendcod" type = "button" style = "font-family: Vazir;">ادامه</button>
+							<hr>
+							<!-- Start: send again -->
+							<div class = "ptxtdir">
+								<span  id = "sendcodagin" style = "color: #767272;cursor: pointer">ارسال مجدد کد تا&nbsp;</span><span id = "time" style = "color: var(--bs-indigo);font-weight: bold;"></span><span>&nbsp;ثانیه دیگر . . .</span>
+							</div>
+							<!-- End: send again -->
+						</form>
+						<!-- End: form -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src = "assets/bootstrap/js/bootstrap.min.js"></script>
+<script src = "assets/js/jquery.min.js"></script>
+<script src = "assets/js/logo.js"></script>
+<script src = "assets/js/theme.js"></script>
+<script src = "register.js"></script>
+</body>
+
+</html>
