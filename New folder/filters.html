@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/css/Vazir.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/addres.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/filter.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/product.css">
+    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body id="page-top" style="font-family: Vazir!important;">
+    <div id="wrapper" style="height: 100%;width: 100%;">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <!-- Start: nav1 header -->
+                <nav class="navbar navbar-light navbar-expand bg-white d-flex justify-content-center align-items-center mb-4 topbar static-top">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav">
+                            <!-- Start: bascet cart -->
+                            <li class="nav-item d-flex dropdown no-arrow mx-1"><a class="nav-link" href="#"><span class="badge bg-warning badge-counter" id="cart_badge_item_num">3+</span><i class="fas fa-shopping-cart fa-fw"></i></a><!-- Start: dropdown_bascet -->
+                                <div class="nav-item dropdown no-arrow" id="cart_dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="cart.html"></a>
+                                    <div class="dropdown-menu dropdown-list animated--grow-in" id="cart_dropdown_menu">
+                                        <h6 class="dropdown-header" id="cart_dropdown_header">11 کالا</h6>
+                                        <ul class="list-unstyled d-block" id="cart_dropdown_list">
+                                            <!-- Start: items -->
+                                            <li id="cart_dropdown_list_item"><a style="margin: 0px 5px 0px!important;display: flex!important;">
+                                                    <div id="bascet_dropdown_item_info">
+                                                        <form><button class="btn btn-primary float-start" type="button"><i class="far fa-trash-alt" style="color: var(--bs-gray-dark);"></i></button></form><span id="CartItemName">December 12, 2019</span>
+                                                        <div class="d-flex justify-content-end">
+                                                            <p style="margin-bottom: 0px;margin-right: 10px;">تومان</p>
+                                                            <p id="CartItemPrice" style="margin-bottom: 0px;">14000</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="me-3" style="margin: 0px 5px 0px!important;">
+                                                        <div class="bg-primary icon-circle" id="druopdown_prod_img"><img src="assets/img/product%20image/image1.jpeg"></div>
+                                                    </div>
+                                                </a></li><!-- End: items -->
+                                        </ul><a class="dropdown-item text-center small text-gray-500">مشاهده سبد خرید</a>
+                                    </div>
+                                </div><!-- End: dropdown_bascet -->
+                            </li><!-- End: bascet cart -->
+                            <div class="d-none d-sm-block topbar-divider"></div><!-- Start: user nave -->
+                            <li class="nav-item d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-center align-items-center justify-content-md-center align-items-md-center dropdown no-arrow">
+                                <!-- Start: not login -->
+                                <div class="text-nowrap d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center" id="notloginpart" style="display: none!important;"><a class="d-inline-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" href="#"><span class="d-none d-print-inline d-sm-inline d-md-inline d-lg-inline d-xl-inline d-xxl-inline">ثبت نام /&nbsp;<br></span><span>ورود</span><i class="far fa-edit d-flex align-items-center" style="margin-left: 10px;"></i></a></div><!-- End: not login -->
+                                <!-- Start: log in -->
+                                <div class="nav-item dropdown no-arrow" id="loginpart"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="profile.html"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="header_username">name</span><i class="fa fa-user-o" style="color: var(--bs-gray-dark);font-size: 22px;"></i></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in" style="text-align: right;direction: rtl;"><a class="dropdown-item" href="profile.html"><i class="fas fa-user" id="profile_menu_ddn"></i>&nbsp;پروفایل کاربری</a><a class="dropdown-item" id="profile_menu_ddn" href="#"><i class="fas fa-cogs" id="profile_menu_ddn"></i>&nbsp;ویرایش اطلاعات</a><a class="dropdown-item" href="#"><i class="fas fa-donate" id="profile_menu_ddn"></i>تخفیف های من</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt" id="profile_menu_ddn"></i>&nbsp;خروج از حساب</a>
+                                    </div>
+                                </div><!-- End: log in -->
+                            </li><!-- End: user nave -->
+                            <!-- Start: drup down shearching -->
+                            <li class="nav-item dropdown d-md-none d-lg-none d-xl-none d-xxl-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search" style="color: var(--bs-yellow);"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown" style="left: 4%;min-width: 260px;">
+                                    <form id="serching_keyword_form" class="navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder=" جست وجو در کالاها" style="box-shadow: none;">
+                                            <div class="input-group-append"><button class="btn btn-primary" id="homeshbu" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div><!-- Start: extera sherch -->
+                                        <div class="serching_keyword">
+                                            <ul class="list-unstyled serching_keyword_list">
+                                                <li class="d-flex serching_keyword_item"><a>Link</a><i class="fa fa-search order-first"></i></li>
+                                            </ul>
+                                        </div><!-- End: extera sherch -->
+                                    </form>
+                                </div>
+                            </li><!-- End: drup down shearching -->
+                        </ul><!-- Start: shearch_form -->
+                        <form class="d-none d-sm-none d-md-inline ms-md-3 my-2 my-md-0 mw-100 navbar-search" id="serching_keyword_form">
+                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="جست وجو در کالاها"><button class="btn btn-primary" id="homeshbu" style="margin: 0px;"><i class="fas fa-search"></i></button></div><!-- Start: extera sherch -->
+                            <div class="serching_keyword">
+                                <ul class="list-unstyled serching_keyword_list">
+                                    <li class="d-md-flex align-items-md-center serching_keyword_item">Item 1<i class="fa fa-search order-first"></i></li>
+                                </ul>
+                            </div><!-- End: extera sherch -->
+                        </form><!-- End: shearch_form -->
+                        <!-- Start: logo -->
+                        <div><img id="shop_logo" src="assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div><!-- End: logo -->
+                        <!-- Start: catgory mobile mood -->
+                        <header class="text-end d-md-flex d-lg-none d-xl-none d-xxl-none justify-content-md-end" style="position: relative;z-index: 200;"><button onclick = 'mobile_menu_button()' class="btn btn-primary" id="mobile_menu_button" type="button"><i class="fa fa-navicon" style="padding: 10px;color: #f4ae00;"></i></button><button  onclick = 'mobile_menu_button2()' class="btn btn-primary" id="mobile_menu_button2" type="button" style="overflow: auto;position: fixed;background: rgba(0,0,0,0.24);top: 0;width: 100%;height: 100%;bottom: 0;z-index: 200;left: 0;display: none;box-shadow: none;border: none;"></button>
+                            <div id="mobile_mod_catgori_menu">
+                                <div class="shadow-lg" id="mmcmenu">
+                                    <!-- Start: logo -->
+                                    <div class="d-md-flex justify-content-md-center"><img id="shop_logo" src="assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div><!-- End: logo -->
+                                    <hr><!-- Start: mobile mod catgory list 1 -->
+                                    <ul class="list-unstyled text-end">
+                                        <!-- Start: dasteha -->
+                                        <li class="dastehali">
+                                            <div class="d-flex justify-content-md-end align-items-md-center" id="dasteha"><i class="fas fa-angle-down me-auto" style="margin-left: 10px;"></i>
+                                                <p style="margin: 0px;">دسته ها</p><i class="fas fa-sitemap" style="margin-left: 10px;color: var(--bs-dark);"></i>
+                                            </div>
+                                            <div id="dastehalist">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <div style="padding: 5px;"><span>Text</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
+                                                    </li>
+                                                    <li>
+                                                        <div style="padding: 5px;"><span>Text</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
+                                                    </li>
+                                                    <li>
+                                                        <div style="padding: 5px;"><span>Text</span><i class="fa fa-caret-left" style="margin-left: 5px;"></i></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li><!-- End: dasteha -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center">
+                                                <p style="margin: 0px;">لیست کالای ذخیره</p><i class="fa fa-bookmark-o" style="margin-left: 10px;color: var(--bs-green);"></i>
+                                            </div>
+                                        </li><!-- End: list items -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center">
+                                                <p style="margin: 0px;">تخفیفات</p><i class="fa fa-percent" style="margin-left: 10px;color: var(--bs-red);"></i>
+                                            </div>
+                                        </li><!-- End: list items -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center">
+                                                <p style="margin: 0px;">پیشنهادات من</p><i class="fa fa-archive" style="margin-left: 10px;color: #633a11;"></i>
+                                            </div>
+                                        </li><!-- End: list items -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center"><a href="product.html">صفحه محصول</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        </li><!-- End: list items -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center"><a href="cart.html">صفحه سبدکالا</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        </li><!-- End: list items -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center"><a href="filters.html">صفحه جستو جوی کالا</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        </li><!-- End: list items -->
+                                        <!-- Start: list items -->
+                                        <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
+                                            <div class="d-flex justify-content-md-end align-items-md-center"><a href="profile.html">صفحه پروفایل کاربری</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        </li><!-- End: list items -->
+                                    </ul><!-- End: mobile mod catgory list 1 -->
+                                    <hr>
+                                </div>
+                            </div>
+                        </header><!-- End: catgory mobile mood -->
+                    </div>
+                </nav><!-- End: nav1 header -->
+                <div class="container-fluid" style="margin-top: 30px;">
+                    <!-- Start: phone filter -->
+                    <div id="phone_smart_fil">
+                        <div class="phonefiltertop"><i class="fa fa-close me-auto" style="cursor: pointer;"></i><span class="ms-auto" style="font-weight: bold;">فیلتر ها</span></div><!-- Start: filters list -->
+                        <div class="border rounded" id="filters">
+                            <ul class="list-inline" id="mobile-filter-list">
+                                <li class="list-inline-item border rounded" id="mobile-filter-list-item"><small>Text</small><i class="icon ion-android-close"></i></li>
+                            </ul>
+                        </div><!-- End: filters list -->
+                        <!-- Start: kalaye mojood -->
+                        <div class="border rounded d-flex d-sm-flex d-md-flex d-lg-flex align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id="kalayemojood"><span style="font-size: 12px;padding: 10px;color: var(--bs-danger);cursor: pointer;">پاک کردن همه</span>
+                            <div class="form-check form-switch me-auto" style="margin-left: 15px;"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-1">فقط کالای موجود<br></label></div>
+                        </div><!-- End: kalaye mojood -->
+                        <!-- Start: filter1 -->
+                        <div class="border rounded" id="pfilter1">
+                            <div class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center pcfilterhader"><span>شبکه های ارتباطی</span><i class="fas fa-chevron-down me-auto" style="margin-right: 10px;"></i></div>
+                            <div id="pfilter1body" style="display: none;">
+                                <ul class="list-unstyled" style="margin-top: 10px;">
+                                    <li class="d-md-flex align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>4G</span></li>
+                                    <li class="d-md-flex align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>4G</span></li>
+                                    <li class="d-md-flex align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>4G</span></li>
+                                </ul>
+                            </div>
+                        </div><!-- End: filter1 -->
+                        <!-- Start: ghymat -->
+                        <div class="border rounded" id="pfilter2">
+                            <div class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" style="border-bottom: 1px solid rgba(133,135,150,0.24);padding: 5px;"><span>محدوده قیمت</span><i class="fas fa-chevron-down me-auto" style="margin-right: 10px;"></i></div>
+                            <div style="display: none;">
+                                <div>
+                                    <!-- Start: rangebar -->
+                                    <div class="d-flex" id="slider-range"></div><!-- End: rangebar -->
+                                    <div class="d-flex">
+                                        <!-- Start: as -->
+                                        <div class="text-center d-grid" style="width: 50%;padding: 5px;"><span>از</span><span id="amount-1" style="background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span></div><!-- End: as -->
+                                        <!-- Start: ta -->
+                                        <div class="text-center d-grid" style="width: 50%;padding: 5px;"><span>تا</span><span style="background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span></div><!-- End: ta -->
+                                    </div>
+                                    <div class="d-sm-flex d-md-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center" style="margin-bottom: 6px;"><button class="btn btn-primary border rounded-pill" type="button" style="background: rgba(246,194,62,0.15);box-shadow: none;border: none;color: var(--bs-red);">اعمال محدودیت قیمت</button></div>
+                                </div>
+                            </div>
+                        </div><!-- End: ghymat -->
+                    </div><!-- End: phone filter -->
+                    <div class="row" style="margin: 0px;margin-bottom: 10%;">
+                        <!-- Start: menu -->
+                        <div class="col">
+                            <nav class="navbar navbar-light navbar-expand-md" style="padding: 0px;">
+                                <div class="container-fluid">
+                                    <ul class="list-inline d-sm-flex ms-auto justify-content-sm-center align-items-sm-center" style="margin-bottom: 0px;">
+                                        <li class="list-inline-item d-sm-flex justify-content-sm-center align-items-sm-center" id="page_loc_list_item">
+                                            <div class="d-sm-flex justify-content-sm-center align-items-sm-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin-left: 5px;">
+                                                    <path d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z" fill="currentColor"></path>
+                                                </svg><span>Text</span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav><!-- Start: جست و جوی پیشرفته -->
+                            <div class="text-end d-lg-none d-xl-none d-xxl-none">
+                                <div class="border rounded shadow-sm d-inline-flex align-items-center" id="phonefilterbutn"><span>جست و جوی پیشرفته</span><i class="fa fa-list-alt" style="margin-right: 5px;margin-left: 5px;"></i></div>
+                            </div><!-- End: جست و جوی پیشرفته -->
+                            <div id="productshow">
+                                <!-- Start: top filter -->
+                                <div class="sortby">
+                                    <div class="d-flex"><i class="fas fa-filter d-flex align-items-center"></i><span class="d-flex align-items-center">مرتب سازی بر اساس :&nbsp;</span></div><!-- Start: top filter list -->
+                                    <ul class="list-inline sortbylist">
+                                        <li class="list-inline-item sortbyitem" id="sortbyactive">پربازدیدترین</li>
+                                        <li class="list-inline-item sortbyitem">ارزان ترین</li>
+                                        <li class="list-inline-item sortbyitem">ارزان ترین</li>
+                                    </ul><!-- End: top filter list -->
+                                </div><!-- End: top filter -->
+                                <div>
+                                    <!-- Start: pc mod -->
+                                    <ul class="list-inline d-flex justify-content-end" id="pcmode">
+                                        <li class="list-inline-item d-sm-flex justify-content-sm-end filter_list_item">
+                                            <div class="d-flex d-md-grid" id="filter_items"><a class="d-flex d-md-grid" href="404.html">
+                                                    <div class="order-last order-md-first" id="imagediv"><img src="assets/img/product%20image/image2.jpeg"></div>
+                                                    <div class="d-md-flex justify-content-md-center">
+                                                        <!-- Start: price -->
+                                                        <div id="price">
+                                                            <div><span class="les_percent">15%</span><span class="les_price">Text</span></div><!-- Start: price -->
+                                                            <div class="d-grid d-md-flex">
+                                                                <!-- Start: price val --><span>140000</span><!-- End: price val --><span>تومان</span>
+                                                            </div><!-- End: price -->
+                                                        </div><!-- End: price -->
+                                                    </div>
+                                                    <div class="d-md-flex justify-content-md-center order-md-first">
+                                                        <!-- Start: name -->
+                                                        <div id="name"><strong style="word-wrap: break-word;">xxxxxxxxxx</strong></div><!-- End: name -->
+                                                    </div>
+                                                </a><i class="fas fa-cart-plus border rounded-pill d-none d-sm-flex justify-content-sm-center align-items-sm-center order-sm-first order-md-last f_add_cartB"></i></div>
+                                        </li>
+                                        <li class="list-inline-item d-sm-flex justify-content-sm-end filter_list_item">
+                                            <div class="d-flex d-md-grid" id="filter_items"><a class="d-flex d-md-grid" href="404.html">
+                                                    <div class="order-last order-md-first" id="imagediv"><img src="assets/img/product%20image/image3.jpeg"></div>
+                                                    <div class="d-md-flex justify-content-md-center">
+                                                        <!-- Start: price -->
+                                                        <div id="price">
+                                                            <div><span class="les_percent">15%</span><span class="les_price">Text</span></div><!-- Start: price -->
+                                                            <div class="d-grid d-md-flex">
+                                                                <!-- Start: price val --><span>140000</span><!-- End: price val --><span>تومان</span>
+                                                            </div><!-- End: price -->
+                                                        </div><!-- End: price -->
+                                                    </div>
+                                                    <div class="d-md-flex justify-content-md-center order-md-first">
+                                                        <!-- Start: name -->
+                                                        <div id="name"><strong style="word-wrap: break-word;">xxx</strong></div><!-- End: name -->
+                                                    </div>
+                                                </a><i class="fas fa-cart-plus border rounded-pill d-none d-sm-flex justify-content-sm-center align-items-sm-center order-sm-first order-md-last f_add_cartB"></i></div>
+                                        </li>
+                                        <li class="list-inline-item d-sm-flex justify-content-sm-end filter_list_item">
+                                            <div class="d-flex d-md-grid" id="filter_items"><a class="d-flex d-md-grid" href="404.html">
+                                                    <div class="order-last order-md-first" id="imagediv"><img src="assets/img/product%20image/WhatsApp%20Image%202021-01-20%20at%207.12.54%20PM.png"></div>
+                                                    <div class="d-md-flex justify-content-md-center">
+                                                        <!-- Start: price -->
+                                                        <div id="price">
+                                                            <div><span class="les_percent">15%</span><span class="les_price">Text</span></div><!-- Start: price -->
+                                                            <div class="d-grid d-md-flex">
+                                                                <!-- Start: price val --><span>140000</span><!-- End: price val --><span>تومان</span>
+                                                            </div><!-- End: price -->
+                                                        </div><!-- End: price -->
+                                                    </div>
+                                                    <div class="d-md-flex justify-content-md-center order-md-first">
+                                                        <!-- Start: name -->
+                                                        <div id="name"><strong style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxx</strong></div><!-- End: name -->
+                                                    </div>
+                                                </a><i class="fas fa-cart-plus border rounded-pill d-none d-sm-flex justify-content-sm-center align-items-sm-center order-sm-first order-md-last f_add_cartB"></i></div>
+                                        </li>
+                                    </ul><!-- End: pc mod -->
+                                </div><!-- Start: pagenum -->
+                                <div class="text-center d-lg-flex justify-content-lg-center" style="height: 30px;margin: 10px;">
+                                    <ul class="list-inline" style="color: var(--bs-blue);">
+                                        <li class="list-inline-item"><i class="fa fa-step-backward"></i></li>
+                                        <li class="list-inline-item">1</li>
+                                        <li class="list-inline-item"><i class="fa fa-step-forward"></i></li>
+                                    </ul>
+                                </div><!-- End: pagenum -->
+                            </div>
+                        </div><!-- End: menu -->
+                        <!-- Start: filters -->
+                        <div class="col-auto d-none d-lg-grid d-xl-grid d-xxl-grid mb-auto">
+                            <!-- Start: in line filtrs -->
+                            <div class="border rounded shadow-sm" id="inlinefilter">
+                                <div id="topdiv">
+                                    <p style="margin: 0px;font-size: 12px;font-weight: bold;color: var(--bs-gray-dark);">فیلتر های اعمال شده :</p><a class="me-auto" id="delfilter">حذف</a>
+                                </div>
+                                <div style="padding: 5px;">
+                                    <!-- Start: filter bu --><button class="btn btn-primary border rounded-pill" id="filtersbu" type="button">اپل<i class="fas fa-times" style="margin-right: 5px;"></i></button><!-- End: filter bu -->
+                                </div>
+                            </div><!-- End: in line filtrs -->
+                            <!-- Start: kalaye mojood -->
+                            <div class="border rounded-pill shadow-sm d-sm-flex d-md-flex d-lg-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id="kalaye_mojood">
+                                <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">فقط کالای موجود<br></label></div>
+                            </div><!-- End: kalaye mojood -->
+                            <!-- Start: filter1 -->
+                            <div class="border rounded shadow-sm" id="filter1">
+                                <div class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center pcfilterhader"><span>شبکه های ارتباطی</span><i class="fas fa-chevron-down me-auto" style="margin-right: 10px;"></i></div>
+                                <div id="filter1body" style="display: none;">
+                                    <ul class="list-unstyled" style="margin-top: 10px;padding: 0px;padding-right: 10px;">
+                                        <li class="d-md-flex align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>4G</span></li>
+                                        <li class="d-md-flex align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>4G</span></li>
+                                        <li class="d-md-flex align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>4G</span></li>
+                                    </ul>
+                                </div>
+                            </div><!-- End: filter1 -->
+                            <!-- Start: filter2 -->
+                            <div class="border rounded shadow-sm" id="filter2">
+                                <div class="d-flex d-md-flex d-lg-flex me-auto justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center pcfilterhader"><span>رنگ ها</span><i class="fas fa-chevron-down me-auto" style="margin-right: 10px;"></i></div>
+                                <div style="display: none;">
+                                    <ul class="list-unstyled" style="margin-top: 10px;padding: 0px;padding-right: 5px;padding-left: 10px;">
+                                        <li class="d-flex d-md-flex order-last align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>ابی</span><i class="fas fa-circle me-auto" style="color: var(--bs-blue);font-size: 10px;"></i></li>
+                                        <li class="d-flex d-md-flex order-last align-items-md-center" style="padding: 5px;"><input type="checkbox" style="margin-left: 5px;"><span>قرمز</span><i class="fas fa-circle me-auto" style="color: var(--bs-red);font-size: 10px;"></i></li>
+                                    </ul>
+                                </div>
+                            </div><!-- End: filter2 -->
+                            <!-- Start: filter3 -->
+                            <div class="border rounded shadow-sm" id="filter3">
+                                <div class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center pcfilterhader"><span>محدوده قیمت</span><i class="fas fa-chevron-down me-auto" style="margin-right: 10px;"></i></div>
+                                <div id="filter3body" style="/*display: none;*/">
+                                    <!-- Start: rangebar -->
+                                    <div class="d-flex" id="slider-range"></div><!-- End: rangebar -->
+                                    <div class="d-flex">
+                                        <!-- Start: as -->
+                                        <div class="text-center d-grid" style="width: 50%;padding: 5px;"><span>از</span><span id="amount1" style="background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span></div><!-- End: as -->
+                                        <!-- Start: ta -->
+                                        <div class="text-center d-grid" style="width: 50%;padding: 5px;"><span>تا</span><span id="amount2" style="background: rgba(133,135,150,0.1);border-radius: 10px;">Text</span><span>تومان</span></div><!-- End: ta -->
+                                    </div>
+                                    <div class="d-sm-flex d-md-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center" style="margin-bottom: 6px;"><button class="btn btn-primary border rounded-pill" type="button" style="background: rgba(246,194,62,0.15);box-shadow: none;border: none;color: var(--bs-red);">اعمال محدودیت قیمت</button></div>
+                                </div>
+                            </div><!-- End: filter3 -->
+                            <!-- Start: filter4 -->
+                            <div class="border rounded shadow-sm" id="filter4">
+                                <div class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center pcfilterhader"><span><strong>دسته‌بندی نتایج</strong><br></span></div>
+                                <div id="filter4body">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-chevron-left" style="font-size: 10px;"></i><button class="btn btn-primary filter4bu" type="button">دسته</button></li>
+                                    </ul>
+                                </div>
+                            </div><!-- End: filter4 -->
+                            <!-- Start: filter5 -->
+                            <div class="text-center border rounded shadow-sm" id="filter5">
+                                <!-- Start: shearch_form -->
+                                <form class="d-none d-sm-inline ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                    <div class="input-group"><button class="btn btn-primary btn-sm py-0" id="shbu" type="button"><i class="fas fa-search"></i></button><input class="form-control form-control-sm border-0 small" type="text" placeholder="جست و جو در نتایج..."></div>
+                                </form><!-- End: shearch_form -->
+                            </div><!-- End: filter5 -->
+                        </div><!-- End: filters -->
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer" id="footer">
+                <div class="container my-auto">
+                    <div class="text-end my-auto copyright" style="padding-bottom: 10px;"><img id="shop_logo" src="assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div>
+                    <div class="text-center my-auto copyright" style="margin-right: 0px;margin-left: 20px;"><span class="text-end" style="direction: rtl;float: right;line-height: 20px;letter-spacing: 1px;color: var(--bs-dark);">تلفن پشتیبانی:xxxxxxxxxxهفت روز هفته، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم .<br></span></div>
+                    <div class="d-none d-sm-none d-md-inline-flex d-lg-inline-flex d-xl-inline-flex d-xxl-inline-flex justify-content-center copyright" style="text-align: center;margin-top: 20px;"><span class="d-flex justify-content-center align-items-center align-content-center align-self-center" style="direction: rtl;float: right;text-align: center;line-height: 23.8px;font-size: 10px;margin-right: 0px;margin-left: 20px;">امکان تحویل اکسپرس<br><img src="https://www.digikala.com/static/files/8f570b58.svg" width="25%" style="padding-right: 5px;"></span><span class="d-flex justify-content-center align-items-center align-content-center align-self-center" style="direction: rtl;float: right;text-align: center;line-height: 23.8px;font-size: 10px;margin-right: 0px;margin-left: 20px;">امکان پرداخت در محل<br><img src="https://www.digikala.com/static/files/22414818.svg" width="25%" style="padding-right: 5px;"></span><span class="d-flex justify-content-center align-items-center align-content-center align-self-center" style="direction: rtl;float: right;text-align: center;line-height: 23.8px;font-size: 10px;margin-right: 0px;margin-left: 20px;">۷ روز هفته، ۲۴ ساعته<br><img src="	https://www.digikala.com/static/files/a9286d2f.svg" width="25%" style="padding-right: 5px;"></span><span class="d-flex justify-content-center align-items-center align-content-center align-self-center" style="direction: rtl;float: right;text-align: center;line-height: 23.8px;font-size: 10px;margin-right: 0px;margin-left: 20px;">۷ روز ضمانت بازگشت کالا<br><img src="https://www.digikala.com/static/files/514926b1.svg" width="25%" style="padding-right: 5px;"></span><span class="d-flex justify-content-center align-items-center align-content-center align-self-center" style="direction: rtl;float: right;text-align: center;line-height: 23.8px;font-size: 10px;margin-right: 0px;margin-left: 20px;">ضمانت اصل بودن کالا<br><img src="	https://www.digikala.com/static/files/fdb293e6.svg" width="25%" style="padding-right: 5px;"></span></div>
+                    <div class="text-center d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex my-auto justify-content-md-end copyright" style="padding-bottom: 10px;padding-top: 10px;width: 100%;">
+                        <div class="text-end d-grid" style="width: 514.047px;margin-right: 0px;margin-left: 30px;">
+                            <h1 style="text-align: right;font-size: 17px;color: var(--bs-gray-dark);"><strong>شبکه های اجتماعی ما</strong><br></h1><a class="d-sm-flex d-lg-flex justify-content-sm-end align-items-sm-center justify-content-lg-end align-items-lg-center" href="#" style="color: var(--bs-gray-dark);padding: 10px;">اینستاگرام&nbsp;<i class="fa fa-instagram" style="margin-left: 10px;font-size: 18.8px;color: #ef394e;"></i></a><a class="d-sm-flex d-lg-flex justify-content-sm-end align-items-sm-center justify-content-lg-end align-items-lg-center" href="#" style="color: var(--bs-gray-dark);padding: 10px;">توییتر<i class="fa fa-twitter" style="margin-left: 10px;font-size: 18.8px;color: var(--bs-blue);"></i></a><a class="d-sm-flex d-lg-flex justify-content-sm-end align-items-sm-center justify-content-lg-end align-items-lg-center" href="#" style="color: var(--bs-gray-dark);padding: 10px;">تلگرام<i class="fa fa-telegram" style="margin-left: 10px;font-size: 18.8px;color: rgb(0,188,226);"></i></a>
+                        </div>
+                        <div class="text-end d-grid" style="width: 514.047px;margin-right: 0px;margin-left: 30px;">
+                            <h1 style="text-align: right;font-size: 17px;color: var(--bs-gray-dark);"><strong>ارتباط با ما</strong></h1><a class="d-lg-flex justify-content-lg-end align-items-lg-center" href="#" style="color: var(--bs-gray-dark);padding: 10px;">اتاق اخبار</a><a class="d-lg-flex justify-content-lg-end align-items-lg-center" href="#" style="color: var(--bs-gray-dark);padding: 10px;">تماس با ما</a><a class="d-lg-flex justify-content-lg-end align-items-lg-center" href="#" style="color: var(--bs-gray-dark);padding: 10px;">درباره ما</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center d-md-flex flex-sm-column-reverse flex-md-column-reverse flex-lg-row copyright" style="padding-bottom: 10px;padding-top: 10px;overflow: hidden;">
+                        <div class="d-flex" style="margin-left: 17px;margin-top: 10px;margin-right: 10px;">
+                            <div class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 120px;height: 120px;border-radius: 15px;border-style: solid;border-color: rgba(246,194,62,0.1);margin-left: 17px;"><img src="https://www.digikala.com/static/files/6e2d6b38.png"></div>
+                            <div class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 120px;height: 120px;border-radius: 15px;border-style: solid;border-color: rgba(246,194,62,0.1);margin-left: 17px;"><img src="https://www.digikala.com/static/files/236e437c.png"></div>
+                            <div class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 120px;height: 120px;border-radius: 15px;border-style: solid;border-color: rgba(246,194,62,0.1);margin-left: 17px;"><img src="	https://www.digikala.com/static/files/3a24ea39.png"></div>
+                        </div>
+                        <div style="margin: 10px;">
+                            <h1 style="font-size: 17px;text-align: right;color: var(--bs-warning);"><strong>فروشگاه اینترنتی ..... ، بررسی، انتخاب و خرید آنلاین</strong><br></h1><span style="direction: rtl;float: right;line-height: 20px;letter-spacing: 1px;color: var(--bs-gray-dark);text-align: justify;">فروشگاه اینترنتی ......&nbsp;<br></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center my-auto copyright" style="margin-top: 10px;margin-bottom: 10px;"><span>online shop © Vista 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top" style="background: rgba(90,92,105,0.45);"><i class="fas fa-angle-up" style="color: var(--bs-yellow);"></i></a>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/home_header_slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/logo.js"></script>
+    <script src="assets/js/mini%20p%20image%20slider.js"></script>
+    <script src="assets/js/new_p_vs.js"></script>
+    <script src="assets/js/productslider.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
