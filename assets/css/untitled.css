@@ -318,16 +318,6 @@
   border: 1px solid var(--bs-primary);
 }
 
-.miniImage {
-  opacity: .7;
-  height: 76px;
-  width: 76px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
 #slide {
   width: 325px;
 }

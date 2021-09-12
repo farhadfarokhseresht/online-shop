@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // loader()
-    clearurl()
+    // clearurl()
     count_item()
     set_price_to_range()
     get_products()
@@ -127,10 +127,17 @@ $(document).on('click', function (e) {
 
 $("body").delegate('#addtocartB', "click", function (event) {//
     var proId = this.value
+    qytnum = 1 ;
+    if ($('#qytnum').html() == ''){
+        var qytnum = document.getElementById("qytnum").value;
+    }
+    if ($('#pqytnum').html() == ''){
+        var qytnum = document.getElementById("pqytnum").value;
+    }
     $.ajax({
         url: "process/action.php",
         method: "POST",
-        data: {proId: proId, addToCart: 1},
+        data: {proId: proId, addToCart: 1 , qty:qytnum},
         success: function (data) {
             if (data == 1) {
                 addalert("محصول به سبد شما اضاف شد", true);
@@ -188,7 +195,7 @@ function count_item() {
 
 //
 $("body").delegate('#cart_dropdown', "click", function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     get_cart_iems()
     count_item()
 });

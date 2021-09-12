@@ -25,11 +25,7 @@
   border-color: var(--bs-indigo)!important;
 }
 
-.miniImage:focus {
-  border-color: red;
-  opacity: 1;
-  transform: scale(1.02);
-}
+
 
 #v_slide_exproduct {
   width: 294px;
@@ -134,12 +130,12 @@ form textarea {
   -webkit-box-shadow: 0 2px 4px 0 rgb(0 0 0 / 9%);
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 9%);
   border-radius: 9px;
-  padding: 14px 15px 16px;
+  padding: 10px;
   display: -webkit-box;
   display: flex;
   justify-content: space-between;
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .prd_pc_mod_row {
@@ -198,16 +194,16 @@ form textarea {
 }
 
 .prd_img_div2 {
-  overflow: hidden;
-  position: relative;
+  /*overflow: hidden;*/
+  /*position: relative;*/
 }
 
 .prd_img_img {
   cursor: zoom-in;
   margin: 0px;
   padding: 18px;
-  max-width: 100%;
-  max-height: 100%;
+  width: 273px;
+  height: 273px;
 }
 
 .prd_img_list {
@@ -255,5 +251,21 @@ form textarea {
 
 .zoom img::selection {
   background-color: transparent;
+}
+
+.prd_img_list i:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: var(--bs-blue);
+}
+
+.miniImage {
+  opacity: .7;
+  height: 76px;
+  width: 76px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  overflow: hidden;
 }
 

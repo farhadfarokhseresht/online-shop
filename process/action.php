@@ -231,8 +231,8 @@ function Get_cart_item()
             $total_price = $total_price + $product_price * $qty;
             $cart_items[$n] = array($product_id, $product_title, $product_price, $product_image, $cart_item_id, $qty);
         }
-        array($cart_items, $total_price, $n);
-    } else {
+        return(array($cart_items, $total_price, $n));
+    }else{
         return 0;
     }
 }
@@ -289,7 +289,6 @@ if (isset($_POST['Get_cart_item'])) {
     } else {
         echo '<i class="d-flex justify-content-center">سبد خرید شما خالی میباشد</i><i class="d-flex justify-content-center fa fa-shopping-basket"></i>';
     }
-
 
 }
 

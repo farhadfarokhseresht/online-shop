@@ -109,7 +109,7 @@ section.range-slider {
 section.range-slider input {
     pointer-events: none;
     position: absolute;
-    overflow: hidden;
+    /*overflow: hidden;*/
     left: 0;
     top: 15px;
     width: 100%;
@@ -126,7 +126,12 @@ section.range-slider input::-webkit-slider-thumb {
     outline: 0;
 }
 
-.star1:focus {
-    color: #0fabc6;
-    width: fit-content;
-}
+
+
+/* product */
+.miniImagefocus{
+     border-color: red!important;
+     opacity: 1!important;
+     transform: scale(1.02)!important;
+ }
+

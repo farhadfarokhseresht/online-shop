@@ -56,7 +56,7 @@ include "header.php";
 					<div class = "d-flex" id = "slider-range">
 						<section class = "range-slider">
 							<span class = "rangeValues"></span>
-							<input value = "5" min = "0" max = "15" step = "0.5" type = "range">
+							<input value = "5" min = "0" max = "15" step = "0.5" type = "range" class="slider">
 							<input value = "10" min = "0" max = "15" step = "0.5" type = "range">
 						</section>
 					</div>

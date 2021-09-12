@@ -50,7 +50,8 @@ if (isset($_SESSION['message'])){
                         <!-- Start: bascet cart -->
                         <li class="nav-item d-flex dropdown no-arrow mx-1"><a class="nav-link" href="#"><span class="badge bg-warning badge-counter" id="cart_badge_item_num" >+</span><i class="fas fa-shopping-cart fa-fw"></i></a>
                             <!-- Start: dropdown_bascet -->
-                            <div class="nav-item dropdown no-arrow" id="cart_dropdown" ><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href=""></a>
+                            <div class="nav-item dropdown no-arrow" id="cart_dropdown" >
+	                            <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" ></a>
                                 <div class="dropdown-menu dropdown-list animated--grow-in" id="cart_dropdown_menu">
 	                                <h6 class="dropdown-header" id="cart_dropdown_header"></h6>
                                     <ul class="list-unstyled d-block" id="cart_dropdown_list">
@@ -58,7 +59,7 @@ if (isset($_SESSION['message'])){
 
                                         <!-- End: items -->
                                     </ul>
-                                    <a href="cart.php" class="dropdown-item text-center small text-gray-500">مشاهده سبد خرید</a>
+	                                <a class="dropdown-item text-center small text-gray-500" href="cart.php" >مشاهده سبد خرید</a>
                                 </div>
                             </div>
                             <!-- End: dropdown_bascet -->

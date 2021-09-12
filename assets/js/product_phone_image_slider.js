@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Read more here: http://idangero.us/swiper/api/
     
     var mySwiper = new Swiper('.swiper-container', {
-        slidesPerView: 2,
-        spaceBetween: 5,
+        slidesPerView: 1,
+        spaceBetween: 1,
         freeMode: true,
         loop: true,
         pagination: {
