@@ -3,8 +3,11 @@ include "header.php";
 ?>
 <?php
 
-if (isset($_GET['p'])) {
-    $product_id = $_GET['p'];
+if (isset($_GET['p']) or $_SESSION['ppg_product_id'] ) {
+	if(isset($_GET['p'])){
+        $_SESSION['ppg_product_id'] = $_GET['p'];
+	}
+    $product_id = $_SESSION['ppg_product_id'];
     $sql = " SELECT * FROM products WHERE product_id = $product_id";
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
@@ -66,52 +69,7 @@ if (isset($_GET['p'])) {
 					</div>
 				</div>
 				<!-- End: sel part -->
-				<!-- Start: comments -->
-				<div class = "row" style = "margin-bottom: 5px;margin-top: 10px;">
-					<div class = "col">
-						<div class = "card" style = "text-align: right;">
-							<div class = "card-body">
-								<div class = "d-flex">
-									<!-- Start: addcomment -->
-									<a class = "d-lg-flex" id = "addcomment">افزودن نظر +</a>
-									<!-- End: addcomment -->
-									<span class = "text-dark ms-auto" style = "font-size: 14px;">نظرات کاربران<br></span>
-								</div>
-								<hr><!-- Start: comment list -->
-								<ul class = "list-unstyled">
-									<!-- Start: items -->
-									<li>
-										<div>
-											<!-- Start: name --><span style = "font-size: 12px;">فرهاد فرخ سرشت</span><!-- End: name -->
-											<!-- Start: date --><span class = "text-info d-flex flex-row-reverse" style = "font-size: 10px;">2020.02.12</span><!-- End: date -->
-											<!-- Start: text -->
-											<p style = "font-size: 14px;">بلا بلا بلا</p><!-- End: text -->
-											<hr>
-										</div>
-									</li><!-- End: items -->
-								</ul>
-								    <!-- End: comment list -->
-								    <!-- Start: see all co -->
-								<a class = "card-link d-flex justify-content-start" href = "#" style = "font-size: 10px;">مشاهده تمام نظرها</a>
-								    <!-- End: see all co -->
-							</div>
-						</div>
-						<!-- Start: send cmd -->
-						<div class = "card" style = "text-align: right;">
-							<div class = "card-body">
-								<form class = "d-grid">
-									<div class = "d-lg-flex justify-content-lg-center align-items-lg-center Score" style = "margin: 5px;">
-										<i class = "fa fa-star star1"></i><i class = "fa fa-star star2"></i><i class = "fa fa-star star3"></i><i class = "fa fa-star star4"></i><i class = "fa fa-star star5"></i><small style = "margin-left: 21px;">امتیاز دهید</small>
-									</div>
-									<textarea class = "form-control" placeholder = "نظر خود را تایپ کنید "></textarea>
-									<button class = "btn btn-warning btn-sm sendcomment" type = "button">ارسال&nbsp;</button>
-								</form>
-							</div>
-						</div>
-						<!-- End: send cmd -->
-					</div>
-				</div>
-				<!-- End: comments -->
+
 			</div>
 			<!-- End: sel -->
 			<!-- Start: info -->
@@ -380,7 +338,130 @@ if (isset($_GET['p'])) {
 			</div>
 		</div>
 		<!-- End: phone_position -->
-
+		<!-- Start: comments -->
+		<div class="row" style="margin-bottom: 5px;margin-top: 10px;">
+			<div class="col">
+				<div style="direction: rtl;text-align: right;">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-2">مشخصات ، نقد و برسی</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-1">نظرات کاربران</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3">امتیاز و نظردهی</a></li>
+					</ul>
+					<div class="tab-content">
+						<!-- Start: read com tab -->
+						<div class="tab-pane" role="tabpanel" id="tab-1">
+							<div class="p_tap_div">
+								<!-- Start: comment list -->
+								<ul class="list-unstyled" style="max-height: 500px;overflow: auto;">
+									<!-- Start: items -->
+									<li>
+										<div class="d-grid">
+											<!-- Start: name --><span style="font-size: 12px;">فرهاد فرخ سرشت</span><!-- End: name -->
+											<!-- Start: date --><span class="text-info" style="font-size: 10px;">2020.02.12</span><!-- End: date --><strong style="color: var(--bs-teal);">جنس خوب و محکم&nbsp;</strong><strong style="color: #ef394e;">نداشتن گارانتی&nbsp;</strong><!-- Start: text -->
+											<p style="min-width: 230px;word-wrap: break-word;font-size: 14px;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p><!-- End: text -->
+											<hr>
+										</div>
+									</li><!-- End: items -->
+								</ul><!-- End: comment list -->
+								<!-- Start: see all co --><a class="d-flex justify-content-start" href="#" style="font-size: 10px;">مشاهده بیشتر +</a><!-- End: see all co -->
+							</div>
+						</div><!-- End: read com tab -->
+						<!-- Start: rev -->
+						<div class="tab-pane active" role="tabpanel" id="tab-2">
+							<div class="p_tap_div">
+								<div class="d-grid"><strong style="color: var(--bs-yellow);">نقد و بررسی اجمالی<br></strong><span>نام کالا</span></div>
+								<hr><!-- Start: info -->
+								<div class="prd_info"><span style="font-weight: bold;">ویژگی ها :</span><!-- Start: vizhgi pc -->
+									<div class="d-none d-sm-block">
+										<ul class="list-unstyled" id="ky" style="direction: rtl;">
+											<!-- Start: info item -->
+											<li class="d-flex p_baresi_vizhgi_li">
+												<div class="p_baresi_vizhgi_li_ky"><span class="p_baresi_vizhgi_li_ky_span">dsssssssssssssssssssss</span></div>
+												<div class="p_baresi_vizhgi_li_val"><span class="p_baresi_vizhgi_li_val_span">Textssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span></div>
+											</li><!-- End: info item -->
+											<!-- Start: info item -->
+											<li class="d-flex p_baresi_vizhgi_li">
+												<div class="p_baresi_vizhgi_li_ky"><span class="p_baresi_vizhgi_li_ky_span">dssssssssss</span></div>
+												<div class="p_baresi_vizhgi_li_val"><span class="p_baresi_vizhgi_li_val_span">Textssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span></div>
+											</li><!-- End: info item -->
+										</ul>
+									</div><!-- End: vizhgi pc -->
+								                                                                        <!-- Start: vizhgi ph -->
+									<div class="p_naghd_vizhgiha_phmod">
+										<ul class="d-sm-none">
+											<!-- Start: info item -->
+											<li class="d-grid p_baresi_vizhgi_li">
+												<div class="p_baresi_vizhgi_li_ky"><span class="p_baresi_vizhgi_li_ky_span">dsssssssssssssssssssss</span></div>
+												<div class="p_baresi_vizhgi_li_val"><span class="p_baresi_vizhgi_li_val_span">Textssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span></div>
+											</li><!-- End: info item -->
+										</ul>
+									</div><!-- End: vizhgi ph -->
+									<hr>
+								</div><!-- End: info -->
+								    <!-- Start: Collapsible Card -->
+								<div class="shadow card"><a class="btn btn-link text-center card-header fw-bold" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button">توضیحات و برسی کالا</a>
+									<div class="collapse show" id="collapse-4">
+										<div class="card-body">
+											<p class="m-0">This is a collapsable card example using Bootstrap's built in collapse functionality.&nbsp;<strong>Click on the card header</strong>&nbsp;to see the card body collapse and expand!</p>
+										</div>
+									</div>
+								</div><!-- End: Collapsible Card -->
+							</div>
+						</div><!-- End: rev -->
+						<!-- Start: send com tab -->
+						<div class="tab-pane" role="tabpanel" id="tab-3">
+							<div class="d-lg-flex p_tap_div">
+								<form class="comment_form" style="min-width: 260px;">
+									<div><label class="form-label">نظر کلی شما :<br></label>
+										<ul class="list-inline rating">
+											<li class="list-inline-item">
+												<div>
+													<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1" style="color: var(--bs-green);"><i class="far fa-thumbs-up" style="color: var(--bs-green);"></i></label></div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div>
+													<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1" style="color: #ef394e;"><i class="far fa-thumbs-down"></i></label></div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div><label class="form-label">ارزش خرید به نسبت قیمت<br></label>
+										<ul class="list-inline rating">
+											<li class="list-inline-item">
+												<div>
+													<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3"><label class="form-check-label" for="formCheck-1">خوب</label></div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div>
+													<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-1">متوسط</label></div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div>
+													<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4"><label class="form-check-label" for="formCheck-1">بد</label></div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div><input class="border-primary form-control" type="text" placeholder="نقاط قوت"><input class="border-danger form-control" type="text" placeholder="نقاط ضعف"><textarea class="form-control" placeholder="متن نظر شما" required=""></textarea></div><button class="btn btn-warning btn-sm sendcomment" type="button">ارسال&nbsp;</button>
+								</form>
+								<div class="d-none d-sm-inline-block" style="padding: 20px;"><strong style="color: var(--bs-dark);">دیگران را با نوشتن نظرات خود، برای انتخاب این محصول راهنمایی کنید.<br></strong>
+									<p style="color: var(--bs-warning);padding-top: 15px;"><strong>لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه کنید:</strong><br></p>
+									<ul>
+										<li>لازم است محتوای ارسالی منطبق برعرف و شئونات جامعه و با بیانی رسمی و عاری از لحن تند، تمسخرو توهین باشد.<br></li>
+										<li>از ارسال لینک‌های سایت‌های دیگر و ارایه‌ی اطلاعات شخصی خودتان مثل شماره تماس، ایمیل و آی‌دی شبکه‌های اجتماعی پرهیز کنید.<br></li>
+										<li><strong>در نظر داشته باشید هدف نهایی از ارائه‌ی نظر درباره‌ی کالا ارائه‌ی اطلاعات مشخص و دقیق برای راهنمایی سایر کاربران در فرآیند خرید یک محصول توسط ایشان است.</strong><br></li>
+									</ul>
+								</div>
+							</div>
+						</div><!-- End: send com tab -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End: comments -->
 		<div class = "row d-print-none d-lg-none d-xl-none d-xxl-none">
 			<div class = "col" id = "w_col">
 				<div class = "d-grid d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex copyright" id = "deliver_info">

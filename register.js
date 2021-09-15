@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var userphonenum = document.getElementById("userphonenum");
     $.ajax({
-        url: "register_app/registery.php",
+        url: "app/register_app/registery.php",
         method: "POST",
         data: {getnumber:1},
         success: function (data) {
@@ -58,7 +58,7 @@ $("body").delegate('#loginbut', "click", function (event) {
         const phonens = document.getElementById('re_phone_number').value;
         var datapost = {phonenumber: phonens};
         $.ajax({
-            url: "register_app/registery.php",
+            url: "app/register_app/registery.php",
             method: "POST",
             data: datapost,
             success: function (data) {
@@ -79,7 +79,7 @@ $("body").delegate('#sendcod', "click", function (event) {
     var usercod = document.getElementById('usercod').value;
     var datapost = {sendcod: usercod};
     $.ajax({
-        url: "register_app/registery.php",
+        url: "app/register_app/registery.php",
         method: "POST",
         data: datapost,
         success: function (data) {
@@ -97,7 +97,7 @@ $("body").delegate('#sendcod', "click", function (event) {
 
 $("body").delegate('#sendcodagin', "click", function (event) {
     $.ajax({
-        url: "register_app/registery.php",
+        url: "app/register_app/registery.php",
         method: "POST",
         data: {sendcodagin:1},
         success: function (data) {

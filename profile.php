@@ -1,6 +1,6 @@
 <?php
 include_once 'header.php';
-include 'process/profile.php';
+include 'app/profile.php';
 
 ?>
 <link rel = "stylesheet" href = "assets/css/profile.css">

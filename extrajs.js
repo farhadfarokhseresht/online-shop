@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // loader()
-    // clearurl()
+    clearurl()
     count_item()
     set_price_to_range()
     get_products()
@@ -74,7 +74,7 @@ var sherching_keyword = document.getElementById('sherching_keyword');
 sherching_keyword.onkeyup = function () {
     var keyword = sherching_keyword.value;
     $.ajax({
-        url: "process/home.php",
+        url: "app/home.php",
         method: "GET",
         cache: false,
         // dataType: 'json',
@@ -95,7 +95,7 @@ var sherching_keyword_mo = document.getElementById('sherching_keyword_mo');
 sherching_keyword_mo.onkeyup = function () {
     const keywordm = sherching_keyword_mo.value;
     $.ajax({
-        url: "process/home.php",
+        url: "app/home.php",
         method: "GET",
         cache: false,
         // dataType: 'json',
@@ -135,7 +135,7 @@ $("body").delegate('#addtocartB', "click", function (event) {//
         var qytnum = document.getElementById("pqytnum").value;
     }
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: {proId: proId, addToCart: 1 , qty:qytnum},
         success: function (data) {
@@ -155,7 +155,7 @@ $("body").delegate('#addtocartB', "click", function (event) {//
 $("body").delegate('#removeItemFromCart', "click", function (event) {//
     var rid = this.value
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: {rid: rid, removeItemFromCart: 1},
         success: function (data) {
@@ -171,7 +171,7 @@ $("body").delegate('#removeItemFromCart', "click", function (event) {//
 // get cart items
 function get_cart_iems() {
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: {Get_cart_item: 1},
         success: function (data) {
@@ -183,7 +183,7 @@ function get_cart_iems() {
 //
 function count_item() {
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "GET",
         data: {count_item: 1},
         success: function (data) {
@@ -206,7 +206,7 @@ $("body").delegate('#cart_dropdown', "click", function (event) {
 /* profile */
 function get_profile_info() {
     $.ajax({
-        url: "process/profile.php",
+        url: "app/profile.php",
         method: "GET",
         cache: false,
         // dataType: 'json',
@@ -234,7 +234,7 @@ function edite(form, formbu, changebutn) {
                 postdata[dataid] = dataval;
             });
             $.ajax({
-                url: "process/profile.php",
+                url: "app/profile.php",
                 method: "POST",
                 data: postdata,
                 success: function (data) {
@@ -338,7 +338,7 @@ window.onload = function () {
 
 function set_price_to_range() {
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "GET",
         cache: false,
         data: {'minmaxprice': 1},
@@ -361,7 +361,7 @@ function set_price_to_range() {
 $("body").delegate('#brandid', "click", function (event) {//
     var brandid = this.value
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: {brandid: brandid},
         success: function (data) {
@@ -373,7 +373,7 @@ $("body").delegate('#brandid', "click", function (event) {//
 })
 $("body").delegate('#delfilter', "click", function (event) {//
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "GET",
         data: {delfilter: 1},
         success: function (data) {
@@ -388,7 +388,7 @@ $("body").delegate('#filtersbu', "click", function (event) {
     // var filter_val = this.value
     var datapost = {filtersbu: 1, filter_name: filter_name};
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: datapost,
         success: function (data) {
@@ -401,7 +401,7 @@ $("body").delegate('#filtersbu', "click", function (event) {
 
 function get_products() {
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: {get_products: 1},
         success: function (data) {
@@ -413,7 +413,7 @@ function get_products() {
 
 function update_filter_list() {
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "POST",
         data: {update_filter_list: 1},
         success: function (data) {
@@ -425,7 +425,7 @@ function update_filter_list() {
 
 function update_brand_list() {
     $.ajax({
-        url: "process/action.php",
+        url: "app/action.php",
         method: "GET",
         data: {brandlist: 1},
         success: function (data) {

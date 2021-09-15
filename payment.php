@@ -1,8 +1,8 @@
 <?php
 session_start();
-include 'process\payment.php';
-include 'process\action.php';
-include 'process\getCities.php';
+include 'app\payment.php';
+include 'app\action.php';
+include 'app\getCities.php';
 
 ?>
 
