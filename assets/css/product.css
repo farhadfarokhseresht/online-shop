@@ -25,7 +25,11 @@
   border-color: var(--bs-indigo)!important;
 }
 
-
+.miniImage:focus {
+  border-color: red;
+  opacity: 1;
+  transform: scale(1.02);
+}
 
 #v_slide_exproduct {
   width: 294px;
@@ -74,7 +78,7 @@ form textarea {
   margin-top: 10px;
   margin-bottom: 5px;
   box-shadow: none;
-  width: 50%;
+  width: 50px;
 }
 
 .cstar {
@@ -235,7 +239,7 @@ form textarea {
 /* magnifying glass icon */
 
 .zoom:after {
-  background: url("../../assets/img/icon.png");
+  background: url("icon.png");
   content: '';
   display: block;
   width: 33px;
@@ -269,3 +273,60 @@ form textarea {
   overflow: hidden;
 }
 
+.comment_form .form-control {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.rating li {
+  padding: 0px!important;
+  text-align: right;
+  margin-right: 5px;
+  margin-left: 5px;
+  direction: rtl;
+}
+
+.rating {
+  padding: 0px;
+}
+
+.p_tap_div {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0px 0px 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+  background: var(--bs-white);
+}
+
+.p_baresi_vizhgi_li {
+  direction: rtl;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.p_baresi_vizhgi_li_ky {
+  min-width: 170px;
+  word-wrap: break-word;
+  max-width: 170px;
+  padding-left: 30px;
+}
+
+.p_baresi_vizhgi_li_val {
+  max-width: 260px;
+  word-wrap: break-word;
+}
+
+.p_naghd_vizhgiha_phmod .p_baresi_vizhgi_li_ky {
+  padding: 10px;
+  width: 100%!important;
+  max-width: 220px;
+  background: rgba(194,185,185,0.08);
+}
+
+.p_naghd_vizhgiha_phmod .p_baresi_vizhgi_li_val {
+  margin-top: 10px;
+  max-width: 220px;
+}
