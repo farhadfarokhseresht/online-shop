@@ -1,3 +1,6 @@
+<?php
+include 'admin-head.php'
+?>
 <!-- Start: dash add product -->
 <div class = "container-fluid" style = "direction: rtl;text-align: right;">
 	<div class = "d-sm-flex justify-content-between align-items-center mb-4" style = "margin-top: 20px;">
@@ -248,3 +251,6 @@
 	</div><!-- End: admin_do_bu -->
 </div>
 <!-- End: dash add product -->
+<?php
+include 'admin-footer.php'
+?>
