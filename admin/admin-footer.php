@@ -11,8 +11,9 @@
 <script src="../assets/js/bs-init.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/logo.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="../assets/js/theme.js"></script>
+<script src="admin.js"></script>
 </body>
 
 </html>

@@ -24,7 +24,7 @@
 }
 
 .admin_add_npart_bu:hover {
-  font-size: 17px;
+  transform: scale(1.03);
   color: #f4c03c;
 }
 
@@ -98,3 +98,6 @@
   align-items: center;
   display: flex;
 }
+
+
+
