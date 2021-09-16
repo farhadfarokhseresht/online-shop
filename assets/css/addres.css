@@ -89,3 +89,8 @@ body a {
 #imagediv {
 }
 
+td i:hover {
+  transform: scale(1.06);
+  cursor: pointer;
+}
+

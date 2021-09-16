@@ -370,5 +370,7 @@ if (isset($_POST["addToCart"])) {
     }
 }
 
-
+//INSERT INTO `product_review` (`id`, `productId`, `userId`, `posetive`, `negative`, `comment`, `createdAt`, `tolerate`, `bayrating`) VALUES (NULL, '1', '1', 'xxx', 'xxx', 'xxxxxxxxxxxxxxxxxx', CURRENT_TIMESTAMP, '1', '1');
 ?>
+
+

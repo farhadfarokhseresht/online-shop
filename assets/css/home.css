@@ -522,3 +522,16 @@
   border-color: var(--bs-purple);
 }
 
+.fo-mojavez-box {
+  min-width: 120px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: rgba(246,194,62,0.1);
+  margin-left: 17px;
+}
+

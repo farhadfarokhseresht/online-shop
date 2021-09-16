@@ -239,7 +239,7 @@ form textarea {
 /* magnifying glass icon */
 
 .zoom:after {
-  background: url("icon.png");
+  background: url("../../assets/img/icon.png");
   content: '';
   display: block;
   width: 33px;
@@ -330,3 +330,4 @@ form textarea {
   margin-top: 10px;
   max-width: 220px;
 }
+
