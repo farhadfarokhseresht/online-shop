@@ -33,7 +33,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="admin.html"><i class="fas fa-poll"></i><span>داشبرد</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.php"><i class="fas fa-poll"></i><span>داشبرد</span></a></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         <p class="mb-0">&nbsp;مدیریت محصولات&nbsp;</p>
@@ -42,22 +42,22 @@
                         <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse" href="#collapse" role="button"><i class="fas fa-boxes"></i>&nbsp;<span>لیست محصولات</span></a>
                             <div class="collapse" id="collapse">
                                 <div class="bg-white border rounded py-2 collapse-inner" style="overflow: auto;max-height: 200px;position: relative;"><i class="fas fa-angle-double-down flash animated infinite" style="position: absolute;color: var(--bs-blue);bottom: 10%;left: 10%;"></i>
-                                    <h6 class="collapse-header">کالای دیجیتال</h6><a class="collapse-item" href="admin-product-list.html">مبایل</a><a class="collapse-item" href="admin-product-list.html">لبتاب</a>
+                                    <h6 class="collapse-header">کالای دیجیتال</h6><a class="collapse-item" href="admin-product-list.php">مبایل</a><a class="collapse-item" href="admin-product-list.php">لبتاب</a>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="admin-add-product.html"><i class="fas fa-plus-circle"></i><span>افزودن کالای جدید</span></a><a class="nav-link" href="#"><i class="fas fa-donate"></i><span>تخفیفات</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-add-product.php"><i class="fas fa-plus-circle"></i><span>افزودن کالای جدید</span></a><a class="nav-link" href="#"><i class="fas fa-donate"></i><span>تخفیفات</span></a></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         <p class="mb-0">مدیریت کاربران&nbsp;</p>
                     </div>
-                    <li class="nav-item"><a class="nav-link" href="admin-add-user.html"><i class="fas fa-user-plus"></i><span>افزودن کاربر</span></a><a class="nav-link" href="admin-user-list.html"><i class="fas fa-users"></i><span>لیست کاربران</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-add-user.php"><i class="fas fa-user-plus"></i><span>افزودن کاربر</span></a><a class="nav-link" href="admin-user-list.php"><i class="fas fa-users"></i><span>لیست کاربران</span></a></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         <p class="mb-0">مدیریت فروش&nbsp;</p>
                     </div>
-                    <li class="nav-item"><a class="nav-link" href="admin-order-list.html"><i class="fas fa-clipboard-list"></i><span>سفارشات</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-order-list.php"><i class="fas fa-clipboard-list"></i><span>سفارشات</span></a></li>
                     <hr class="sidebar-divider">
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -73,14 +73,14 @@
                         </ul>
                         <div><img id="shop_logo" src="../assets/img/13e7bddc-3c00-45ff-b8a4-84901b6e9b80.png"></div>
                     </div>
-                </nav><!-- Start: dash users list -->
+                </nav><!-- Start: dash product list -->
                 <div class="container-fluid" style="direction: rtl;text-align: right;">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4" style="margin-top: 20px;"><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;دریافت گزارش&nbsp;</a></div>
                     <div class="row">
                         <div class="col">
                             <div class="card shadow">
                                 <div class="card-header py-3">
-                                    <p class="text-primary m-0 fw-bold">کاربران</p>
+                                    <p class="text-primary m-0 fw-bold">لیست کالاها</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -96,28 +96,24 @@
                                             <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="جست و جو  . . . "></label></div>
                                         </div>
                                     </div>
-                                    <div class="table-responsive" style="text-align: center;border-radius: 10px;">
-                                        <table class="table table-striped">
+                                    <div class="table-responsive" style="text-align: center;max-height: 500px;">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>نام و نام خانوادگی</th>
-                                                    <th>نام کاربری</th>
-                                                    <th><strong>شماره تماس</strong><br></th>
-                                                    <th>کد ملی</th>
-                                                    <th>رمز عبور</th>
-                                                    <th>حذف/تغییر</th>
+                                                    <th>کالا</th>
+                                                    <th>تخفیف</th>
+                                                    <th>قیمت(تومان)</th>
+                                                    <th>موجودی</th>
+                                                    <th>اصلاح</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>فرهاد فرخ سرشت</td>
-                                                    <td>Cell 2</td>
+                                                    <td class="ad_pl_img"><img src="../assets/img/product%20image/image2.jpeg">sssssssssssssss</td>
                                                     <td>Cell 2</td>
                                                     <td>11</td>
                                                     <td>11</td>
-                                                    <td><i class="fas fa-user-times" style="/*margin-left: 10px;*/color: #ef394e;" onclick="alert()"></i><i class="fas fa-user-edit" style="color: var(--bs-primary);"></i></td>
+                                                    <td class="ad_pl_trash"><i class="far fa-edit"></i></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -132,7 +128,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- End: dash users list -->
+                </div><!-- End: dash product list -->
             </div>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
