@@ -24,7 +24,6 @@
 }
 
 .admin_add_npart_bu:hover {
-  cursor: pointer;
   font-size: 17px;
   color: #f4c03c;
 }
@@ -94,3 +93,8 @@
   border-color: var(--bs-blue)!important;
 }
 
+.admin_add_npart_bu {
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+}
