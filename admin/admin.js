@@ -1,11 +1,39 @@
+
+// $('#addproduct').on('click',function () {
+//     var allInputs = $( ":input" );
+//     alert(allInputs[0])
+//     var formChildren = $( "form > *" );
+//     $( "#messages" ).text( "Found " + allInputs.length + " inputs and the form has " +
+//         formChildren.length + " children." );
+//     $( "form" ).submit(function( event ) {
+//         event.preventDefault();
+//     });
+// })
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------
 function addnewcat() {
-    $('#catgory').remove();
+    $('#productcat').remove();
     $('#admin_add_cat_bu').remove();
     $('#categoripart').append('<input type="text" class="form-control" placeholder="نام دسته جدید" />')
 }
 
 function addnewbrand() {
-    $('#brand').remove();
+    $('#productbrand').remove();
     $('#admin_add_brand_bu').remove();
     $('#brandpart').append('<input type="text" class="form-control" placeholder="نام برند جدید" />')
 }
@@ -72,3 +100,4 @@ function removeFeature() {
         $('#total_chq_Feature').val(last_chq_no - 1);
     }
 }
+

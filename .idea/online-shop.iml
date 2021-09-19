@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Swiper" level="application" />
     <orderEntry type="library" name="swiper" level="application" />
+    <orderEntry type="library" name="jquery-validate" level="application" />
   </component>
 </module>
