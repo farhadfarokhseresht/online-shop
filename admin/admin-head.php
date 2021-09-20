@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/css/register.css">
     <link rel="stylesheet" href="../assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="../assets/css/untitled.css">
+    <link rel="stylesheet" href="../extracss.css">
 </head>
 
 <body id="page-top">

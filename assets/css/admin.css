@@ -93,6 +93,7 @@
 }
 
 .admin_add_npart_bu {
+  width: fit-content!important;
   cursor: pointer;
   align-items: center;
   display: flex;

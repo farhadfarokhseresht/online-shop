@@ -1,51 +1,65 @@
+// add alert
+function addalert(txt, success) {
+    if (success) {
+        const warning = "<div  id='alert' role=\"alert\" class=\"alert alert-success d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>" + txt + "</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
+        $("#content").append(warning);
+    } else {
+        const warning = "<div  id='alert' role=\"alert\" class=\"alert alert-warning d-sm-flex justify-content-sm-center align-items-sm-center\"><span><strong>" + txt + "</strong></span><span onclick=\"document.getElementById('alert').remove()\" class=\"closealert\" >&times;</span></div>";
+        $("#content").append(warning);
+    }
+    $('#alert').animate({'opacity': '0'}, 3000, function () {
+        $('#alert').remove();
+    })
+}
+
 // validate
 $(document).ready(function () {
     $("#product_details_form").validate({
-        rules: {
-            productname: {
-                required: true,
-                minlength: 3
-            },
-            producttitle: {
-                required: true,
-                minlength: 3
-            },
-            productkeyword: {
-                required: true,
-                minlength: 3
-            },
-            productimg: {
-                required: true,
-            },
-            productqyt: {
-                number: true,
-                required: true,
-                min: 0,
-                minlength: 1,
-            },
-            productdic: {
-                number: true,
-                required: true,
-                min: 0,
-                minlength: 1,
-            },
-            productprice: {
-                number: true,
-                required: true,
-                min: 1000,
-                minlength: 4,
-            },
-            productcat: {
-                required: true,
-            },
-            productbrand: {
-                required: true,
-            },
-            producttext: {
-                // required: true,
-                // minlength: 100,
-            },
-        }
+        // rules: {
+        //     productname: {
+        //         required: true,
+        //         minlength: 3
+        //     },
+        //     producttitle: {
+        //         required: true,
+        //         minlength: 3
+        //     },
+        //     productkeyword: {
+        //         required: true,
+        //         minlength: 3
+        //     },
+        //     productimg: {
+        //         required: true,
+        //     },
+        //     productqyt: {
+        //         number: true,
+        //         required: true,
+        //         min: 0,
+        //         minlength: 1,
+        //     },
+        //     productdic: {
+        //         number: true,
+        //         required: true,
+        //         min: 0,
+        //         minlength: 1,
+        //     },
+        //     productprice: {
+        //         number: true,
+        //         required: true,
+        //         min: 1000,
+        //         minlength: 4,
+        //     },
+        //     productcat: {
+        //         required: true,
+        //     },
+        //     productbrand: {
+        //         required: true,
+        //     },
+        //     producttext: {
+        //         required: true,
+        //         minlength: 100,
+        //     },
+        // }
     });
 });
 
@@ -64,17 +78,31 @@ function FormData(formid) {
 
 // add extra option
 
-function addnewcat() {
-    // $('#productcat').remove();
-    // $('#admin_add_cat_bu').remove();
-    // $('#categoripart').append('<input type="text" class="form-control" placeholder="نام دسته جدید" />')
-}
-
-function addnewbrand() {
-    // $('#productbrand').remove();
-    // $('#admin_add_brand_bu').remove();
-    // $('#brandpart').append('<input type="text" class="form-control" placeholder="نام برند جدید" />')
-}
+// function addnewcat() {
+//     var newval = document.getElementById('newcatgory').value
+//     $.ajax({
+//         url: "admin-app.php",
+//         method: "POST",
+//         cache: false,
+//         data: {newcatgory:newval},
+//         success: function (data) {
+//         addalert("دسته شما اضاف شد",true)
+//         }
+//     })
+// }
+//
+// function addnewbrand() {
+//     var newval = document.getElementById('newbrand').value
+//     $.ajax({
+//         url: "admin-app.php",
+//         method: "POST",
+//         cache: false,
+//         data: {newbrand:newval},
+//         success: function (data) {
+//             addalert("برند شما اضاف شد",true)
+//         }
+//     })
+// }
 
 $('#addimg').on('click', addimg);
 $('#removeimg').on('click', removeimg);
