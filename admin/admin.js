@@ -170,4 +170,50 @@ function removeFeature() {
     }
 }
 
+// user list
+function Nxpage() {
+    var new_chq_no = parseInt($('#pagenum').val()) + 1;
+    $('#pagenum').val(new_chq_no);
+    userlist();
+}
 
+function Pepage() {
+    var last_chq_no = $('#pagenum').val();
+    if (last_chq_no > 1) {
+        $('#pagenum').val(last_chq_no - 1);
+    }
+    userlist();
+}
+
+function userlist() {
+    var limit = document.getElementById('limit').value;
+    var pagenum = document.getElementById('pagenum').value;
+    $.ajax({
+        url: "admin-app.php",
+        method: "POST",
+        cache: false,
+        data: {userlist: 1, limit: limit, pagenum: pagenum},
+        success: function (data) {
+            document.getElementById('user_list').innerHTML = data;
+        }
+    })
+}
+
+userlist()
+
+var sherching_keyword = document.getElementById('search-user-list');
+sherching_keyword.onkeyup = function () {
+    var keyword = sherching_keyword.value;
+    var limit = document.getElementById('limit').value;
+    var pagenum = document.getElementById('pagenum').value;
+    $.ajax({
+        url: "admin-app.php",
+        method: "POST",
+        cache: false,
+        data: {userlist: 1, limit: limit,'keyword': keyword},
+        success: function (data) {
+            document.getElementById('user_list').innerHTML = data;
+        }
+    })
+
+}

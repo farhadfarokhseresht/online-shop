@@ -3,7 +3,56 @@
 include '../db.php';
 
 
-// ---------- add user
+// ----------  user
+if(isset($_POST['userlist'])) {
+    $sql = 'select * from user_info;';
+    $result = $con->query($sql);
+    $rowcount = $result->num_rows;
+    $limit = 10;
+    if (isset($_POST['limit'])){
+        $limit = $_POST['limit'];
+    }
+    $pagenum = 1;
+    $max_page_num = ceil($rowcount / $limit);
+    $start = 0;
+    if (isset($_POST["pagenum"])) {
+        $pagenum = $_POST["pagenum"];
+        $start = ($pagenum * $limit) - $limit;
+    }
+    $sql = 'select * from user_info LIMIT '.$start.','.$limit;
+    if(isset($_POST['keyword'])){
+        $keyword = "'%".$_POST['keyword']."%'";
+        $sql = 'select * from user_info where mobile LIKE '.$keyword.' LIMIT '.$start.','.$limit;
+    }
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $user_id = $row['user_id'];
+            $firest_name = $row['first_name'];
+            $last_name = $row['last_name'];
+            $email = $row['email'];
+            $password = $row['password'];
+            $mobile = $row['mobile'];
+            echo '<tr>
+								<td>'.$user_id.'</td>
+								<td>'.$firest_name.' '.$last_name.'</td>
+								<td>'.$email.'</td>
+								<td>'.$mobile.'</td>
+								<td>'.$user_id.'</td>
+								<td>'.$password.'</td>
+								<td>
+									<div class = "d-flex flex-row justify-content-evenly">
+										<i class = "fas fa-user-times" style = "color: #ef394e;" onclick = "alert()"></i><i class = "fas fa-user-edit" id = "edite-user" style = "color: var(--bs-primary);" onclick = "editeuser()"></i>
+									</div>
+								</td>
+							</tr>';
+        }
+    } else {
+        echo "موردی یافت نشد!";
+    }
+}
+
 if(isset($_POST['add-new-user'])){
     $province = $_POST['province'];
     $city = $_POST['city'];
