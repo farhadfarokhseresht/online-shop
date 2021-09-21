@@ -158,7 +158,7 @@ include 'admin-app.php';
 			</div>
 		</div>
 		<div>
-			<button id = "addproduct" class = "btn btn-primary admin_do_bu" type = "submit">ثبت</button>
+			<button id = "addproduct" name="addproduct" class = "btn btn-primary admin_do_bu" type = "submit">ثبت</button>
 			<div id = "messages"></div>
 		</div>
 	</form>
@@ -233,20 +233,6 @@ include 'admin-footer.php';
 ?>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-<script>
-
-    // $('#addproduct').on('click',function () {
-    //     var allInputs = $( ":input" );
-    //     var formChildren = $( "form > *" );
-    //     $( "#messages" ).text( "Found " + allInputs.length + " inputs and the form has " +
-    //         formChildren.length + " children." );
-    //     $( "form" ).submit(function( event ) {
-    //         event.preventDefault();
-    //     });
-    // })
-
-
-</script>
 
 <style>
 	label.error {

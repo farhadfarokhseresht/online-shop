@@ -15,51 +15,51 @@ function addalert(txt, success) {
 // validate
 $(document).ready(function () {
     $("#product_details_form").validate({
-        // rules: {
-        //     productname: {
-        //         required: true,
-        //         minlength: 3
-        //     },
-        //     producttitle: {
-        //         required: true,
-        //         minlength: 3
-        //     },
-        //     productkeyword: {
-        //         required: true,
-        //         minlength: 3
-        //     },
-        //     productimg: {
-        //         required: true,
-        //     },
-        //     productqyt: {
-        //         number: true,
-        //         required: true,
-        //         min: 0,
-        //         minlength: 1,
-        //     },
-        //     productdic: {
-        //         number: true,
-        //         required: true,
-        //         min: 0,
-        //         minlength: 1,
-        //     },
-        //     productprice: {
-        //         number: true,
-        //         required: true,
-        //         min: 1000,
-        //         minlength: 4,
-        //     },
-        //     productcat: {
-        //         required: true,
-        //     },
-        //     productbrand: {
-        //         required: true,
-        //     },
-        //     producttext: {
-        //         required: true,
-        //         minlength: 100,
-        //     },
-        // }
+        rules: {
+            productname: {
+                required: true,
+                minlength: 3
+            },
+            producttitle: {
+                required: true,
+                minlength: 3
+            },
+            productkeyword: {
+                required: true,
+                minlength: 3
+            },
+            productimg: {
+                required: true,
+            },
+            productqyt: {
+                number: true,
+                required: true,
+                min: 0,
+                minlength: 1,
+            },
+            productdic: {
+                number: true,
+                required: true,
+                min: 0,
+                minlength: 1,
+            },
+            productprice: {
+                number: true,
+                required: true,
+                min: 1000,
+                minlength: 4,
+            },
+            productcat: {
+                required: true,
+            },
+            productbrand: {
+                required: true,
+            },
+            producttext: {
+                required: true,
+                minlength: 100,
+            },
+        }
     });
 });
 

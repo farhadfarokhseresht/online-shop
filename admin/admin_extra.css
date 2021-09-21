@@ -1,0 +1,22 @@
+#alert {
+    text-align: center !important;
+    display: flex !important;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    width: 100% !important;
+    z-index: 100 !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
+.closealert {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #6f231c!important;
+    font-weight: 900 !important;
+    font-size: 20px !important;
+    cursor: pointer!important;
+
+}
