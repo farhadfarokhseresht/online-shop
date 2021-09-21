@@ -1,0 +1,96 @@
+#addres_div1 {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+}
+
+#addres_div1_lab {
+  position: absolute;
+  background: var(--bs-white);
+  margin-top: -10px;
+  margin-left: -40%;
+}
+
+#addres_div1_select {
+  box-shadow: none;
+}
+
+.fo {
+}
+
+input:focus {
+  border-color: var(--bs-warning)!important;
+}
+
+body a {
+  text-decoration: initial;
+}
+
+.barlist {
+  background: rgba(255,217,120,0.18);
+  margin: 20px;
+  padding: 10px;
+}
+
+.barlist_item {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.barlist_activ {
+  margin-right: 20px;
+  margin-left: 20px;
+  background: rgb(255,215,112);
+  padding: 5px;
+  color: var(--bs-dark);
+  border-radius: 5px;
+}
+
+.addres_del_butn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  color: var(--bs-red);
+}
+
+#addadressbu {
+  width: 100%;
+  background: var(--bs-yellow)!important;
+  color: var(--bs-dark)!important;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.addressform {
+  background: var(--bs-white);
+}
+
+.addressform input {
+  text-align: center;
+}
+
+#pcmode {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#phone_smart_fil #kalayemojood input {
+  cursor: pointer;
+}
+
+.p_add_cartB:hover, .p_add_cartB:select {
+  background: #f4ae00;
+}
+
+#imagediv {
+}
+
+td i:hover {
+  transform: scale(1.06);
+  cursor: pointer;
+}
+

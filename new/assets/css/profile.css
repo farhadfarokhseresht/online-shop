@@ -1,0 +1,82 @@
+.tiketsub {
+  max-width: 145px;
+}
+
+.mybadage_p {
+  position: absolute;
+  margin-top: -10px;
+  margin-right: 0px;
+  color: var(--bs-white);
+  background: #ef394e;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+}
+
+.fa.fa-caret-down {
+}
+
+.drdnhader {
+  cursor: pointer;
+}
+
+.drdnhader:hover {
+  font-size: 18px;
+  color: var(--bs-warning);
+}
+
+.profile_les_p {
+  margin-right: 10px;
+}
+
+.profile_les_p_name {
+  font-weight: 700;
+  position: absolute;
+  top: 0px;
+  right: 131px;
+}
+
+.profile_les_p_percent {
+  padding-right: 3px;
+  padding-left: 5px;
+  margin-top: 12px;
+  margin-right: 36px;
+  height: 30px;
+  margin-right: 10px;
+  color: var(--bs-white);
+  font-weight: bold;
+  background: #ef394e;
+  border-radius: 100%;
+  line-height: 2;
+}
+
+#profile_les_p_div {
+  width: auto;
+  direction: rtl;
+  text-align: right;
+  position: relative;
+  background: var(--bs-white);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#profile_les_p_div:hover {
+  transform: scale(0.99);
+  box-shadow: 0px 0px 2px #5870b564;
+}
+
+#extra_product_left_div .new-product-vslid {
+  top: 33px;
+  position: absolute;
+  /*height: 100%;*/
+  width: inherit;
+}
+
+h5 {
+  margin-top: 5px;
+  direction: ltr;
+}
+
+.starpoint {
+}
+

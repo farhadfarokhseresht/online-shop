@@ -1,4 +1,5 @@
 <?php
+include 'admin-app.php';
 ?>
 <!DOCTYPE html>
 <html>

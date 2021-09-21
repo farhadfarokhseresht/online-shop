@@ -1,6 +1,5 @@
 <?php
 include 'admin-head.php';
-include 'admin-app.php';
 ?>
 <!-- Start: dash add product -->
 <div class = "container-fluid" style = "direction: rtl;text-align: right;">

@@ -3,7 +3,30 @@
 include '../db.php';
 
 
-// add product
+// ---------- add user
+if(isset($_POST['add-new-user'])){
+    $province = $_POST['province'];
+    $city = $_POST['city'];
+    $plack = $_POST['plack'];
+    $vahed = $_POST['vahed'];
+    $address1 = $_POST['address1']." پلاک ".$plack." واحد ".$vahed;
+    $codposti = $_POST['codposti'];
+    $codmli = $_POST['codmli'];
+    $rfname = $_POST['rfname'];
+    $rlname = $_POST['rlname'];
+    $rphone = $_POST['rphone'];
+    $phone = $_POST['phonenum'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+}
+
+
+
+
+
+
+
+// ---------- add product
 if (isset($_POST['addproduct'])) {
     $stmt = $con->prepare('INSERT INTO `products`(`product_title`,`product_desc`,`product_keywords`,`product_image`,`quantity`,`discount`,`product_price`,`product_cat`,`product_brand`) VALUES (?,?,?,?,?,?,?,?,?)');
     $par = array($_POST['productname'], $_POST['producttitle'], $_POST['productkeyword'], $_POST['productimg'], $_POST['productqyt'], $_POST['productdic'], $_POST['productprice'], $_POST['productcat'], $_POST['productbrand']);
@@ -63,7 +86,6 @@ if (isset($_POST['addproduct'])) {
     }
 }
 
-
 // + - catgory
 if (isset($_POST['addnewcatgory']) and isset($_POST['newcatgory']) and !empty($_POST['newcatgory'])) {
     $sql = "insert into categories (cat_title) values ('" . $_POST['newcatgory'] . "');";
@@ -108,4 +130,5 @@ while ($row = mysqli_fetch_array($run_query)) {
     $cat_name = $row["cat_title"];
     $categories_list[$cid] = $cat_name;
 }
+
 
