@@ -4,12 +4,12 @@ include '../db.php';
 
 
 // ----------  user
-if(isset($_POST['userlist'])) {
+if (isset($_POST['userlist'])) {
     $sql = 'select * from user_info;';
     $result = $con->query($sql);
     $rowcount = $result->num_rows;
     $limit = 10;
-    if (isset($_POST['limit'])){
+    if (isset($_POST['limit'])) {
         $limit = $_POST['limit'];
     }
     $pagenum = 1;
@@ -19,10 +19,10 @@ if(isset($_POST['userlist'])) {
         $pagenum = $_POST["pagenum"];
         $start = ($pagenum * $limit) - $limit;
     }
-    $sql = 'select * from user_info LIMIT '.$start.','.$limit;
-    if(isset($_POST['keyword'])){
-        $keyword = "'%".$_POST['keyword']."%'";
-        $sql = 'select * from user_info where mobile LIKE '.$keyword.' LIMIT '.$start.','.$limit;
+    $sql = 'select * from user_info LIMIT ' . $start . ',' . $limit;
+    if (isset($_POST['keyword'])) {
+        $keyword = "'%" . $_POST['keyword'] . "%'";
+        $sql = 'select * from user_info where mobile LIKE ' . $keyword . ' LIMIT ' . $start . ',' . $limit;
     }
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
@@ -35,15 +35,16 @@ if(isset($_POST['userlist'])) {
             $password = $row['password'];
             $mobile = $row['mobile'];
             echo '<tr>
-								<td>'.$user_id.'</td>
-								<td>'.$firest_name.' '.$last_name.'</td>
-								<td>'.$email.'</td>
-								<td>'.$mobile.'</td>
-								<td>'.$user_id.'</td>
-								<td>'.$password.'</td>
+								<td>' . $user_id . '</td>
+								<td>' . $firest_name . ' ' . $last_name . '</td>
+								<td>' . $email . '</td>
+								<td>' . $mobile . '</td>
+								<td>' . $user_id . '</td>
+								<td>' . $password . '</td>
 								<td>
 									<div class = "d-flex flex-row justify-content-evenly">
-										<i class = "fas fa-user-times" style = "color: #ef394e;" onclick = "alert()"></i><i class = "fas fa-user-edit" id = "edite-user" style = "color: var(--bs-primary);" onclick = "editeuser()"></i>
+										<i name="del-user" id="del-user"  class = "fas fa-user-times" style = "color: #ef394e;" onclick = "deluser(' . $user_id . ')"></i>
+										<i name="edite-user" id = "edite-user"  class = "fas fa-user-edit" style = "color: var(--bs-primary);" onclick = "editeuser(' . $user_id . ')"></i>
 									</div>
 								</td>
 							</tr>';
@@ -52,13 +53,17 @@ if(isset($_POST['userlist'])) {
         echo "موردی یافت نشد!";
     }
 }
+if (isset($_POST['deluser'])) {
+    $sql = 'delete from user_info where user_id = ' . $_POST['deluser'];
+    $query = mysqli_query($con, $sql);
+}
 
-if(isset($_POST['add-new-user'])){
+if (isset($_POST['editeuser'])) {
     $province = $_POST['province'];
     $city = $_POST['city'];
     $plack = $_POST['plack'];
     $vahed = $_POST['vahed'];
-    $address1 = $_POST['address1']." پلاک ".$plack." واحد ".$vahed;
+    $address1 = $_POST['address1'] . " پلاک " . $plack . " واحد " . $vahed;
     $codposti = $_POST['codposti'];
     $codmli = $_POST['codmli'];
     $rfname = $_POST['rfname'];
@@ -68,11 +73,6 @@ if(isset($_POST['add-new-user'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 }
-
-
-
-
-
 
 
 // ---------- add product
@@ -85,7 +85,7 @@ if (isset($_POST['addproduct'])) {
         $last_id = $con->insert_id;
     }
     $sql = $con->prepare('INSERT INTO `product_meta`(`productId`, `feature`, `key`, `val`) values (?,?,?,?)');
-    $sql->bind_param("dsss",$last_id, $featurename, $featureky, $featureval);
+    $sql->bind_param("dsss", $last_id, $featurename, $featureky, $featureval);
 
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'new_color') !== false) {
@@ -102,35 +102,35 @@ if (isset($_POST['addproduct'])) {
 
     if (isset($feature)) {
         foreach ($feature as $ky => $val) {
-            $featurename ='features';
-            $featureky =$ky;
-            $featureval =$val;
+            $featurename = 'features';
+            $featureky = $ky;
+            $featureval = $val;
             $sql->execute();
         }
     }
 
     if (isset($imgs)) {
         foreach ($imgs as $ky => $val) {
-            $featurename ='image';
-            $featureky =$ky;
-            $featureval =$val;
+            $featurename = 'image';
+            $featureky = $ky;
+            $featureval = $val;
             $sql->execute();
         }
     }
 
     if (isset($colors)) {
         foreach ($colors as $ky => $val) {
-            $featurename ='colors';
-            $featureky =$ky;
-            $featureval =$val;
+            $featurename = 'colors';
+            $featureky = $ky;
+            $featureval = $val;
             $sql->execute();
         }
     }
 
-    if(isset($_POST['producttext']) and !empty($_POST['producttext']) ){
-        $featurename ='review';
-        $featureky ='discript';
-        $featureval =$_POST['producttext'];
+    if (isset($_POST['producttext']) and !empty($_POST['producttext'])) {
+        $featurename = 'review';
+        $featureky = 'discript';
+        $featureval = $_POST['producttext'];
         $sql->execute();
     }
 }

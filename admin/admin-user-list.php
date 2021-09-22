@@ -181,11 +181,33 @@ include 'admin-head.php'
 include 'admin-footer.php'
 ?>
 <script>
-    function editeuser() {
+    function editeuser(uid) {
         var element = document.getElementById("edite-user-modal");
         element.classList.add("show");
+        $.ajax({
+            url: "admin-app.php",
+            method: "POST",
+            cache: false,
+            data: {editeuser:uid},
+            success: function (data) {
+                userlist()
+            }
+        })
     }
 
+    function deluser(uid) {
+        if (confirm("کاربر حذف شود ؟")) {
+            $.ajax({
+                url: "admin-app.php",
+                method: "POST",
+                cache: false,
+                data: {deluser:uid},
+                success: function (data) {
+                    userlist()
+                }
+            })
+        }
+    }
     function closemodal() {
         var element = document.getElementById("edite-user-modal");
         element.classList.remove("show");
