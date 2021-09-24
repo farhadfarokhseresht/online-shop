@@ -91,7 +91,7 @@ include 'app\getCities.php';
                                     <!-- End: name -->
                                     <!-- Start: post cod -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">
-                                        <span id="codposty"><?php echo $address_list[7];?></span><i class="fa fa-barcode" style="margin-left: 5px;"></i></div>
+                                        <span id="codposti"><?php echo $address_list[7];?></span><i class="fa fa-barcode" style="margin-left: 5px;"></i></div>
                                     <!-- End: post cod -->
                                     <!-- Start: phone number -->
                                     <div class="d-md-flex justify-content-md-end align-items-md-center" style="margin-right: 10px;">

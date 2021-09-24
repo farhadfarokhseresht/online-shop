@@ -1,4 +1,8 @@
 .ad_pl_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .ad_pl_img img {
