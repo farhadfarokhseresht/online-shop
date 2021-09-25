@@ -1,77 +1,10 @@
 <?php
 //session_start();
 include '../db.php';
+// ----------  admin dash
+$sql_users_count = "select count(DISTINCT (user_id)) as n from user_info";
+$sql_users_count = "select sum(final_cost) as final_cost from orders";
 
-//if (isset($_POST['deluser'])) {
-//    $sql = 'delete from user_info where user_id = ' . $_POST['deluser'];
-//    $query = mysqli_query($con, $sql);
-//}
-//
-//if (isset($_POST['editeuser'])) {
-//    $info = array();
-//    $sql_user_info = 'select * from user_info where user_id = ' . $_POST['editeuser'];
-//    $run_query1 = mysqli_query($con, $sql_user_info);
-//    if (mysqli_num_rows($run_query1) > 0) {
-//        while ($row = mysqli_fetch_array($run_query1)) {
-//            $user_id = $row['user_id'];
-//            $info[0] = $row['user_id'];
-//            $firest_name = $row['first_name'];
-//            $info[1] = $row['first_name'];
-//            $last_name = $row['last_name'];
-//            $info[2] = $row['last_name'];
-//            $email = $row['email'];
-//            $info[3] = $row['email'];
-//            $password = $row['password'];
-//            $info[4] = $row['password'];
-//            $mobile = $row['mobile'];
-//            $info[5] = $row['mobile'];
-//        }
-//    }
-//    $sql_address = 'select * from address where user_id = ' . $_POST['editeuser'] . ' LIMIT 1';
-//    $run_query2 = mysqli_query($con, $sql_address);
-//    if (mysqli_num_rows($run_query2) > 0) {
-//        while ($row2 = mysqli_fetch_array($run_query2)) {
-//            $province = $row2['province'];
-//            $info[6] = $row2['province'];
-//            $city = $row2['city'];
-//            $info[7] = $row2['city'];
-//            $plack = $row2['plack'];
-//            $info[8] = $row2['plack'];
-//            $vahed = $row2['vahed'];
-//            $info[9] = $row2['vahed'];
-//            $codposti = $row2['codposti'];
-//            $info[10] = $row2['codposti'];
-//            $codmli = $row2['codmli'];
-//            $info[11] = $row2['codmli'];
-//            $address = $row2['address1'];
-//            $info[12] = $row2['address1'];
-//        }
-//    }
-//    echo json_encode($info);
-//}
-//
-//if (isset($_POST['editeusersave'])) {
-//    $uid = $_POST['editeusersave'];
-//    $province = $_POST['province'];
-//    $city = $_POST['city'];
-//    $plack = $_POST['plack'];
-//    $vahed = $_POST['vahed'];
-//    $address = $_POST['address'];
-//    $codposti = $_POST['codposti'];
-//    $codmli = $_POST['codmli'];
-//    $first_name = $_POST['first_name'];
-//    $last_name = $_POST['last_name'];
-//    $phone = $_POST['phonenum'];
-//    $email = $_POST['email'];
-//    $password = $_POST['password'];
-//    $address = $_POST['address'];
-//    $upday = date("Y-m-d");
-//    $sql = "UPDATE `user_info` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`password`='$password',`mobile`='$phone',`update_at`='$upday' WHERE `user_id`='$uid' ";
-//    $query = mysqli_query($con, $sql);
-//    $sql = "UPDATE `address` SET `province`='$province',`city`='$city',`address1`='$address',`plack`='$plack',`vahed`='$vahed',`codposti`='$codposti',`codmli`='$codmli' WHERE `user_id`='$uid'";
-//    $query = mysqli_query($con, $sql);
-//    echo '<script>alert("تغییرات ثبت شد!")</script>';
-//}
 
 // get brands and catgorys
 $categories_list = array();
@@ -216,6 +149,77 @@ if (isset($_POST['editeusersave'])) {
     $query = mysqli_query($con, $sql);
     echo '<script>alert("تغییرات ثبت شد!")</script>';
 }
+
+//if (isset($_POST['deluser'])) {
+//    $sql = 'delete from user_info where user_id = ' . $_POST['deluser'];
+//    $query = mysqli_query($con, $sql);
+//}
+//
+//if (isset($_POST['editeuser'])) {
+//    $info = array();
+//    $sql_user_info = 'select * from user_info where user_id = ' . $_POST['editeuser'];
+//    $run_query1 = mysqli_query($con, $sql_user_info);
+//    if (mysqli_num_rows($run_query1) > 0) {
+//        while ($row = mysqli_fetch_array($run_query1)) {
+//            $user_id = $row['user_id'];
+//            $info[0] = $row['user_id'];
+//            $firest_name = $row['first_name'];
+//            $info[1] = $row['first_name'];
+//            $last_name = $row['last_name'];
+//            $info[2] = $row['last_name'];
+//            $email = $row['email'];
+//            $info[3] = $row['email'];
+//            $password = $row['password'];
+//            $info[4] = $row['password'];
+//            $mobile = $row['mobile'];
+//            $info[5] = $row['mobile'];
+//        }
+//    }
+//    $sql_address = 'select * from address where user_id = ' . $_POST['editeuser'] . ' LIMIT 1';
+//    $run_query2 = mysqli_query($con, $sql_address);
+//    if (mysqli_num_rows($run_query2) > 0) {
+//        while ($row2 = mysqli_fetch_array($run_query2)) {
+//            $province = $row2['province'];
+//            $info[6] = $row2['province'];
+//            $city = $row2['city'];
+//            $info[7] = $row2['city'];
+//            $plack = $row2['plack'];
+//            $info[8] = $row2['plack'];
+//            $vahed = $row2['vahed'];
+//            $info[9] = $row2['vahed'];
+//            $codposti = $row2['codposti'];
+//            $info[10] = $row2['codposti'];
+//            $codmli = $row2['codmli'];
+//            $info[11] = $row2['codmli'];
+//            $address = $row2['address1'];
+//            $info[12] = $row2['address1'];
+//        }
+//    }
+//    echo json_encode($info);
+//}
+//
+//if (isset($_POST['editeusersave'])) {
+//    $uid = $_POST['editeusersave'];
+//    $province = $_POST['province'];
+//    $city = $_POST['city'];
+//    $plack = $_POST['plack'];
+//    $vahed = $_POST['vahed'];
+//    $address = $_POST['address'];
+//    $codposti = $_POST['codposti'];
+//    $codmli = $_POST['codmli'];
+//    $first_name = $_POST['first_name'];
+//    $last_name = $_POST['last_name'];
+//    $phone = $_POST['phonenum'];
+//    $email = $_POST['email'];
+//    $password = $_POST['password'];
+//    $address = $_POST['address'];
+//    $upday = date("Y-m-d");
+//    $sql = "UPDATE `user_info` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`password`='$password',`mobile`='$phone',`update_at`='$upday' WHERE `user_id`='$uid' ";
+//    $query = mysqli_query($con, $sql);
+//    $sql = "UPDATE `address` SET `province`='$province',`city`='$city',`address1`='$address',`plack`='$plack',`vahed`='$vahed',`codposti`='$codposti',`codmli`='$codmli' WHERE `user_id`='$uid'";
+//    $query = mysqli_query($con, $sql);
+//    echo '<script>alert("تغییرات ثبت شد!")</script>';
+//}
 
 // ----------  product list
 
