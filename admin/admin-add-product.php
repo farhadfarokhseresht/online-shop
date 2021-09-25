@@ -182,7 +182,7 @@ include 'admin-head.php';
 								<div class = "d-grid mb-3">
 									<form method = "post">
 										<label class = "form-label"><strong>+ برند</strong></label><input required minlength = "3" type = "text" class = "form-control" placeholder = "نام برند جدید" name = "newbrand" id = "newbrand"/>
-										<button name = "addnewbrand" type = "submit"  class = "btn d-flex justify-content-center align-items-center admin_add_npart_bu">
+										<button  name = "addnewbrand" type = "submit"  class = "btn d-flex justify-content-center align-items-center admin_add_npart_bu">
 											<small class = "form-text">افزودن </small><i class = "far fa-plus-square"></i>
 										</button>
 									</form>

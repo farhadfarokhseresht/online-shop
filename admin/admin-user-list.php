@@ -7,7 +7,7 @@ include 'admin-head.php'
 		<div class = "modal-dialog" role = "document">
 			<div class = "modal-content">
 				<header class = "edite-user-modal-header">
-					<i class = "far fa-times-circle order-last me-auto" onclick = "closemodal()" style = "color: #8b2c23"></i>
+					<i class = "far fa-times-circle order-last me-auto" onclick = "closemodal('edite-user-modal')" style = "color: #8b2c23"></i>
 					<i class = "fas fa-user-edit order-first"></i>
 					<h4 class = "modal-title me-1" id = "fullname"></h4>
 				</header>
@@ -41,17 +41,17 @@ include 'admin-head.php'
 										<div class = "row">
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>نام</strong></label><input type = "text" class = "form-control" id = "first_name" name="first_name"/>
+													<label class = "form-label"><strong>نام</strong></label><input type = "text" class = "form-control" id = "first_name" name = "first_name"/>
 												</div>
 											</div>
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>نام خانوادگی</strong></label><input type = "text" class = "form-control" id = "last_name" name="last_name"/>
+													<label class = "form-label"><strong>نام خانوادگی</strong></label><input type = "text" class = "form-control" id = "last_name" name = "last_name"/>
 												</div>
 											</div>
 										</div>
 										<div class = "mb-3">
-											<label class = "form-label"><strong> آدرس </strong><br/></label><input type = "text" class = "form-control" id = "address" name="address"/>
+											<label class = "form-label"><strong> آدرس </strong><br/></label><input type = "text" class = "form-control" id = "address" name = "address"/>
 										</div>
 										<div class = "row">
 											<div class = "col">
@@ -95,8 +95,8 @@ include 'admin-head.php'
 						</div>
 					</div>
 					<div class = "modal-footer">
-						<button onclick = "edite_user_save()" value = "" class = "btn btn-primary" name="editeusersave" id = "editeusersave" type = "submit">ذخیره</button>
-						<button class = "btn btn-warning" type = "button" data-bs-dismiss = "modal" onclick = "closemodal()">انصراف</button>
+						<button onclick = "edite_user_save()" value = "" class = "btn btn-primary" name = "editeusersave" id = "editeusersave" type = "submit">ذخیره</button>
+						<button class = "btn btn-warning" type = "button" data-bs-dismiss = "modal" onclick = "closemodal('edite-user-modal')">انصراف</button>
 					</div>
 				</form>
 			</div>
@@ -126,7 +126,7 @@ include 'admin-head.php'
 
 						<div class = "col-md-6">
 							<div class = "text-md-end dataTables_filter" id = "dataTable_filter">
-								<label class = "form-label"><input id = "search-user-list" name = "search-user-list" type = "text" class = "form-control form-control-sm" aria-controls = "dataTable" placeholder = "جست و جو  در شماره همراه "/></label>
+								<label class = "form-label"><input onkeyup="userlist()" id = "searchuserlist" name = "searchuserlist" type = "text" class = "form-control form-control-sm" aria-controls = "dataTable" placeholder = "جست و جو  در شماره همراه "/></label>
 							</div>
 						</div>
 					</div>
@@ -168,67 +168,6 @@ include 'admin-head.php'
 include 'admin-footer.php'
 ?>
 <script>
-    function editeuser(uid) {
-        var element = document.getElementById("edite-user-modal");
-        element.classList.add("show");
-        $.ajax({
-            url: "admin-app.php",
-            method: "POST",
-            cache: false,
-            data: {editeuser: uid},
-            success: function (data) {
-                var jdata = jQuery.parseJSON(data);
-                document.getElementById("fullname").innerText = jdata[1] + ' ' + jdata[2];
-                document.getElementById("first_name").value = jdata[1];
-                document.getElementById("last_name").value = jdata[2];
-                document.getElementById("phonenum").value = jdata[5];
-                document.getElementById("email").value = jdata[3];
-                document.getElementById("password").value = jdata[4];
-                document.getElementById("province").value = jdata[6];
-                document.getElementById("city").value = jdata[7];
-                document.getElementById("plack").value = jdata[8];
-                document.getElementById("vahed").value = jdata[9];
-                document.getElementById("codposti").value = jdata[10];
-                document.getElementById("codmli").value = jdata[11];
-                document.getElementById("address").value = jdata[12];
-                document.getElementById("plack").value = jdata[13];
-                document.getElementById("editeusersave").value = jdata[0];
-            }
-        })
-    }
 
-    function edite_user_save() {
-        // var uid = document.getElementById("editeusersave").value;
-        // $.ajax({
-        //     url: "admin-app.php",
-        //     method: "POST",
-        //     cache: false,
-        //     data: {editeusersave: uid},
-        //     success: function (data) {
-        //         alert(data)
-        //         alert('تغییرات انجام شد!');
-        //         closemodal();
-        //         userlist();
-        //     }
-        // })
-    }
 
-    function deluser(uid) {
-        if (confirm("کاربر حذف شود ؟")) {
-            $.ajax({
-                url: "admin-app.php",
-                method: "POST",
-                cache: false,
-                data: {deluser: uid},
-                success: function (data) {
-                    userlist()
-                }
-            })
-        }
-    }
-
-    function closemodal() {
-        var element = document.getElementById("edite-user-modal");
-        element.classList.remove("show");
-    }
 </script>

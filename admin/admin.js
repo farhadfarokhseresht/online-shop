@@ -12,6 +12,12 @@ function addalert(txt, success) {
     })
 }
 
+// modal
+function closemodal(mid) {
+    var element = document.getElementById(mid);
+    element.classList.remove("show");
+}
+
 // validate
 $(document).ready(function () {
     $("#product_details_form").validate({
@@ -74,7 +80,6 @@ function FormData(formid) {
     }
     return inputdata;
 }
-
 
 // add extra option
 
@@ -171,28 +176,16 @@ function removeFeature() {
 }
 
 // user list
-function Nxpage() {
-    var new_chq_no = parseInt($('#pagenum').val()) + 1;
-    $('#pagenum').val(new_chq_no);
-    userlist();
-}
-
-function Pepage() {
-    var last_chq_no = $('#pagenum').val();
-    if (last_chq_no > 1) {
-        $('#pagenum').val(last_chq_no - 1);
-    }
-    userlist();
-}
 
 function userlist() {
     var limit = document.getElementById('limit').value;
     var pagenum = document.getElementById('pagenum').value;
+    var keyworde = document.getElementById('searchuserlist').value;
     $.ajax({
         url: "admin-app.php",
         method: "POST",
         cache: false,
-        data: {userlist: 1, limit: limit, pagenum: pagenum},
+        data: {userlist: 1, limit: limit, pagenum: pagenum,keyword:keyworde},
         success: function (data) {
             document.getElementById('user_list').innerHTML = data;
         }
@@ -200,23 +193,149 @@ function userlist() {
 }
 
 userlist()
-
-var sherching_keyword = document.getElementById('search-user-list');
-sherching_keyword.onkeyup = function () {
-    var keyword = sherching_keyword.value;
-    var limit = document.getElementById('limit').value;
-    var pagenum = document.getElementById('pagenum').value;
+function editeuser(uid) {
+    var element = document.getElementById("edite-user-modal");
+    element.classList.add("show");
     $.ajax({
         url: "admin-app.php",
         method: "POST",
         cache: false,
-        data: {userlist: 1, limit: limit,'keyword': keyword},
+        data: {editeuser: uid},
         success: function (data) {
-            document.getElementById('user_list').innerHTML = data;
+            var jdata = jQuery.parseJSON(data);
+            document.getElementById("fullname").innerText = jdata[1] + ' ' + jdata[2];
+            document.getElementById("first_name").value = jdata[1];
+            document.getElementById("last_name").value = jdata[2];
+            document.getElementById("phonenum").value = jdata[5];
+            document.getElementById("email").value = jdata[3];
+            document.getElementById("password").value = jdata[4];
+            document.getElementById("province").value = jdata[6];
+            document.getElementById("city").value = jdata[7];
+            document.getElementById("plack").value = jdata[8];
+            document.getElementById("vahed").value = jdata[9];
+            document.getElementById("codposti").value = jdata[10];
+            document.getElementById("codmli").value = jdata[11];
+            document.getElementById("address").value = jdata[12];
+            document.getElementById("plack").value = jdata[13];
+            document.getElementById("editeusersave").value = jdata[0];
         }
     })
-
 }
 
+function edite_user_save() {
+    // var uid = document.getElementById("editeusersave").value;
+    // $.ajax({
+    //     url: "admin-app.php",
+    //     method: "POST",
+    //     cache: false,
+    //     data: {editeusersave: uid},
+    //     success: function (data) {
+    //         alert(data)
+    //         alert('تغییرات انجام شد!');
+    //         closemodal('edite-user-modal');
+    //         userlist();
+    //     }
+    // })
+}
+
+function deluser(uid) {
+    if (confirm("کاربر حذف شود ؟")) {
+        $.ajax({
+            url: "admin-app.php",
+            method: "POST",
+            cache: false,
+            data: {deluser: uid},
+            success: function (data) {
+                userlist()
+            }
+        })
+    }
+}
+
+
 // product list
+
+function productlist() {
+    var limit = document.getElementById('limit').value;
+    var pagenum = document.getElementById('pagenum').value;
+    var catgory = document.getElementById('sh_catgory').value;
+    var keyworde = document.getElementById('namekeyword').value;
+    $.ajax({
+        url: "admin-app.php",
+        method: "POST",
+        cache: false,
+        data: {productlist: 1, limit: limit, keyword: keyworde, sh_catgory: catgory, pagenum: pagenum},
+        success: function (data) {
+            document.getElementById('product_list').innerHTML = data;
+        }
+    })
+}
+
+productlist()
+
+function delproduct(uid) {
+    if (confirm("کالا حذف شود ؟")) {
+        $.ajax({
+            url: "admin-app.php",
+            method: "POST",
+            cache: false,
+            data: {delproduct: uid},
+            success: function (data) {
+                productlist()
+            }
+        })
+    }
+}
+
+function editeproduct(uid) {
+    var element = document.getElementById("edite-product-modal");
+    element.classList.add("show");
+    $.ajax({
+        url: "admin-app.php",
+        method: "POST",
+        cache: false,
+        data: {editeproduct: uid},
+        success: function (data) {
+            var jdata = jQuery.parseJSON(data);
+            document.getElementById("productname").value = jdata[1];
+            document.getElementById("producttitle").value = jdata[3];
+            document.getElementById("productkeyword").value = jdata[2];
+            $('#product_img').attr("src", '../product_images/'+jdata[4])
+            document.getElementById("productqyt").value = jdata[5];
+            document.getElementById("productdic").value = jdata[6];
+            document.getElementById("productprice").value = jdata[7];
+            $("div#categoripart select").val(jdata[8]);
+            $("div#brandpart select").val(jdata[9]);
+
+        }
+    })
+}
+
+
+
+// next and pe page
+
+function Nxpage() {
+    var new_chq_no = parseInt($('#pagenum').val()) + 1;
+    $('#pagenum').val(new_chq_no);
+    try {
+        userlist();
+    }catch{}
+    try {
+        productlist();
+    }catch{}
+}
+
+function Pepage() {
+    var last_chq_no = $('#pagenum').val();
+    if (last_chq_no > 1) {
+        $('#pagenum').val(last_chq_no - 1);
+    }
+    try {
+        userlist();
+    }catch{}
+    try {
+        productlist();
+    }catch{}
+}
 

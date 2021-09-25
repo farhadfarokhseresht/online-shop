@@ -16,7 +16,7 @@ include 'admin-head.php'
 					<div class = "row">
 						<div class = "col-md-6 text-nowrap">
 							<div id = "dataTable_length" class = "dataTables_length" aria-controls = "dataTable">
-								<label class = "form-label">نمایش : <select onclick = "productlist()" id="limit" class = "d-inline-block form-select form-select-sm">
+								<label class = "form-label">نمایش : <select onclick = "productlist()" id = "limit" class = "d-inline-block form-select form-select-sm">
 										<option value = "10">10</option>
 										<option value = "25">25</option>
 										<option value = "50">50</option>
@@ -24,20 +24,23 @@ include 'admin-head.php'
 									</select>  </label></div>
 						</div>
 						<div class = "col-md-6 text-nowrap">
-							<div id = "dataTable_length" class = "dataTables_length" aria-controls = "dataTable">
-								<label class = "form-label">دسته : <select class = "d-inline-block form-select form-select-sm">
-										<option value = "10" selected>10</option>
-										<option value = "25">25</option>
-										<option value = "50">50</option>
-										<option value = "100">100</option>
+							<div class = "dataTables_length">
+								<label class = "form-label">دسته : <select style = "max-width: 222px" onchange = "productlist()" id = "sh_catgory" class = "d-inline-block form-select form-select-sm">
+										<option value = "0" selected>دسته مورد نظر را انتخاب کنید</option>
+                                        <?php foreach ($categories_list as $ky => $val) {
+                                            echo '
+											<option value = ' . $ky . '>' . $val . '</option>
+											';
+                                        } ?>
 									</select> </label></div>
 						</div>
 					</div>
-					<div class = "table-responsive" style = "text-align: center;max-height: 500px;">
+					<div class = "table-responsive" style = "text-align: center;">
 						<table class = "table">
 							<thead>
 							<tr>
-								<th>کالا<input type = "search" class = "form-control form-control-sm" aria-controls = "dataTable" placeholder = "جست و جو  . . . "/>
+								<th>کالا
+									<input onkeyup = "productlist()" name = "namekeyword" id = "namekeyword" type = "text" class = "form-control form-control-sm" aria-controls = "dataTable" placeholder = "جست و جو  . . . "/>
 								</th>
 								<th>دسته</th>
 								<th>تخفیف</th>
@@ -46,19 +49,8 @@ include 'admin-head.php'
 								<th>حذف/اصلاح</th>
 							</tr>
 							</thead>
-							<tbody id="product_list">
-							<!--<tr >
-								<td class = "ad_pl_img"><img src = "product image/image2.jpeg"/>sssssssssssssss</td>
-								<td>د</td>
-								<td>ت</td>
-								<td>ق</td>
-								<td>م</td>
-								<td class = "ad_pl_trash">
-									<div class = "d-flex flex-row justify-content-evenly">
-										<i class = "fas fa-trash-alt" style = "color: #ef394e;" onclick = "alert()"></i><i class = "far fa-edit" id = "edite-user" style = "color: var(--bs-primary);" onclick = "editeuser()"></i>
-									</div>
-								</td>
-							</tr>-->
+							<tbody id = "product_list">
+
 							</tbody>
 						</table>
 					</div>
@@ -75,90 +67,93 @@ include 'admin-head.php'
 			</div>
 		</div>
 	</div>
-	<div role = "dialog" tabindex = "-1" class = "modal fade" id = "edite-user-modal">
+	<div role = "dialog" tabindex = "-1" class = "modal fade" id = "edite-product-modal">
 		<div class = "modal-dialog" role = "document">
 			<div class = "modal-content">
-				<header class = "edite-user-modal-header"><i class = "far fa-edit order-last me-auto" onclick></i>
-					<h4 class = "modal-title">فرهادفرخ سرشت </h4>
+				<header class = "edite-user-modal-header">
+					<i class = "far fa-times-circle order-last me-auto" onclick = "closemodal('edite-product-modal')" style = "color: #8b2c23"></i>
+					<i class = "far fa-edit order-first "></i>
 				</header>
-				<div class = "modal-body">
-					<div class = "row mb-3">
-						<div class = "col">
-							<div class = "card shadow mb-3">
-								<div class = "card-header py-3" style = "text-align: center;">
-									<img class = "rounded" src = "dogs/image2.jpeg" width = "20%"/></div>
-								<div class = "card-body">
-									<form>
+				<form method = "post">
+					<div class = "modal-body">
+						<div class = "row mb-3">
+							<div class = "col">
+								<div class = "card shadow mb-3">
+									<div class = "card-header py-3" style = "text-align: center;">
+										<img id = "product_img" class = "rounded" src = "" width = "20%"/>
+									</div>
+									<div class = "card-body">
 										<div class = "row d-grid d-sm-flex justify-content-center align-items-center">
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>نام کالا</strong><br/></label><input type = "text" class = "form-control" required/>
+													<label class = "form-label"><strong>نام کالا</strong><br/></label><input name = "productname" id = "productname" type = "text" class = "form-control" required/>
 												</div>
 											</div>
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>لیبل کالا</strong><br/></label><input type = "text" class = "form-control" id = "country" required/>
+													<label class = "form-label"><strong>لیبل کالا</strong><br/></label><input id = "producttitle" name = "producttitle" type = "text" class = "form-control" id = "country" required/>
 												</div>
 											</div>
 										</div>
 										<div class = "row d-grid d-sm-flex justify-content-center align-items-center">
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>کلمات کلیدی</strong><br/></label><input type = "text" class = "form-control" required/>
+													<label class = "form-label"><strong>کلمات کلیدی</strong><br/></label><input name = "productkeyword" id = "productkeyword" type = "text" class = "form-control" required/>
 												</div>
 											</div>
 										</div>
 										<div class = "mb-3">
-											<label class = "form-label"><strong>تصویر کالا ( تصویر اصلی )</strong><br/></label><input type = "file" class = "border rounded-pill form-control form-control-sm" required accept = "image/*" style = "font-family: Vazir;"/>
+											<label class = "form-label"><strong>تصویر کالا ( تصویر اصلی )</strong><br/></label><input name = "productimg" id = "productimg" type = "file" class = "border rounded-pill form-control form-control-sm" required accept = "image/*" style = "font-family: Vazir;"/>
 										</div>
 										<div class = "row d-grid d-sm-flex">
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>موجودی ( تعداد )</strong><br/></label><input type = "text" class = "form-control" required minlength = "1"/>
+													<label class = "form-label"><strong>موجودی ( تعداد )</strong><br/></label><input name = "productqyt" id = "productqyt" type = "text" class = "form-control" required minlength = "1"/>
 												</div>
 											</div>
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>تخفیف ( درصد )</strong></label><input type = "text" class = "form-control"/>
+													<label class = "form-label"><strong>تخفیف ( درصد )</strong></label><input name = "productdic" id = 'productdic' type = "text" class = "form-control"/>
 												</div>
 											</div>
 											<div class = "col">
 												<div class = "mb-3">
-													<label class = "form-label"><strong>قیمت ( تومان ) </strong><br/></label><input type = "text" class = "form-control" required/>
+													<label class = "form-label"><strong>قیمت ( تومان ) </strong><br/></label><input name = "productprice" id = "productprice" type = "text" class = "form-control" required/>
 												</div>
 											</div>
 										</div>
 										<div class = "row d-grid d-sm-flex">
 											<div class = "col">
 												<div class = "d-grid mb-3" id = "categoripart">
-													<label class = "form-label"><strong>دسته</strong></label><select class = "form-select" id = "catgory">
-														<optgroup label = "This is a group">
-															<option value = "12" selected>This is item 1</option>
-															<option value = "13">This is item 2</option>
-															<option value = "14" onclick = "alert()">This is item 3</option>
-														</optgroup>
-													</select></div>
+													<label class = "form-label"><strong>دسته</strong></label>
+													<select class = "form-select" id = "productcat" name = "productcat">
+														<option >دسته مورد نظر را انتخاب کنید</option>
+                                                        <?php foreach ($categories_list as $ky => $val) {
+                                                            echo '<option value = ' . $ky . '>' . $val . '</option>';
+                                                        } ?>
+													</select>
+												</div>
 											</div>
 											<div class = "col">
-												<div class = "d-grid mb-3" id = "brandpart"><label class = "form-label"><strong>برند</strong></label><select class = "form-select" id = "brand">
-														<optgroup label = "This is a group">
-															<option value = "12" selected>This is item 1</option>
-															<option value = "13">This is item 2</option>
-															<option value = "14" onclick = "alert()">This is item 3</option>
-														</optgroup>
-													</select></div>
+												<div class = "d-grid mb-3" id = "brandpart"><label class = "form-label"><strong>برند</strong></label><select class = "form-select" id = "productbrand" name = "productbrand">
+														<option >برند مورد نظر را انتخاب کنید</option>
+                                                        <?php foreach ($brands_list as $ky => $val) {
+                                                            echo '<option value = ' . $ky . '>' . $val . '</option>';
+                                                        } ?>
+													</select>
+												</div>
 											</div>
 										</div>
-									</form>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class = "modal-footer">
-					<button class = "btn btn-primary" id = "edite-user-save" type = "button">ذخیره</button>
-					<button class = "btn btn-warning" type = "button" data-bs-dismiss = "modal" onclick = "closemodal()">انصراف</button>
-				</div>
+					<div class = "modal-footer">
+						<button class = "btn btn-primary" id = "edite-product-save" type = "submit">ذخیره</button>
+						<button class = "btn btn-warning" type = "button" data-bs-dismiss = "modal" onclick = "closemodal('edite-product-modal')">انصراف</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -168,20 +163,6 @@ include 'admin-footer.php'
 ?>
 
 <script>
-    function productlist() {
-        var limit = document.getElementById('limit').value;
-        var pagenum = document.getElementById('pagenum').value;
-        $.ajax({
-            url: "admin-app.php",
-            method: "POST",
-            cache: false,
-            data: {productlist: 1, limit: limit, pagenum: pagenum},
-            success: function (data) {
-                document.getElementById('product_list').innerHTML = data;
-            }
-        })
-    }
-
     productlist()
-</script>
 
+</script>
