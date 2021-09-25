@@ -4,7 +4,7 @@ include 'admin-head.php'
 <!-- Start: dash org -->
 	<div class="container-fluid" style="direction: rtl;text-align: right;">
 		<div class="d-sm-flex justify-content-between align-items-center mb-4" style="margin-top: 20px;">
-			<h3 class="text-dark mb-0">گزارش کل</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i> دریافت گزارش </a>
+			<h3 class="text-dark mb-0">گزارش کل</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;دریافت گزارش&nbsp;</a>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-xl-3 mb-4">
@@ -68,31 +68,33 @@ include 'admin-head.php'
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- Start: Chart -->
 		<div class="row">
 			<div class="col-lg-7 col-xl-8">
+				<!-- Start: Dropdown Card -->
 				<div class="card shadow mb-4">
 					<div class="card-header d-flex align-items-center">
 						<h6 class="text-primary fw-bold m-0">گزارش فروش سالانه</h6>
 					</div>
 					<div class="card-body" style="max-height: 500px;overflow: auto;">
-						<div class="chart-area"><canvas height="320" width="575" style="display: block; width: 575px; height: 320px;"></canvas></div>
+						<div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;مهر&quot;,&quot;ابان&quot;,&quot;آذر&quot;,&quot;دی&quot;,&quot;بهمن&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Earnings&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;0&quot;,&quot;10000&quot;,&quot;5000&quot;,&quot;15000&quot;,&quot;10000&quot;,&quot;20000&quot;,&quot;15000&quot;,&quot;25000&quot;],&quot;backgroundColor&quot;:&quot;rgba(248,184,23,0.07)&quot;,&quot;borderColor&quot;:&quot;#f4ae00&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}]}}}"></canvas></div>
 					</div>
-				</div>
+				</div><!-- End: Dropdown Card -->
 			</div>
 			<div class="col-lg-5 col-xl-4">
 				<div class="card shadow mb-4">
 					<div class="card-header d-flex justify-content-between align-items-center">
-						<h6 class="text-primary fw-bold m-0"><strong>گزارش فروش ماهانه</strong><br /></h6>
+						<h6 class="text-primary fw-bold m-0"><strong>گزارش فروش ماهانه</strong><br></h6>
 					</div>
 					<div class="card-body">
-						<div class="chart-area"><canvas height="320" style="display: block; width: 258px; height: 320px;" width="258"></canvas></div>
+						<div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;horizontalBar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;فروردین&quot;,&quot;اردیبهشت&quot;,&quot;خرداد&quot;,&quot;تیر&quot;,&quot;مرداد&quot;,&quot;شهریور&quot;,&quot;مهر&quot;,&quot;آبان&quot;,&quot;آذر&quot;,&quot;دی&quot;,&quot;بهمن&quot;,&quot;اسفند&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:&quot;rgb(45,51,142)&quot;,&quot;borderColor&quot;:&quot;#ffffff&quot;,&quot;borderWidth&quot;:&quot;&quot;,&quot;data&quot;:[&quot;20&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;reverse&quot;:false},&quot;title&quot;:{&quot;display&quot;:false},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:true,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;beginAtZero&quot;:true}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:true,&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;beginAtZero&quot;:true}}]}}}"></canvas></div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- End: Chart -->
 		<div class="row">
 			<div class="col-lg-6 mb-4">
+				<!-- Start: Dropdown Card -->
 				<div class="card shadow mb-4">
 					<div class="card-header d-flex align-items-center">
 						<h6 class="text-primary fw-bold m-0">گزارش موردی</h6>
@@ -105,8 +107,8 @@ include 'admin-head.php'
 					</div>
 					<div class="card-body" style="max-height: 500px;overflow: auto;"><a class="card-link">
 							<div class="border rounded admin-report-product-item">
-								<div class="d-flex"><span><strong>موجودی : </strong><br /></span><strong class="border rounded-circle mojoodi">5</strong></div>
-								<div style="margin-top: 5px;margin-bottom: 5px;"><img src="product image/image3.jpeg" /><small>کالای 1</small></div>
+								<div class="d-flex"><span><strong>موجودی :&nbsp;</strong><br></span><strong class="border rounded-circle mojoodi">5</strong></div>
+								<div style="margin-top: 5px;margin-bottom: 5px;"><img src="../assets/img/product%20image/image3.jpeg"><small>کالای 1</small></div>
 								<div>
 									<h4 class="small fw-bold">درصد فروش نسبت به کل</h4>
 									<div class="progress mb-4">
@@ -116,8 +118,8 @@ include 'admin-head.php'
 							</div>
 						</a><a class="card-link">
 							<div class="border rounded admin-report-product-item">
-								<div class="d-flex"><span><strong>موجودی : </strong><br /></span><strong class="border rounded-circle mojoodi">5</strong></div>
-								<div style="margin-top: 5px;margin-bottom: 5px;"><img src="product image/image2.jpeg" /><small>نام کالا</small></div>
+								<div class="d-flex"><span><strong>موجودی :&nbsp;</strong><br></span><strong class="border rounded-circle mojoodi">5</strong></div>
+								<div style="margin-top: 5px;margin-bottom: 5px;"><img src="../assets/img/product%20image/image2.jpeg"><small>نام کالا</small></div>
 								<div>
 									<h4 class="small fw-bold">درصد فروش نسبت به کل</h4>
 									<div class="progress mb-4">
@@ -127,8 +129,8 @@ include 'admin-head.php'
 							</div>
 						</a><a class="card-link">
 							<div class="border rounded admin-report-product-item">
-								<div class="d-flex"><span><strong>موجودی : </strong><br /></span><strong class="border rounded-circle mojoodi">5</strong></div>
-								<div style="margin-top: 5px;margin-bottom: 5px;"><img src="product image/image3.jpeg" /><small>گوشی همراه مدل ...</small></div>
+								<div class="d-flex"><span><strong>موجودی :&nbsp;</strong><br></span><strong class="border rounded-circle mojoodi">5</strong></div>
+								<div style="margin-top: 5px;margin-bottom: 5px;"><img src="../assets/img/product%20image/image3.jpeg"><small>گوشی همراه مدل ...</small></div>
 								<div>
 									<h4 class="small fw-bold">درصد فروش نسبت به کل</h4>
 									<div class="progress mb-4">
@@ -137,25 +139,27 @@ include 'admin-head.php'
 								</div>
 							</div>
 						</a></div>
-				</div>
+				</div><!-- End: Dropdown Card -->
 			</div>
 			<div class="col-lg-6 col-xl-6 col-xxl-6">
+				<!-- Start: Basic Card -->
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
 						<h6 class="text-primary m-0 fw-bold">10 کالای برتر ( پربازدید ترین )</h6>
 					</div>
 					<div class="card-body">
 						<ol>
-							<li style="padding: 5px;"><img src="product image/image3.jpeg" style="width: 30px;height: 30px;" /><span style="margin-right: 10px;">Text</span></li>
-							<li style="padding: 5px;"><img src="product image/image2.jpeg" style="width: 30px;height: 30px;" /><span style="margin-right: 10px;">Text</span></li>
-							<li style="padding: 5px;"><img src="product image/image1.jpeg" style="width: 30px;height: 30px;" /><span style="margin-right: 10px;">Text</span></li>
+							<li style="padding: 5px;"><img src="../assets/img/product%20image/image3.jpeg" style="width: 30px;height: 30px;"><span style="margin-right: 10px;">Text</span></li>
+							<li style="padding: 5px;"><img src="../assets/img/product%20image/image2.jpeg" style="width: 30px;height: 30px;"><span style="margin-right: 10px;">Text</span></li>
+							<li style="padding: 5px;"><img src="../assets/img/product%20image/image1.jpeg" style="width: 30px;height: 30px;"><span style="margin-right: 10px;">Text</span></li>
 						</ol>
 					</div>
-				</div>
+				</div><!-- End: Basic Card -->
 			</div>
 		</div>
 	</div>
-<!-- End: dash org -->
+
+	<!-- End: dash org -->
 <?php
 include 'admin-footer.php'
 ?>
