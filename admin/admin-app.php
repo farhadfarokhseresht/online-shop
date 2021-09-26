@@ -1,11 +1,46 @@
 <?php
 //session_start();
 include '../db.php';
+
+
+
+function group_by($key, $data) {
+    $result = array();
+
+    foreach($data as $val) {
+        if(array_key_exists($key, $val)){
+            $result[$val[$key]][] = $val;
+        }else{
+            $result[""][] = $val;
+        }
+    }
+
+    return $result;
+}
 // ----------  admin dash
 $sql_users_count = "select count(DISTINCT (user_id)) as n from user_info";
 $sql_users_count = "select sum(final_cost) as final_cost from orders";
+$sql = 'select * from orders';
+$run_query = mysqli_query($con, $sql);
+$chartdata = array();
 
-
+if (mysqli_num_rows($run_query) > 0) {
+    while ( $row = mysqli_fetch_array($run_query)){
+        $creat_at = $row['creat_at'];
+        $final_cost = $row['final_cost'];
+        $creat_at = strtotime( $creat_at );
+        $creat_at_year = date('Y' , $creat_at );#'Y-m-d H:i:s'
+        $creat_at_month = date('m' , $creat_at );#'Y-m-d H:i:s'
+        $chartdata[] = array('month'=>$creat_at_month,'val'=>$final_cost);#'year'=>$creat_at_year,
+    }
+}
+$arr = array();
+foreach ($chartdata as $key => $item) {
+    $arr[$item['month']][$key] = $item;
+}
+$chartdata = json_encode($chartdata);
+print_r($arr);
+#print_r($chartdata);
 // get brands and catgorys
 $categories_list = array();
 $brands_list = array();

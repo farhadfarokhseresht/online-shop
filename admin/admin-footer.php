@@ -13,6 +13,7 @@
 <script src="../assets/js/logo.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="../assets/js/theme.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <script src="admin.js"></script>
 
 </body>
