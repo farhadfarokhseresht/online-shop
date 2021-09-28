@@ -1,46 +1,63 @@
 <?php
 //session_start();
 include '../db.php';
+include '../app/jdf.php';
 
 
+// ----------  admin dash
+if(isset($_GET['admin_dash_data'])){
+    $sql_users_count = "select count(DISTINCT (user_id)) as n from user_info";
+    $sql_final_cost = "select sum(final_cost) as final_cost from orders";
+    $sql_users_count = mysqli_query($con, $sql_users_count);
+    $sql_final_cost = mysqli_query($con, $sql_final_cost);
+    $sql_final_cost = mysqli_fetch_array($sql_final_cost)['final_cost'];
+    $sql_users_count = mysqli_fetch_array($sql_users_count)['n'];
+    $admin_dash_data = array($sql_users_count,$sql_final_cost);
+    echo json_encode($admin_dash_data,);
+}
 
-function group_by($key, $data) {
-    $result = array();
 
-    foreach($data as $val) {
-        if(array_key_exists($key, $val)){
-            $result[$val[$key]][] = $val;
-        }else{
-            $result[""][] = $val;
+if (isset($_GET['admin_dash_chart'])) {
+    $sql = 'select * from orders';
+    $run_query = mysqli_query($con, $sql);
+    $chartdata = array();
+    if (mysqli_num_rows($run_query) > 0) {
+        while ($row = mysqli_fetch_array($run_query)) {
+            $creat_at = $row['creat_at'];
+            $final_cost = $row['final_cost'];
+            $creat_at = strtotime($creat_at);
+            $creat_date = date('Y-m-d', $creat_at);#'Y-m-d H:i:s'
+            $creat_at_month = jdate('F', $creat_at);
+            $creat_at_year = jdate('Y', $creat_at);#'Y-m-d H:i:s'
+            $chartdata[] = array('year' => $creat_at_year, 'month' => $creat_at_month, 'val' => $final_cost);#'year'=>$creat_at_year,
         }
     }
+    if (isset($_GET['year_chart'])) {
+        $year_val_data = array();
+        foreach ($chartdata as $key => $item) {
+            $year_val_data[$item['year']][$key] = $item['val'];
+        }
+        foreach ($year_val_data as $ky => $val) {
+            $year_val_data[$ky] = array_sum($val);
+        }
+        $year_val_data = json_encode($year_val_data, JSON_UNESCAPED_UNICODE);
+        echo $year_val_data;
+    }
+    if (isset($_GET['month_chart'])) {
+        $month_val_data = array();
+        foreach ($chartdata as $key => $item) {
+            $month_val_data[$item['month']][$key] = $item['val'];
+        }
+        foreach ($month_val_data as $ky => $val) {
+            $month_val_data[$ky] = array_sum($val);
+        }
 
-    return $result;
-}
-// ----------  admin dash
-$sql_users_count = "select count(DISTINCT (user_id)) as n from user_info";
-$sql_users_count = "select sum(final_cost) as final_cost from orders";
-$sql = 'select * from orders';
-$run_query = mysqli_query($con, $sql);
-$chartdata = array();
-
-if (mysqli_num_rows($run_query) > 0) {
-    while ( $row = mysqli_fetch_array($run_query)){
-        $creat_at = $row['creat_at'];
-        $final_cost = $row['final_cost'];
-        $creat_at = strtotime( $creat_at );
-        $creat_at_year = date('Y' , $creat_at );#'Y-m-d H:i:s'
-        $creat_at_month = date('m' , $creat_at );#'Y-m-d H:i:s'
-        $chartdata[] = array('month'=>$creat_at_month,'val'=>$final_cost);#'year'=>$creat_at_year,
+        $month_val_data = json_encode($month_val_data, JSON_UNESCAPED_UNICODE);
+        echo $month_val_data;
     }
 }
-$arr = array();
-foreach ($chartdata as $key => $item) {
-    $arr[$item['month']][$key] = $item;
-}
-$chartdata = json_encode($chartdata);
-print_r($arr);
-#print_r($chartdata);
+
+
 // get brands and catgorys
 $categories_list = array();
 $brands_list = array();

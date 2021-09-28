@@ -1,4 +1,24 @@
 <?php
+function shamsi_to_miladi($current_jdate)
+{
+    $arr_parts = explode('/', $current_jdate);
+    $jYear = $arr_parts[0];
+    $jMonth = $arr_parts[1];
+    $jDay = $arr_parts[2];
+    $current_gdate = jalali_to_gregorian($jYear, $jMonth, $jDay, '-');
+    return $current_gdate;
+}
+
+function miladi_to_shamsi($dte)
+{
+    $arr_parts = explode('-', $dte);
+    $gYear = $arr_parts[0];
+    $gMonth = $arr_parts[1];
+    $gDay = $arr_parts[2];
+    $current_jdate = gregorian_to_jalali($gYear, $gMonth, $gDay, '/');
+    return $current_jdate;
+}
+
 
 function jdate($format,$timestamp='',$none='',$time_zone='Asia/Tehran',$tr_num='fa'){
 

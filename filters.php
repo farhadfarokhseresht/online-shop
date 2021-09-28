@@ -111,8 +111,8 @@ include "header.php";
 						<i class = "fas fa-filter d-flex align-items-center"></i><span class = "d-flex align-items-center">مرتب سازی بر اساس : </span>
 					</div>
 					<ul class = "list-inline sortbylist">
-						<li class = "list-inline-item sortbyitem" id = "sortbyactive">پربازدیدترین</li>
-						<li class = "list-inline-item sortbyitem">ارزان ترین</li>
+						<li value="s" class = "list-inline-item sortbyitem" id = "sortbyactive">پربازدیدترین</li>
+						<li class = "list-inline-item sortbyitem">گران ترین</li>
 						<li class = "list-inline-item sortbyitem">ارزان ترین</li>
 					</ul>
 				</div>
@@ -263,3 +263,20 @@ include "header.php";
 <?php
 include "footer.php";
 ?>
+<script>
+	var x  = $('#sortbyactive').value;
+	alert(x)
+    $("body").delegate('#brandid', "click", function (event) {//
+        var brandid = this.value
+        $.ajax({
+            url: "app/action.php",
+            method: "POST",
+            data: {brandid: brandid},
+            success: function (data) {
+                get_products()
+                update_brand_list()
+                update_filter_list()
+            }
+        })
+    })
+</script>
