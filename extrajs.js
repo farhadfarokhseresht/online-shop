@@ -434,3 +434,16 @@ function update_brand_list() {
     })
 }
 
+function sortfilter(filtername) {
+    $('.sortbylist').find('.sortbyactive').removeClass('sortbyactive');
+    $('#'+filtername).addClass('sortbyactive');
+    $.ajax({
+        url: "app/action.php",
+        method: "GET",
+        data: {sortfilter: filtername},
+        success: function (data) {
+            get_products()
+            update_filter_list()
+        }
+    })
+}

@@ -93,19 +93,19 @@ if ("filters") {
     if (isset($_GET["keyword"])) {
         $_SESSION['filters']['keyword'] = $_GET["keyword"];
     }
+    if (isset($_GET["sortfilter"])) {
+        $_SESSION['filters']['sortfilter'] = $_GET["sortfilter"];
+    }
     if (isset($_GET["categori"])) {
         $_SESSION['filters']['categori'] = $_GET["categori"];
     }
-
     if (isset($_POST["brandid"])) {
         $_SESSION['filters']['brandid'] = $_POST["brandid"];
     }
-
     if (isset($_POST['filtersbu'])) {
         $filter_name = $_POST['filter_name'];
         unset($_SESSION['filters'][$filter_name]);
     }
-
 }
 
 // update_filter_list
@@ -176,6 +176,8 @@ if (isset($_POST['get_products'])) {
 </li>';
     }
 }
+
+
 
 // max and min price
 if (isset($_GET['minmaxprice'])) {

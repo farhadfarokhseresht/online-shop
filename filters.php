@@ -56,7 +56,7 @@ include "header.php";
 					<div class = "d-flex" id = "slider-range">
 						<section class = "range-slider">
 							<span class = "rangeValues"></span>
-							<input value = "5" min = "0" max = "15" step = "0.5" type = "range" class="slider">
+							<input value = "5" min = "0" max = "15" step = "0.5" type = "range" class = "slider">
 							<input value = "10" min = "0" max = "15" step = "0.5" type = "range">
 						</section>
 					</div>
@@ -111,15 +111,15 @@ include "header.php";
 						<i class = "fas fa-filter d-flex align-items-center"></i><span class = "d-flex align-items-center">مرتب سازی بر اساس : </span>
 					</div>
 					<ul class = "list-inline sortbylist">
-						<li value="s" class = "list-inline-item sortbyitem" id = "sortbyactive">پربازدیدترین</li>
-						<li class = "list-inline-item sortbyitem">گران ترین</li>
-						<li class = "list-inline-item sortbyitem">ارزان ترین</li>
+						<li id="most_seen" onclick="sortfilter('most_seen')" class = "list-inline-item sortbyitem ">پرفروش ترین</li>
+						<li id="most_exp" onclick="sortfilter('most_exp')" class = "list-inline-item sortbyitem ">گران ترین</li>
+						<li id="most_cheapest" onclick="sortfilter('most_cheapest')" class = "list-inline-item sortbyitem">ارزان ترین</li>
 					</ul>
 				</div>
 				<!-- End: top filter -->
 
 				<!-- Start: pc mod -->
-				<ul class="list-inline d-flex justify-content-end" id="pcmode">
+				<ul class = "list-inline d-flex justify-content-end" id = "pcmode">
 					<!--<button value="' . $item[0] . '" id="addtocartB"  class="fas fa-cart-plus border rounded-pill d-lg-flex mx-auto justify-content-lg-center align-items-lg-center f_add_cartB"  name="addToCart" type="button"></button>-->
 				</ul>
 				<!-- End: pc mod -->
@@ -145,9 +145,9 @@ include "header.php";
 				<div class = "border rounded shadow-sm" id = "inlinefilter">
 					<div id = "topdiv">
 						<p style = "margin: 0px;font-size: 12px;font-weight: bold;color: var(--bs-gray-dark);">فیلتر های اعمال شده :</p>
-						<span class = "me-auto" id = "delfilter"  >حذف</span>
+						<span class = "me-auto" id = "delfilter">حذف</span>
 					</div>
-					<div id="update_filter_list" style = "padding: 5px;">
+					<div id = "update_filter_list" style = "padding: 5px;">
 						<!-- Start: filter bu -->
 
 						<!-- End: filter bu -->
@@ -236,7 +236,7 @@ include "header.php";
 					<span><strong>برند ها</strong><br/></span></div>
 				<div>
 					<form>
-						<ul id="brand_list" class = "list-unstyled">
+						<ul id = "brand_list" class = "list-unstyled">
 
 						</ul>
 					</form>
@@ -264,19 +264,5 @@ include "header.php";
 include "footer.php";
 ?>
 <script>
-	var x  = $('#sortbyactive').value;
-	alert(x)
-    $("body").delegate('#brandid', "click", function (event) {//
-        var brandid = this.value
-        $.ajax({
-            url: "app/action.php",
-            method: "POST",
-            data: {brandid: brandid},
-            success: function (data) {
-                get_products()
-                update_brand_list()
-                update_filter_list()
-            }
-        })
-    })
+
 </script>
