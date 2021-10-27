@@ -4,7 +4,7 @@ include 'admin-head.php';
 <!-- Start: dash add product -->
 <div class = "container-fluid" style = "direction: rtl;text-align: right;">
 	<div class = "mb-4" style = "margin-top: 20px;"><strong>افزودن کالای جدید</strong></div>
-	<form id = "product_details_form" method = "post">
+	<form id = "product_details_form" method = "post" enctype="multipart/form-data">
 		<div class = "row d-grid d-xl-flex">
 			<div class = "col">
 				<div class = "card shadow mb-4">

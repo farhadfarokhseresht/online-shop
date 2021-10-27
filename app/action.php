@@ -93,14 +93,14 @@ if ("filters") {
     if (isset($_GET["keyword"])) {
         $_SESSION['filters']['keyword'] = $_GET["keyword"];
     }
-    if (isset($_GET["sortfilter"])) {
-        $_SESSION['filters']['sortfilter'] = $_GET["sortfilter"];
-    }
     if (isset($_GET["categori"])) {
         $_SESSION['filters']['categori'] = $_GET["categori"];
     }
     if (isset($_POST["brandid"])) {
         $_SESSION['filters']['brandid'] = $_POST["brandid"];
+    }
+    if (isset($_POST["kalamojood"]) ) {
+        $_SESSION['filters']['kalamojood'] = 'فقط کالای موجود';
     }
     if (isset($_POST['filtersbu'])) {
         $filter_name = $_POST['filter_name'];
@@ -121,27 +121,49 @@ if (isset($_POST['update_filter_list'])) {
 //Get product for filter page
 if (isset($_POST['get_products'])) {
     global $con;
-    $sql = "SELECT * FROM products where product_id > 0  ";
+    $sql = "SELECT *
+FROM products
+         LEFT JOIN order_products on products.product_id = order_products.product_id
+ where products.product_id > 0  ";
 
     if (isset($_SESSION['filters'])) {
-
         if (!empty($_SESSION['filters']['keyword'])) {
             $keyword = $_SESSION['filters']['keyword'];
-            $sql = $sql . " AND product_keywords LIKE '%$keyword%'";
+            $sql = $sql . " AND products.product_keywords LIKE '%$keyword%'";
         }
         if (isset($_GET['categori'])) {
             $catid = $_GET['categori'];
-            $sql = $sql . "and  product_cat = " . $catid;
+            $sql = $sql . "and  products.product_cat = " . $catid;
         }
         if (!empty($_SESSION['filters']['brandid'])) {
             $brandid = $_SESSION['filters']['brandid'];
-            $sql = $sql . " AND product_brand = '$brandid'";
+            $sql = $sql . " AND products.product_brand = '$brandid'";
+        }
+        if (!empty($_SESSION['filters']['kalamojood'])) {
+            $sql = $sql . " AND products.quantity > 0 ";
+            echo $sql;
         }
         if (!empty($_SESSION['filters']['categori'])) {
             $categoriid = $_SESSION['filters']['categori'];
-            $sql = $sql . " AND product_cat = '$categoriid'";
+            $sql = $sql . " AND products.product_cat = '$categoriid'";
         }
     }
+
+    if (isset($_POST["sortfil"])) {
+        $sortfilter = $_POST["sortfil"];
+        if ($sortfilter == 'most_bay') {
+            $sql = $sql . " ORDER BY order_products.qty DESC";
+        }
+        if ($sortfilter == 'most_exp') {
+            $sql = $sql . " ORDER BY products.product_price DESC";
+        }
+        if ($sortfilter == 'most_cheapest') {
+            $sql = $sql . " ORDER BY products.product_price ASC";
+        }
+    } else {
+        $sql = $sql . " ORDER BY order_products.qty DESC";
+    }
+
     $filter_items = array();
     $n = 0;
     $run_query = mysqli_query($con, $sql);
@@ -176,7 +198,6 @@ if (isset($_POST['get_products'])) {
 </li>';
     }
 }
-
 
 
 // max and min price
@@ -233,8 +254,8 @@ function Get_cart_item()
             $total_price = $total_price + $product_price * $qty;
             $cart_items[$n] = array($product_id, $product_title, $product_price, $product_image, $cart_item_id, $qty);
         }
-        return(array($cart_items, $total_price, $n));
-    }else{
+        return (array($cart_items, $total_price, $n));
+    } else {
         return 0;
     }
 }

@@ -23,7 +23,7 @@ include "header.php";
 		<div class = "border rounded d-flex d-sm-flex d-md-flex d-lg-flex align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id = "kalayemojood">
 			<span style = "font-size: 12px;padding: 10px;color: var(--bs-danger);cursor: pointer;">پاک کردن همه</span>
 			<div class = "form-check form-switch me-auto" style = "margin-left: 15px;">
-				<input type = "checkbox" class = "form-check-input" id = "formCheck-2"/><label class = "form-check-label" for = "formCheck-1">فقط کالای موجود<br/></label>
+<!--				<input  value="Yes" name = "kalamojood" class = "form-check-input" type = "checkbox" id = "kalamojood"/><label class = "form-check-label" >فقط کالای موجود<br/></label>-->
 			</div>
 		</div>
 		<!-- End: kalaye mojood -->
@@ -111,7 +111,7 @@ include "header.php";
 						<i class = "fas fa-filter d-flex align-items-center"></i><span class = "d-flex align-items-center">مرتب سازی بر اساس : </span>
 					</div>
 					<ul class = "list-inline sortbylist">
-						<li id="most_seen" onclick="sortfilter('most_seen')" class = "list-inline-item sortbyitem ">پرفروش ترین</li>
+						<li id="most_bay" onclick="sortfilter('most_bay')" class = "list-inline-item sortbyitem sortbyactive">پرفروش ترین</li>
 						<li id="most_exp" onclick="sortfilter('most_exp')" class = "list-inline-item sortbyitem ">گران ترین</li>
 						<li id="most_cheapest" onclick="sortfilter('most_cheapest')" class = "list-inline-item sortbyitem">ارزان ترین</li>
 					</ul>
@@ -160,7 +160,7 @@ include "header.php";
 			<form action = "" method = "post">
 				<div class = "border rounded-pill shadow-sm d-sm-flex d-md-flex d-lg-flex justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center" id = "kalaye_mojood">
 					<div class = "form-check form-switch">
-						<input onclick = "this.form.submit()" name = "kalamojood" class = "form-check-input" type = "checkbox" id = "formCheck"><label class = "form-check-label" for = "formCheck">فقط کالای موجود<br></label>
+						<input  name = "kalamojood" class = "form-check-input" type = "checkbox" id = "kalamojood"><label class = "form-check-label" >فقط کالای موجود<br></label>
 					</div>
 				</div>
 			</form>
@@ -263,6 +263,14 @@ include "header.php";
 <?php
 include "footer.php";
 ?>
-<script>
 
+<script>
+	//function checkbox_kmojd() {
+    //    var state = '<?php //if(isset($_SESSION['filters']['kalamojood'])){echo 1;} ?>//';
+    //    if (state==1){
+    //        document.getElementById("kalamojood").checked = true;
+    //        document.getElementById("kalamojood").value = 'off';
+    //    }
+    //}
+    //checkbox_kmojd()
 </script>

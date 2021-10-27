@@ -5,14 +5,14 @@ include '../app/jdf.php';
 
 
 // ----------  admin dash
-if(isset($_GET['admin_dash_data'])){
+if (isset($_GET['admin_dash_data'])) {
     $sql_users_count = "select count(DISTINCT (user_id)) as n from user_info";
     $sql_final_cost = "select sum(final_cost) as final_cost from orders";
     $sql_users_count = mysqli_query($con, $sql_users_count);
     $sql_final_cost = mysqli_query($con, $sql_final_cost);
     $sql_final_cost = mysqli_fetch_array($sql_final_cost)['final_cost'];
     $sql_users_count = mysqli_fetch_array($sql_users_count)['n'];
-    $admin_dash_data = array($sql_users_count,$sql_final_cost);
+    $admin_dash_data = array($sql_users_count, $sql_final_cost);
     echo json_encode($admin_dash_data,);
 }
 
@@ -359,6 +359,18 @@ if (isset($_POST['delproduct'])) {
 
 
 // ---------- add product
+//picture coding
+$picture_name = $_FILES['picture']['name'];
+$picture_type = $_FILES['picture']['type'];
+$picture_tmp_name = $_FILES['picture']['tmp_name'];
+$picture_size = $_FILES['picture']['size'];
+
+if ($picture_type == "image/jpeg" || $picture_type == "image/jpg" || $picture_type == "image/png" || $picture_type == "image/gif") {
+    if ($picture_size <= 50000000)
+        $pic_name = time() . "_" . $picture_name;
+    move_uploaded_file($picture_tmp_name, "../product_images/" . $pic_name);
+}
+
 if (isset($_POST['addproduct'])) {
     $stmt = $con->prepare('INSERT INTO `products`(`product_title`,`product_desc`,`product_keywords`,`product_image`,`quantity`,`discount`,`product_price`,`product_cat`,`product_brand`) VALUES (?,?,?,?,?,?,?,?,?)');
     $par = array($_POST['productname'], $_POST['producttitle'], $_POST['productkeyword'], $_POST['productimg'], $_POST['productqyt'], $_POST['productdic'], $_POST['productprice'], $_POST['productcat'], $_POST['productbrand']);

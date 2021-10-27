@@ -127,17 +127,17 @@ $(document).on('click', function (e) {
 
 $("body").delegate('#addtocartB', "click", function (event) {//
     var proId = this.value
-    qytnum = 1 ;
-    if ($('#qytnum').html() == ''){
+    qytnum = 1;
+    if ($('#qytnum').html() == '') {
         var qytnum = document.getElementById("qytnum").value;
     }
-    if ($('#pqytnum').html() == ''){
+    if ($('#pqytnum').html() == '') {
         var qytnum = document.getElementById("pqytnum").value;
     }
     $.ajax({
         url: "app/action.php",
         method: "POST",
-        data: {proId: proId, addToCart: 1 , qty:qytnum},
+        data: {proId: proId, addToCart: 1, qty: qytnum},
         success: function (data) {
             if (data == 1) {
                 addalert("محصول به سبد شما اضاف شد", true);
@@ -371,6 +371,27 @@ $("body").delegate('#brandid', "click", function (event) {//
         }
     })
 })
+// $("body").delegate('#kalamojood', "click", function (event) {//
+//     var kalamojood = this.value
+//     alert(kalamojood)
+//     if (kalamojood =='on'){
+//         $.ajax({
+//             url: "app/action.php",
+//             method: "POST",
+//             data: {kalamojood: kalamojood},
+//             success: function (data) {
+//                 get_products()
+//                 update_filter_list()
+//                 checkbox_kmojd()
+//             }
+//         })
+//     }else {
+//         this.value = 'off';
+//         checkbox_kmojd()
+//         update_filter_list()
+//     }
+//
+// })
 $("body").delegate('#delfilter', "click", function (event) {//
     $.ajax({
         url: "app/action.php",
@@ -378,6 +399,7 @@ $("body").delegate('#delfilter', "click", function (event) {//
         data: {delfilter: 1},
         success: function (data) {
             get_products()
+            checkbox_kmojd()
             update_brand_list()
             update_filter_list()
         }
@@ -395,6 +417,7 @@ $("body").delegate('#filtersbu', "click", function (event) {
             get_products();
             update_brand_list()
             update_filter_list()
+            checkbox_kmojd()
         }
     })
 })
@@ -436,14 +459,14 @@ function update_brand_list() {
 
 function sortfilter(filtername) {
     $('.sortbylist').find('.sortbyactive').removeClass('sortbyactive');
-    $('#'+filtername).addClass('sortbyactive');
+    $('#' + filtername).addClass('sortbyactive');
     $.ajax({
         url: "app/action.php",
-        method: "GET",
-        data: {sortfilter: filtername},
+        method: "post",
+        data: {get_products: 1, sortfil: filtername},
         success: function (data) {
-            get_products()
-            update_filter_list()
+            loader();
+            $('#productshow').find('#pcmode').html(data);
         }
     })
 }
