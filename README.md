@@ -1,5 +1,5 @@
 # online-shop
-see demo : http://bi.pgu.ac.ir/vistahome/vista-online-shop.php '
+see demo : 
 
 Sections: 
   <br>Home page
