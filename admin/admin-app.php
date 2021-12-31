@@ -360,16 +360,16 @@ if (isset($_POST['delproduct'])) {
 
 // ---------- add product
 //picture coding
-$picture_name = $_FILES['picture']['name'];
-$picture_type = $_FILES['picture']['type'];
-$picture_tmp_name = $_FILES['picture']['tmp_name'];
-$picture_size = $_FILES['picture']['size'];
+//$picture_name = $_FILES['picture']['name'];
+//$picture_type = $_FILES['picture']['type'];
+//$picture_tmp_name = $_FILES['picture']['tmp_name'];
+//$picture_size = $_FILES['picture']['size'];
 
-if ($picture_type == "image/jpeg" || $picture_type == "image/jpg" || $picture_type == "image/png" || $picture_type == "image/gif") {
-    if ($picture_size <= 50000000)
-        $pic_name = time() . "_" . $picture_name;
-    move_uploaded_file($picture_tmp_name, "../product_images/" . $pic_name);
-}
+//if ($picture_type == "image/jpeg" || $picture_type == "image/jpg" || $picture_type == "image/png" || $picture_type == "image/gif") {
+//    if ($picture_size <= 50000000)
+//        $pic_name = time() . "_" . $picture_name;
+//    move_uploaded_file($picture_tmp_name, "../product_images/" . $pic_name);
+//}
 
 if (isset($_POST['addproduct'])) {
     $stmt = $con->prepare('INSERT INTO `products`(`product_title`,`product_desc`,`product_keywords`,`product_image`,`quantity`,`discount`,`product_price`,`product_cat`,`product_brand`) VALUES (?,?,?,?,?,?,?,?,?)');
