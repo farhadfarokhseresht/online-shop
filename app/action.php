@@ -3,6 +3,9 @@ session_start();
 $ip_add = getenv("REMOTE_ADDR");
 include "db.php";
 
+// define $categories_list variable
+$categories_list = get_categories();
+
 // use in header
 function user_login_state()
 {
@@ -17,18 +20,31 @@ function user_login_state()
     }
 }
 
+// function get_categories()
+// {
+//     global $con;
+//     $category_query = "SELECT * FROM categories";
+//     $run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
+//     while ($row = mysqli_fetch_array($run_query)) {
+//         $cid = $row["cat_id"];
+//         $cat_name = $row["cat_title"];
+// //        $sql = "SELECT COUNT(*) AS count_items FROM products WHERE product_cat=$cid";
+// //        $query = mysqli_query($con, $sql);
+// //        $row = mysqli_fetch_array($query);
+// //        $count = $row["count_items"];
+//         $categories_list[$cid] = $cat_name;
+//     }
+//     return $categories_list;
+// }
 function get_categories()
 {
     global $con;
+    $categories_list = array(); // define $categories_list as an empty array
     $category_query = "SELECT * FROM categories";
     $run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
     while ($row = mysqli_fetch_array($run_query)) {
         $cid = $row["cat_id"];
         $cat_name = $row["cat_title"];
-//        $sql = "SELECT COUNT(*) AS count_items FROM products WHERE product_cat=$cid";
-//        $query = mysqli_query($con, $sql);
-//        $row = mysqli_fetch_array($query);
-//        $count = $row["count_items"];
         $categories_list[$cid] = $cat_name;
     }
     return $categories_list;
