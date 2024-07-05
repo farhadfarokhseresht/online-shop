@@ -170,15 +170,15 @@ if (isset($_SESSION['message'])){
                                     </li><!-- End: list items -->
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
-                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="product.html">صفحه محصول</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="product.php">صفحه محصول</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
                                     </li><!-- End: list items -->
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
-                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="cart.html">صفحه سبدکالا</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="cart.php">صفحه سبدکالا</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
                                     </li><!-- End: list items -->
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
-                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="filters.html">صفحه جستو جوی کالا</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
+                                        <div class="d-flex justify-content-md-end align-items-md-center"><a href="filters.php">صفحه جستو جوی کالا</a><i class="fa fa-desktop" style="margin-left: 10px;color: #111111;"></i></div>
                                     </li><!-- End: list items -->
                                     <!-- Start: list items -->
                                     <li class="d-flex justify-content-end" style="margin-right: 10px;margin-top: 16px;margin-bottom: 16px;cursor: pointer;">
@@ -199,13 +199,13 @@ if (isset($_SESSION['message'])){
             <header  class="d-none d-lg-inline d-xl-inline d-xxl-inline" id="pc_catgory_nave">
                 <ul class="list-inline text-end d-lg-flex justify-content-lg-end" style="background: var(--bs-white);">
                     <!-- Start: other items -->
-                    <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a href="product.html">صفحه محصول</a><i class="fa fa-desktop" style="margin-left: 5px;"></i></li><!-- End: other items -->
+                    <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a href="product.php">صفحه محصول</a><i class="fa fa-desktop" style="margin-left: 5px;"></i></li><!-- End: other items -->
                     <!-- Start: other items -->
-                    <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a href="filters.html">صفحه جست و جوی&nbsp; کالا</a><i class="fa fa-desktop" style="margin-left: 5px;"></i></li><!-- End: other items -->
+                    <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a href="filters.php">صفحه جست و جوی&nbsp; کالا</a><i class="fa fa-desktop" style="margin-left: 5px;"></i></li><!-- End: other items -->
                     <!-- Start: other items -->
                     <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a href="register.html">ورود و ریجستر</a><i class="fa fa-desktop" style="margin-left: 5px;"></i></li><!-- End: other items -->
                     <!-- Start: other items -->
-                    <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a id="a" href="cart.html">صفحه سبد خرید</a><i class="fa fa-desktop" style="margin-left: 5px;color: var(--bs-blue)!هئحخقفشد;"></i></li><!-- End: other items -->
+                    <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;"><a id="a" href="cart.php">صفحه سبد خرید</a><i class="fa fa-desktop" style="margin-left: 5px;color: var(--bs-blue)!هئحخقفشد;"></i></li><!-- End: other items -->
                     <!-- Start: other items -->
                     <li class="list-inline-item d-lg-flex align-items-lg-center" style="margin-right: 10px;margin-left: 10px;">تخفیف ها<i class="fas fa-percent" style="margin-left: 5px;color: rgb(133, 135, 150);"></i>
                         <div class="d-none d-sm-block topbar-divider" style="width: 0;border-right: 1px solid #e3e6f0;height: calc(4.375rem - 2rem);margin: auto 1rem;"></div>
